@@ -1,0 +1,144 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Proposal &#8212; p3 1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="proposal">
+<h1>Proposal<a class="headerlink" href="#proposal" title="Permalink to this headline">¶</a></h1>
+<p><strong>Team</strong>: hw3-p2-ou-yu-li-1
+<strong>Members</strong>: Aaron Ou, Julien Yu, Brian Lin</p>
+<div class="section" id="i-why-we-choose-the-dataset">
+<h2>i) Why we choose the dataset<a class="headerlink" href="#i-why-we-choose-the-dataset" title="Permalink to this headline">¶</a></h2>
+<p>The dataset we intend to work on is named <code class="docutils literal"><span class="pre">adult.csv</span></code>, which consists of demographic information about adults such as age, work class, education, race, sex, etc. and also whether or not the adult makes more than $50 thousand dollars per year.</p>
+<p>We chose this dataset because while many papers have cited this data set, they have been mostly been done in a machine learning context of attempting to increase the classification accuracy of whether an individual makes more than $50 thousand dollars per year. There has been no study done to actually look into <strong>the relationship between different explanatory variables</strong>. For example, does one's gender affect how many years of education they obtain? What about one's race? These questions are essential to understanding society today.</p>
+</div>
+<div class="section" id="ii-validity-that-the-dataset-is-openly-and-freely-available-for-you-to-use">
+<h2>ii) Validity that the dataset is openly and freely available for you to use<a class="headerlink" href="#ii-validity-that-the-dataset-is-openly-and-freely-available-for-you-to-use" title="Permalink to this headline">¶</a></h2>
+<p>All data are from the UC Irvine Machine Learning Repository.
+In the <code class="docutils literal"><span class="pre">About</span></code> page of the website, the website states with pride:</p>
+<blockquote>
+<div>The UCI Machine Learning Repository is a collection of databases, domain theories, and data generators that are used by the machine learning community for the empirical analysis of machine learning algorithms. The archive was created as an ftp archive in 1987 by David Aha and fellow graduate students at UC Irvine. Since that time, it has been widely used by students, educators, and researchers all over the world as a primary source of machine learning data sets. As an indication of the impact of the archive, it has been cited over 1000 times, making it one of the top 100 most cited &quot;papers&quot; in all of computer science.
+As such, the dataset is available for us to use, and the citation policy is in the following html file: http://archive.ics.uci.edu/ml/citation_policy.html</div></blockquote>
+</div>
+<div class="section" id="iii-the-url-of-where-we-download-the-dataset">
+<h2>iii) The url of where we download the dataset<a class="headerlink" href="#iii-the-url-of-where-we-download-the-dataset" title="Permalink to this headline">¶</a></h2>
+<p>The csv file can be downloaded from <code class="docutils literal"><span class="pre">http://archive.ics.uci.edu/ml/datasets/Adult</span></code></p>
+</div>
+<div class="section" id="iv-the-main-properties-of-the-dataset">
+<h2>iv) The main properties of the dataset<a class="headerlink" href="#iv-the-main-properties-of-the-dataset" title="Permalink to this headline">¶</a></h2>
+<p>&nbsp; | &nbsp;
+--- | ---
+File format: | csv
+Rough total size: | 32561 rows and 15 columns, 4009 KB
+Source of Origin: | 1994 Census database
+Scientific Area: | Social Science
+Donor: | Ronny Kohavi and Barry Becker, Silicon Graphics
+Intention: | To see if it is possible to achieve high classification accuracy of whether an individual makes more than $50 thosuand dollars per year through demographic information.
+Attributes (15 in total): | <code class="docutils literal"><span class="pre">age</span></code>,<code class="docutils literal"><span class="pre">workclass</span></code>,<code class="docutils literal"><span class="pre">fnlwgt</span></code>,<code class="docutils literal"><span class="pre">education</span></code>,<code class="docutils literal"><span class="pre">education</span> <span class="pre">num</span></code>,<code class="docutils literal"><span class="pre">marital</span> <span class="pre">status</span></code>,<code class="docutils literal"><span class="pre">occupation</span></code>,<code class="docutils literal"><span class="pre">relationship</span></code>,<code class="docutils literal"><span class="pre">race</span></code>,<code class="docutils literal"><span class="pre">sex</span></code>,<code class="docutils literal"><span class="pre">capital</span> <span class="pre">gain</span></code>,<code class="docutils literal"><span class="pre">capital</span> <span class="pre">loss</span></code>,<code class="docutils literal"><span class="pre">hours</span> <span class="pre">per</span> <span class="pre">week</span></code>,<code class="docutils literal"><span class="pre">native</span> <span class="pre">country</span></code>,<code class="docutils literal"><span class="pre">income</span> <span class="pre">(&gt;50k/year</span> <span class="pre">or</span> <span class="pre">&lt;=50k/year)</span></code></p>
+</div>
+<div class="section" id="v-the-questions-we-intend-to-answer">
+<h2>v) The questions we intend to answer<a class="headerlink" href="#v-the-questions-we-intend-to-answer" title="Permalink to this headline">¶</a></h2>
+<p>Our potential tasks involve but are not limited to:</p>
+<ol class="simple">
+<li>(main objective) Explore the pairwise relationships between different categorical variables such as sex, occupation and education level. Find causal relationships if there is any. Do different races and sexes pursuit a different level of education? Likewise, do different races and sexes pursuit different kinds of occupation? Do different races have a different distribution of martial status? The demographic questions we can explore are endless.</li>
+<li>Perform possible regression analysis on quantitative variables such as working hours per week, capital loss, etc. Find the extent to which these variables affect the annual income number.</li>
+<li>Implement the analysis with different types of graphs including boxplots, violinplots, dotplots, etc.</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">p3</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Analysis:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="demographics-p1.html">Cleaning the Data</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Aaron Ou.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/proposal.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

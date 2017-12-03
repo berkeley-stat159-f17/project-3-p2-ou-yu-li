@@ -1,0 +1,12 @@
+p3
+==============================
+Team: hw3-p2-ou-yu-li-1
+Members: Aaron Ou, Julien Yu, Brian Lin
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Analysis:
+
+   demographics-p1.ipynb
+   main.ipynb
+   proposal.md

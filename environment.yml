@@ -1,5 +1,6 @@
 name: demographics
-
+channels:
+    - conda-forge
 dependencies:
     - python=3.6
     - notebook
@@ -8,3 +9,8 @@ dependencies:
     - pandas=0.20.3
     - seaborn=0.8.0
     - PyTables=3.4.2
+    - ghp-import
+    - sphinx>=1.5
+    - sphinx_rtd_theme
+    - pip:
+      - recommonmark==0.4.0
