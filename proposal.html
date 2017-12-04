@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Proposal &#8212; p3 1 documentation</title>
+    <title>Dataset and proposal &#8212; p3 1 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -24,6 +24,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="4. Age, Hours Per Week, and Education" href="demographics-p4.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -39,29 +40,22 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="proposal">
-<span id="proposal"></span><h1>Proposal<a class="headerlink" href="#proposal" title="Permalink to this headline">¶</a></h1>
-<p><strong>Team</strong>: hw3-p2-ou-yu-li-1
+  <div class="section" id="dataset-and-proposal">
+<span id="dataset-and-proposal"></span><h1>Dataset and proposal<a class="headerlink" href="#dataset-and-proposal" title="Permalink to this headline">¶</a></h1>
+<p><strong>Team</strong>: project-3-p2-ou-yu-li
 <strong>Members</strong>: Aaron Ou, Julien Yu, Brian Lin</p>
-<div class="section" id="i-why-we-choose-the-dataset">
-<span id="i-why-we-choose-the-dataset"></span><h2>i) Why we choose the dataset<a class="headerlink" href="#i-why-we-choose-the-dataset" title="Permalink to this headline">¶</a></h2>
-<p>The dataset we intend to work on is named <code class="docutils literal"><span class="pre">adult.csv</span></code>, which consists of demographic information about adults such as age, work class, education, race, sex, etc. and also whether or not the adult makes more than $50 thousand dollars per year.</p>
+<p><strong>i) Why we choose the dataset</strong>
+The dataset we intend to work on is named <code class="docutils literal"><span class="pre">adult.csv</span></code>, which consists of demographic information about adults such as age, work class, education, race, sex, etc. and also whether or not the adult makes more than $50 thousand dollars per year.</p>
 <p>We chose this dataset because while many papers have cited this data set, they have been mostly been done in a machine learning context of attempting to increase the classification accuracy of whether an individual makes more than $50 thousand dollars per year. There has been no study done to actually look into <strong>the relationship between different explanatory variables</strong>. For example, does one's gender affect how many years of education they obtain? What about one's race? These questions are essential to understanding society today.</p>
-</div>
-<div class="section" id="ii-validity-that-the-dataset-is-openly-and-freely-available-for-you-to-use">
-<span id="ii-validity-that-the-dataset-is-openly-and-freely-available-for-you-to-use"></span><h2>ii) Validity that the dataset is openly and freely available for you to use<a class="headerlink" href="#ii-validity-that-the-dataset-is-openly-and-freely-available-for-you-to-use" title="Permalink to this headline">¶</a></h2>
-<p>All data are from the UC Irvine Machine Learning Repository.
+<p><strong>ii) Validity that the dataset is openly and freely available for you to use</strong>
+All data are from the UC Irvine Machine Learning Repository.
 In the <code class="docutils literal"><span class="pre">About</span></code> page of the website, the website states with pride:</p>
 <blockquote>
 <div>The UCI Machine Learning Repository is a collection of databases, domain theories, and data generators that are used by the machine learning community for the empirical analysis of machine learning algorithms. The archive was created as an ftp archive in 1987 by David Aha and fellow graduate students at UC Irvine. Since that time, it has been widely used by students, educators, and researchers all over the world as a primary source of machine learning data sets. As an indication of the impact of the archive, it has been cited over 1000 times, making it one of the top 100 most cited &quot;papers&quot; in all of computer science.
 As such, the dataset is available for us to use, and the citation policy is in the following html file: http://archive.ics.uci.edu/ml/citation_policy.html</div></blockquote>
-</div>
-<div class="section" id="iii-the-url-of-where-we-download-the-dataset">
-<span id="iii-the-url-of-where-we-download-the-dataset"></span><h2>iii) The url of where we download the dataset<a class="headerlink" href="#iii-the-url-of-where-we-download-the-dataset" title="Permalink to this headline">¶</a></h2>
-<p>The csv file can be downloaded from <code class="docutils literal"><span class="pre">http://archive.ics.uci.edu/ml/datasets/Adult</span></code></p>
-</div>
-<div class="section" id="iv-the-main-properties-of-the-dataset">
-<span id="iv-the-main-properties-of-the-dataset"></span><h2>iv) The main properties of the dataset<a class="headerlink" href="#iv-the-main-properties-of-the-dataset" title="Permalink to this headline">¶</a></h2>
+<p><strong>iii) The url of where we download the dataset</strong>
+The csv file can be downloaded from <code class="docutils literal"><span class="pre">http://archive.ics.uci.edu/ml/datasets/Adult</span></code></p>
+<p><strong>iv) The main properties of the dataset</strong></p>
 <p>File format: | csv
 --- | ---
 Rough total size: | 32561 rows and 15 columns, 4009 KB
@@ -70,16 +64,13 @@ Scientific Area: | Social Science
 Donor: | Ronny Kohavi and Barry Becker, Silicon Graphics
 Intention: | To see if it is possible to achieve high classification accuracy of whether an individual makes more than $50 thosuand dollars per year through demographic information.
 Attributes (15 in total): | <code class="docutils literal"><span class="pre">age</span></code>,<code class="docutils literal"><span class="pre">workclass</span></code>,<code class="docutils literal"><span class="pre">fnlwgt</span></code>,<code class="docutils literal"><span class="pre">education</span></code>,<code class="docutils literal"><span class="pre">education</span> <span class="pre">num</span></code>,<code class="docutils literal"><span class="pre">marital</span> <span class="pre">status</span></code>,<code class="docutils literal"><span class="pre">occupation</span></code>,<code class="docutils literal"><span class="pre">relationship</span></code>,<code class="docutils literal"><span class="pre">race</span></code>,<code class="docutils literal"><span class="pre">sex</span></code>,<code class="docutils literal"><span class="pre">capital</span> <span class="pre">gain</span></code>,<code class="docutils literal"><span class="pre">capital</span> <span class="pre">loss</span></code>,<code class="docutils literal"><span class="pre">hours</span> <span class="pre">per</span> <span class="pre">week</span></code>,<code class="docutils literal"><span class="pre">native</span> <span class="pre">country</span></code>,<code class="docutils literal"><span class="pre">income</span> <span class="pre">(&gt;50k/year</span> <span class="pre">or</span> <span class="pre">&lt;=50k/year)</span></code></p>
-</div>
-<div class="section" id="v-the-questions-we-intend-to-answer">
-<span id="v-the-questions-we-intend-to-answer"></span><h2>v) The questions we intend to answer<a class="headerlink" href="#v-the-questions-we-intend-to-answer" title="Permalink to this headline">¶</a></h2>
-<p>Our potential tasks involve but are not limited to:</p>
+<p><strong>v) The questions we intend to answer</strong>
+Our potential tasks involve but are not limited to:</p>
 <ol class="simple">
 <li>(main objective) Explore the pairwise relationships between different categorical variables such as sex, occupation and education level. Find causal relationships if there is any. Do different races and sexes pursuit a different level of education? Likewise, do different races and sexes pursuit different kinds of occupation? Do different races have a different distribution of martial status? The demographic questions we can explore are endless.</li>
 <li>Perform possible regression analysis on quantitative variables such as working hours per week, capital loss, etc. Find the extent to which these variables affect the annual income number.</li>
 <li>Implement the analysis with different types of graphs including boxplots, violinplots, dotplots, etc.</li>
 </ol>
-</div>
 </div>
 
 
@@ -98,11 +89,20 @@ Attributes (15 in total): | <code class="docutils literal"><span class="pre">age
 
 
 <h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Analysis:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="demographics-p1.html">1. Cleaning the Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demographics-p2.html">2. Sex, Race, and Occupation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demographics-p3.html">3. Sex, Race, and Education</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demographics-p4.html">4. Age, Hours Per Week, and Education</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Dataset and proposal</a></li>
+</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="demographics-p4.html" title="previous chapter">4. Age, Hours Per Week, and Education</a></li>
   </ul></li>
 </ul>
 </div>

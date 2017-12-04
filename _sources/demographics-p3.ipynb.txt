@@ -12,7 +12,9 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "metadata": {},
+   "metadata": {
+    "collapsed": true
+   },
    "outputs": [],
    "source": [
     "%matplotlib inline\n",
@@ -272,7 +274,9 @@
   {
    "cell_type": "code",
    "execution_count": 5,
-   "metadata": {},
+   "metadata": {
+    "collapsed": true
+   },
    "outputs": [],
    "source": [
     "def two_sample_t_test(group1, group2, group1_name, group2_name, alpha = 0.05):\n",
@@ -421,13 +425,15 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### Testing Section"
+    "**Testing Section**"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 8,
-   "metadata": {},
+   "metadata": {
+    "collapsed": true
+   },
    "outputs": [],
    "source": [
     "import unittest"
@@ -436,7 +442,9 @@
   {
    "cell_type": "code",
    "execution_count": 9,
-   "metadata": {},
+   "metadata": {
+    "collapsed": true
+   },
    "outputs": [],
    "source": [
     "class MyTests(unittest.TestCase):\n",
@@ -547,7 +555,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.6.3"
+   "version": "3.6.1"
   }
  },
  "nbformat": 4,

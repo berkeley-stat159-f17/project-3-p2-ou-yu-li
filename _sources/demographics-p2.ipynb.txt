@@ -12,7 +12,9 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "metadata": {},
+   "metadata": {
+    "collapsed": true
+   },
    "outputs": [],
    "source": [
     "%matplotlib inline\n",
@@ -203,7 +205,9 @@
   {
    "cell_type": "code",
    "execution_count": 3,
-   "metadata": {},
+   "metadata": {
+    "collapsed": true
+   },
    "outputs": [],
    "source": [
     "female = clean_adult[clean_adult[\"sex\"] == \"Female\"]\n",
@@ -391,7 +395,9 @@
   {
    "cell_type": "code",
    "execution_count": 7,
-   "metadata": {},
+   "metadata": {
+    "collapsed": true
+   },
    "outputs": [],
    "source": [
     "# %load find_indices_with_value.py\n",
@@ -429,7 +435,9 @@
   {
    "cell_type": "code",
    "execution_count": 8,
-   "metadata": {},
+   "metadata": {
+    "collapsed": true
+   },
    "outputs": [],
    "source": [
     "def chi_square_test(data, var1, var2, pairwise = False, alpha = 0.05):\n",
@@ -2521,7 +2529,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### Obsolete Pie Charts\n",
+    "** Obsolete Pie Charts**\n",
     "\n",
     "In the beginning, we decided to visualize using pie charts. However, we have been told to never use pie charts, as they are pretty misleading: While they are aesthetically pleasing (debatable), it is hard to make comparisons because of the proportions and angles. Here is an article detailing why pie charts are bad: http://www.businessinsider.com/pie-charts-are-the-worst-2013-6\n",
     "\n",
@@ -2574,7 +2582,9 @@
   {
    "cell_type": "code",
    "execution_count": 14,
-   "metadata": {},
+   "metadata": {
+    "collapsed": true
+   },
    "outputs": [],
    "source": [
     "def plot_pie(data, groupby_columns, plot_column):\n",
@@ -2704,7 +2714,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.6.3"
+   "version": "3.6.1"
   }
  },
  "nbformat": 4,
