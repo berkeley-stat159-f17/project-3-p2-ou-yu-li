@@ -1,4 +1,4 @@
-Project 3 - Stat 159
+Stat 159 - Project 3
 ==============================
 Team: project-3-p2-ou-yu-li
 
@@ -13,5 +13,5 @@ Members: Aaron Ou, Julien Yu, Brian Lin
    1. demographics-p1.ipynb
    2. demographics-p2.ipynb
    3. demographics-p3.ipynb
-   4. demographics-p4.ipynb   
+   4. demographics-p4.ipynb
    proposal.md
