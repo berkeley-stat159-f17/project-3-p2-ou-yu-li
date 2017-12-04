@@ -13,6 +13,7 @@ install:
 
   # List your dependencies here to create the necessary environment
   - conda env create -f environment.yml
+  - source activate demographics
   
 script:
   - python testing.py
