@@ -13,4 +13,4 @@ Members: Aaron Ou, Julien Yu, Brian Lin
    demographics-p2.ipynb
    demographics-p3.ipynb
    demographics-p4.ipynb
-   proposal.md
+   README.md
