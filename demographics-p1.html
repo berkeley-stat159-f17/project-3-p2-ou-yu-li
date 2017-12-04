@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Cleaning the Data &#8212; p3 1 documentation</title>
+    <title>1. Cleaning the Data &#8212; p3 1 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -24,6 +24,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. Sex, Race, and Occupation" href="demographics-p2.html" />
+    <link rel="prev" title="Stat 159 - Project 3" href="index.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -205,6 +207,8 @@ div.nboutput div.output_area.stderr {
 .ansi-bold { font-weight: bold; }
 .ansi-underline { text-decoration: underline; }
 </style>
+<div class="section" id="1.-Cleaning-the-Data">
+<h1>1. Cleaning the Data<a class="headerlink" href="#1.-Cleaning-the-Data" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [1]:
@@ -223,8 +227,6 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 </div>
-<div class="section" id="Cleaning-the-Data">
-<h1>Cleaning the Data<a class="headerlink" href="#Cleaning-the-Data" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [2]:
@@ -249,7 +251,7 @@ div.nboutput div.output_area.stderr {
 <p>This seems like a nice dataset. Let’s look at the first few rows.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [8]:
+<span></span>In [3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -259,7 +261,7 @@ div.nboutput div.output_area.stderr {
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[8]:
+<span></span>Out[3]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -396,7 +398,7 @@ div.nboutput div.output_area.stderr {
 <p>Let’s also look at the unique values each column has.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [77]:
+<span></span>In [4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -423,7 +425,7 @@ Unique Values in Column age
        29, 61, 21, 33, 49, 23, 59, 60, 63, 53, 44, 43, 71, 48, 73, 67, 40,
        50, 42, 39, 55, 47, 31, 58, 62, 36, 72, 78, 83, 26, 70, 27, 35, 81,
        65, 25, 28, 56, 69, 20, 30, 24, 64, 75, 19, 77, 80, 18, 17, 76, 79,
-       88, 84, 85, 86, 87], dtype=int64)
+       88, 84, 85, 86, 87])
 </pre></div>
 </div>
 </div>
@@ -458,7 +460,7 @@ Unique Values in Column fnlwgt
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>array([ 77053, 132870, 186061, ...,  34066,  84661, 257302], dtype=int64)
+<span></span>array([ 77053, 132870, 186061, ...,  34066,  84661, 257302])
 </pre></div>
 </div>
 </div>
@@ -494,7 +496,7 @@ Unique Values in Column education.num
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>array([ 9, 10,  4,  6, 16, 15, 13, 14,  7, 12, 11,  2,  3,  8,  5,  1], dtype=int64)
+<span></span>array([ 9, 10,  4,  6, 16, 15, 13, 14,  7, 12, 11,  2,  3,  8,  5,  1])
 </pre></div>
 </div>
 </div>
@@ -615,7 +617,7 @@ Unique Values in Column capital.gain
         2290,  2228,  2202,  2176,  2174,  2105,  2062,  2050,  2036,
         2009,  1848,  1831,  1797,  1639,  1506,  1471,  1455,  1424,
         1409,  1173,  1151,  1111,  1086,  1055,   991,   914,   594,
-         401,   114], dtype=int64)
+         401,   114])
 </pre></div>
 </div>
 </div>
@@ -640,7 +642,7 @@ Unique Values in Column capital.loss
        1735, 1726, 1721, 1719, 1672, 1669, 1668, 1651, 1648, 1628, 1617,
        1602, 1594, 1590, 1579, 1573, 1564, 1539, 1504, 1485, 1411, 1408,
        1380, 1340, 1258, 1138, 1092,  974,  880,  810,  653,  625,  419,
-        323,  213,  155,    0], dtype=int64)
+        323,  213,  155,    0])
 </pre></div>
 </div>
 </div>
@@ -662,7 +664,7 @@ Unique Values in Column hours.per.week
         8, 28, 59,  5, 24, 57, 34, 37, 46, 56, 41, 98, 43, 63,  1, 47, 68,
        54,  2, 16,  9,  3,  4, 33, 23, 22, 64, 51, 19, 58, 53, 96, 66, 21,
         7, 13, 27, 11, 14, 77, 31, 78, 49, 17, 85, 87, 88, 73, 89, 97, 94,
-       29, 82, 86, 91, 81, 92, 61, 74, 95], dtype=int64)
+       29, 82, 86, 91, 81, 92, 61, 74, 95])
 </pre></div>
 </div>
 </div>
@@ -721,7 +723,7 @@ columns. Exactly how many total rows are there where there is missing
 information?</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [96]:
+<span></span>In [5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -764,7 +766,7 @@ save this function as a .py file to facilitate reproducibility, but
 maybe it exists!</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [90]:
+<span></span>In [6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -775,7 +777,7 @@ maybe it exists!</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[90]:
+<span></span>Out[6]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -788,7 +790,7 @@ is an insignificant amount that will not affect our analysis if we
 delete them. Let’s see if this is true.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [91]:
+<span></span>In [7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -799,7 +801,7 @@ delete them. Let’s see if this is true.</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[91]:
+<span></span>Out[7]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -935,7 +937,7 @@ delete them. Let’s see if this is true.</p>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [92]:
+<span></span>In [8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1180,7 +1182,7 @@ Clean Adult
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [93]:
+<span></span>In [9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1215,7 +1217,7 @@ chart. We are not using it to make any inferences, so it is fine to do
 so.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [97]:
+<span></span>In [10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1311,7 +1313,7 @@ female labor participation was still pretty low. Now around 47 percent
 of the labor force is female.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [66]:
+<span></span>In [11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1321,12 +1323,11 @@ of the labor force is female.</p>
 </pre></div>
 </div>
 </div>
-</div>
 <div class="section" id="Testing-Section">
-<h1>Testing Section<a class="headerlink" href="#Testing-Section" title="Permalink to this headline">¶</a></h1>
+<h2>Testing Section<a class="headerlink" href="#Testing-Section" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [67]:
+<span></span>In [12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1336,7 +1337,7 @@ of the labor force is female.</p>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [94]:
+<span></span>In [13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1398,7 +1399,7 @@ of the labor force is female.</p>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [95]:
+<span></span>In [14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1419,19 +1420,20 @@ test_one_missing_index (__main__.MyTests) ... ok
 test_one_row_df (__main__.MyTests) ... ok
 
 ----------------------------------------------------------------------
-Ran 6 tests in 0.029s
+Ran 6 tests in 0.044s
 
 OK
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[95]:
+<span></span>Out[14]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>&lt;unittest.main.TestProgram at 0x24c72638908&gt;
+<span></span>&lt;unittest.main.TestProgram at 0x7fe7ca295e80&gt;
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -1452,11 +1454,24 @@ OK
 
 
 <h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Analysis:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Cleaning the Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Testing-Section">Testing Section</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="demographics-p2.html">2. Sex, Race, and Occupation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demographics-p3.html">3. Sex, Race, and Education</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demographics-p4.html">4. Age, Hours Per Week, and Education</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proposal.html">Proposal</a></li>
+</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Stat 159 - Project 3</a></li>
+      <li>Next: <a href="demographics-p2.html" title="next chapter">2. Sex, Race, and Occupation</a></li>
   </ul></li>
 </ul>
 </div>

@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Sex, Race, and Occupation &#8212; p3 1 documentation</title>
+    <title>2. Sex, Race, and Occupation &#8212; p3 1 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -24,6 +24,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3. Sex, Race, and Education" href="demographics-p3.html" />
+    <link rel="prev" title="1. Cleaning the Data" href="demographics-p1.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -205,9 +207,13 @@ div.nboutput div.output_area.stderr {
 .ansi-bold { font-weight: bold; }
 .ansi-underline { text-decoration: underline; }
 </style>
+<div class="section" id="2.-Sex,-Race,-and-Occupation">
+<h1>2. Sex, Race, and Occupation<a class="headerlink" href="#2.-Sex,-Race,-and-Occupation" title="Permalink to this headline">¶</a></h1>
+<p>We are interested in whether or not different sexes and/or races choose
+different occupations. We will first look at sex.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [265]:
+<span></span>In [1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -373,13 +379,9 @@ div.nboutput div.output_area.stderr {
 </table>
 </div></div>
 </div>
-<div class="section" id="Sex,-Race,-and-Occupation">
-<h1>Sex, Race, and Occupation<a class="headerlink" href="#Sex,-Race,-and-Occupation" title="Permalink to this headline">¶</a></h1>
-<p>We are interested in whether or not different sexes and/or races choose
-different occupations. We will first look at sex.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [175]:
+<span></span>In [3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -391,7 +393,7 @@ different occupations. We will first look at sex.</p>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [211]:
+<span></span>In [4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -401,7 +403,7 @@ different occupations. We will first look at sex.</p>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>Out[211]:
+<span></span>Out[4]:
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
@@ -425,7 +427,7 @@ Name: occupation, dtype: int64
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [233]:
+<span></span>In [5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -477,7 +479,7 @@ bar chart for each race. We must be cautious to not compare the
 different plots because the y-scale is different.)</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [274]:
+<span></span>In [6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -566,7 +568,7 @@ groups and occupations, as there are many other confounding variables
 such as education.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [272]:
+<span></span>In [7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -606,7 +608,7 @@ such as education.</p>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [273]:
+<span></span>In [8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -669,7 +671,7 @@ individuals in the dataset are White, so sample size for other races are
 small (but still greater than 30).</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [169]:
+<span></span>In [9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -796,7 +798,7 @@ roles, but it does not seem like the difference is huge.</p>
 <p>What about for race?</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [170]:
+<span></span>In [10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -1907,7 +1909,7 @@ whether different races have different proportions of sexes
 participating in the labor force.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [171]:
+<span></span>In [11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -2254,7 +2256,7 @@ variable, let’s see if there is a relationship between occupation and
 education.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [172]:
+<span></span>In [12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -2397,9 +2399,8 @@ p-value is 0.0
 between sex and occupation and also between race and occupation, but we
 cannot any causal relationship since education is a confounding
 variable.</p>
-</div>
 <div class="section" id="Obsolete-Pie-Charts">
-<h1>Obsolete Pie Charts<a class="headerlink" href="#Obsolete-Pie-Charts" title="Permalink to this headline">¶</a></h1>
+<h2>Obsolete Pie Charts<a class="headerlink" href="#Obsolete-Pie-Charts" title="Permalink to this headline">¶</a></h2>
 <p>In the beginning, we decided to visualize using pie charts. However, we
 have been told to never use pie charts, as they are pretty misleading:
 While they are aesthetically pleasing (debatable), it is hard to make
@@ -2412,7 +2413,7 @@ longer part of our analysis. This also serves as a sanity check for our
 bar charts.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [221]:
+<span></span>In [13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -2452,7 +2453,7 @@ bar charts.</p>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [223]:
+<span></span>In [14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -2508,7 +2509,7 @@ bar charts.</p>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [224]:
+<span></span>In [15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -2525,7 +2526,7 @@ bar charts.</p>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [225]:
+<span></span>In [16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -2542,7 +2543,7 @@ bar charts.</p>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [226]:
+<span></span>In [17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -2555,6 +2556,7 @@ bar charts.</p>
 </div>
 <div class="output_area docutils container">
 <img alt="_images/demographics-p2_28_0.png" src="_images/demographics-p2_28_0.png" />
+</div>
 </div>
 </div>
 </div>
@@ -2575,11 +2577,24 @@ bar charts.</p>
 
 
 <h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Analysis:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="demographics-p1.html">1. Cleaning the Data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Sex, Race, and Occupation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Obsolete-Pie-Charts">Obsolete Pie Charts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="demographics-p3.html">3. Sex, Race, and Education</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demographics-p4.html">4. Age, Hours Per Week, and Education</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proposal.html">Proposal</a></li>
+</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="demographics-p1.html" title="previous chapter">1. Cleaning the Data</a></li>
+      <li>Next: <a href="demographics-p3.html" title="next chapter">3. Sex, Race, and Education</a></li>
   </ul></li>
 </ul>
 </div>
