@@ -1,5 +1,7 @@
 # Dataset and Proposal
 
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/berkeley-stat159-f17/project-3-p2-ou-yu-li/master?filepath=demographics-p1.ipynb)
+
 **Team**: project-3-p2-ou-yu-li
 
 **Members**: Aaron Ou, Julien Yu, Brian Lin
