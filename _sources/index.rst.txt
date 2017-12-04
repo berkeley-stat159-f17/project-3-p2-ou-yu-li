@@ -8,10 +8,10 @@ Members: Aaron Ou, Julien Yu, Brian Lin
    :maxdepth: 2
    :caption: Analysis:
 
-- main.ipynb
-- by topic:
-  1. demographics-p1.ipynb
-  2. demographics-p2.ipynb
-  3. demographics-p3.ipynb
-  4. demographics-p4.ipynb   
-- proposal.md
+   main.ipynb
+   by topic:
+   1. demographics-p1.ipynb
+   2. demographics-p2.ipynb
+   3. demographics-p3.ipynb
+   4. demographics-p4.ipynb   
+   proposal.md
