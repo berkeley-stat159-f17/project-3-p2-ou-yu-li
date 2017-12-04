@@ -1,0 +1,557 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 75,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "%matplotlib inline\n",
+    "import numpy as np\n",
+    "import pandas as pd\n",
+    "import matplotlib.pyplot as plt\n",
+    "import seaborn as sns\n",
+    "import shelve\n",
+    "import os\n",
+    "import scipy.stats as stats\n",
+    "from itertools import combinations\n",
+    "\n",
+    "plt.style.use('seaborn-dark')\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 76,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style>\n",
+       "    .dataframe thead tr:only-child th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: left;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>age</th>\n",
+       "      <th>workclass</th>\n",
+       "      <th>fnlwgt</th>\n",
+       "      <th>education</th>\n",
+       "      <th>education.num</th>\n",
+       "      <th>marital.status</th>\n",
+       "      <th>occupation</th>\n",
+       "      <th>relationship</th>\n",
+       "      <th>race</th>\n",
+       "      <th>sex</th>\n",
+       "      <th>capital.gain</th>\n",
+       "      <th>capital.loss</th>\n",
+       "      <th>hours.per.week</th>\n",
+       "      <th>native.country</th>\n",
+       "      <th>income</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>82</td>\n",
+       "      <td>Private</td>\n",
+       "      <td>132870</td>\n",
+       "      <td>HS-grad</td>\n",
+       "      <td>9</td>\n",
+       "      <td>Widowed</td>\n",
+       "      <td>Exec-managerial</td>\n",
+       "      <td>Not-in-family</td>\n",
+       "      <td>White</td>\n",
+       "      <td>Female</td>\n",
+       "      <td>0</td>\n",
+       "      <td>4356</td>\n",
+       "      <td>18</td>\n",
+       "      <td>United-States</td>\n",
+       "      <td>&lt;=50K</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>54</td>\n",
+       "      <td>Private</td>\n",
+       "      <td>140359</td>\n",
+       "      <td>7th-8th</td>\n",
+       "      <td>4</td>\n",
+       "      <td>Divorced</td>\n",
+       "      <td>Machine-op-inspct</td>\n",
+       "      <td>Unmarried</td>\n",
+       "      <td>White</td>\n",
+       "      <td>Female</td>\n",
+       "      <td>0</td>\n",
+       "      <td>3900</td>\n",
+       "      <td>40</td>\n",
+       "      <td>United-States</td>\n",
+       "      <td>&lt;=50K</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>41</td>\n",
+       "      <td>Private</td>\n",
+       "      <td>264663</td>\n",
+       "      <td>Some-college</td>\n",
+       "      <td>10</td>\n",
+       "      <td>Separated</td>\n",
+       "      <td>Prof-specialty</td>\n",
+       "      <td>Own-child</td>\n",
+       "      <td>White</td>\n",
+       "      <td>Female</td>\n",
+       "      <td>0</td>\n",
+       "      <td>3900</td>\n",
+       "      <td>40</td>\n",
+       "      <td>United-States</td>\n",
+       "      <td>&lt;=50K</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>34</td>\n",
+       "      <td>Private</td>\n",
+       "      <td>216864</td>\n",
+       "      <td>HS-grad</td>\n",
+       "      <td>9</td>\n",
+       "      <td>Divorced</td>\n",
+       "      <td>Other-service</td>\n",
+       "      <td>Unmarried</td>\n",
+       "      <td>White</td>\n",
+       "      <td>Female</td>\n",
+       "      <td>0</td>\n",
+       "      <td>3770</td>\n",
+       "      <td>45</td>\n",
+       "      <td>United-States</td>\n",
+       "      <td>&lt;=50K</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>38</td>\n",
+       "      <td>Private</td>\n",
+       "      <td>150601</td>\n",
+       "      <td>10th</td>\n",
+       "      <td>6</td>\n",
+       "      <td>Separated</td>\n",
+       "      <td>Adm-clerical</td>\n",
+       "      <td>Unmarried</td>\n",
+       "      <td>White</td>\n",
+       "      <td>Male</td>\n",
+       "      <td>0</td>\n",
+       "      <td>3770</td>\n",
+       "      <td>40</td>\n",
+       "      <td>United-States</td>\n",
+       "      <td>&lt;=50K</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   age workclass  fnlwgt     education  education.num marital.status  \\\n",
+       "0   82   Private  132870       HS-grad              9        Widowed   \n",
+       "1   54   Private  140359       7th-8th              4       Divorced   \n",
+       "2   41   Private  264663  Some-college             10      Separated   \n",
+       "3   34   Private  216864       HS-grad              9       Divorced   \n",
+       "4   38   Private  150601          10th              6      Separated   \n",
+       "\n",
+       "          occupation   relationship   race     sex  capital.gain  \\\n",
+       "0    Exec-managerial  Not-in-family  White  Female             0   \n",
+       "1  Machine-op-inspct      Unmarried  White  Female             0   \n",
+       "2     Prof-specialty      Own-child  White  Female             0   \n",
+       "3      Other-service      Unmarried  White  Female             0   \n",
+       "4       Adm-clerical      Unmarried  White    Male             0   \n",
+       "\n",
+       "   capital.loss  hours.per.week native.country income  \n",
+       "0          4356              18  United-States  <=50K  \n",
+       "1          3900              40  United-States  <=50K  \n",
+       "2          3900              40  United-States  <=50K  \n",
+       "3          3770              45  United-States  <=50K  \n",
+       "4          3770              40  United-States  <=50K  "
+      ]
+     },
+     "execution_count": 76,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "clean_adult = pd.read_hdf('results/df1.h5', 'clean_adult/')\n",
+    "clean_adult.head()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Sex, Race, and Education\n",
+    "\n",
+    "Is there a relationship between sex/race and education? Let's take a closer look. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 135,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "image/png": "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\n",
+      "text/plain": [
+       "<matplotlib.figure.Figure at 0x25757077b38>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "ax = sns.boxplot(x=\"sex\", y=\"education.num\", data=clean_adult, palette=\"muted\")\n",
+    "ax.set_title(\"Years of Education since 4th Grade vs. Sex\");\n",
+    "plt.savefig(\"fig/education_sex.png\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Wow! They look quite similar, with the same mean of education.num = 10 years, although it seems that males finish college more often (education.num = 13 years).\n",
+    "\n",
+    "What about race?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 136,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "image/png": "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\nFVsAAAAASUVORK5CYII=\n",
+      "text/plain": [
+       "<matplotlib.figure.Figure at 0x25756eba5f8>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "ax = sns.boxplot(x=\"race\", y=\"education.num\", data=clean_adult, palette=\"muted\")\n",
+    "ax.set_title(\"Years of Education since 4th Grade vs Race\")\n",
+    "plt.savefig(\"fig/education_race.png\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Some observations are:\n",
+    "* Black, Native American/Eskimo, and Other groups have a high variance and low mean compared to the White and Asian/Pacific Islander groups. This is not surprising. Unfortunately not much has changed since 1994. \n",
+    "* The Asian/Pacific Islander group has the highest mean education. This reflects both the fact that immigrants in this group tend to have a high education and also the culture valuing education by this group.\n",
+    "\n",
+    "Now it's time to some hypothesis testing. We want to see if there is a difference in education between groups. For this case we will use the two sample t-test. The conditions for the test are:\n",
+    "* The sampling method for each sample is simple random sampling.\n",
+    "* The samples are independent.\n",
+    "* Each population is at least 20 times larger than its respective sample.\n",
+    "* The sampling distribution is approximately normal.\n",
+    "\n",
+    "We have no reason to believe that these assumptions are not met."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 124,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def two_sample_t_test(group1, group2, group1_name, group2_name, alpha = 0.05):\n",
+    "    \"\"\"Performs a two-sided two sample t-test to see if there is a difference in mean between\n",
+    "    the value of two groups. \n",
+    "    \n",
+    "    Parameters\n",
+    "    ----------\n",
+    "    group1: Data for the first group. Can be list or array\n",
+    "    group2: Data for the second group. Can be list or array\n",
+    "    group1_name: Name of first group\n",
+    "    group2_name: Name of second group\n",
+    "    alpha: Significance level, default of 0.05 (Although this is very arbitrary as we saw in this class)\n",
+    "    \n",
+    "    \n",
+    "    Return\n",
+    "    ------\n",
+    "    (t, p, reject)\n",
+    "    t: the t-statistic\n",
+    "    p: the p-value\n",
+    "    reject: whether we reject the null hypothesis\n",
+    "    \n",
+    "    Example\n",
+    "    -------\n",
+    "    \n",
+    "    >>> group1 = [1, 2, 3]\n",
+    "    ... group2 = [1, 2, 3]\n",
+    "    ... two_sample_t_test(group1, group2, \"group1\", \"group2\")\n",
+    "    There is no statistically significant difference between Group group1 and Group group2\n",
+    "    (0.0, 1.0)    \n",
+    "    \"\"\"    \n",
+    "        \n",
+    "    n1 = len(group1)\n",
+    "    n2 = len(group2)\n",
+    "    assert(n1 > 0)\n",
+    "    assert(n2 > 0)\n",
+    "    s12 = np.var(group1)\n",
+    "    s22 = np.var(group2)\n",
+    "    m1 = np.mean(group1)\n",
+    "    m2 = np.mean(group2)\n",
+    "    se = np.sqrt((s12/n1) + (s22/n2))\n",
+    "    df = (np.square(s12/n1 + s22/n2) / (( np.square(s12 / n1) / (n1 - 1) ) + (np.square(s22 / n2) / (n2 - 1)))).astype(int)\n",
+    "    t = ((m1 - m2)) / se\n",
+    "    p = stats.t.sf(np.abs(t), df)*2\n",
+    "    if (p < alpha):\n",
+    "        print(\"The mean difference is statistically significant for Group \"  + group1_name +\" and Group \" + group2_name)\n",
+    "        print(\"p-value is \" + str(p))\n",
+    "        print()\n",
+    "    else:\n",
+    "        print(\"There is no statistically significant difference between Group \" + group1_name +\" and Group \" + group2_name)\n",
+    "        print()\n",
+    "    return (t, p, p < alpha)\n",
+    "    \n",
+    "    "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 125,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "There is no statistically significant difference between Group Male and Group Female\n"
+     ]
+    }
+   ],
+   "source": [
+    "male = clean_adult[clean_adult[\"sex\"] == \"Male\"]\n",
+    "female = clean_adult[clean_adult[\"sex\"] == \"Female\"]\n",
+    "t, p, reject = two_sample_t_test(male[\"education.num\"], female[\"education.num\"], \"Male\", \"Female\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "As expected from looking at the box plot, males and females do not have statistically different years of education."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 126,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "The mean difference is statistically significant for Group Amer-Indian-Eskimo and Group Asian-Pac-Islander\n",
+      "p-value is 3.13492993644e-23\n",
+      "\n",
+      "There is no statistically significant difference between Group Amer-Indian-Eskimo and Group Black\n",
+      "The mean difference is statistically significant for Group Amer-Indian-Eskimo and Group Other\n",
+      "p-value is 0.00709780510747\n",
+      "\n",
+      "The mean difference is statistically significant for Group Amer-Indian-Eskimo and Group White\n",
+      "p-value is 1.80818942375e-09\n",
+      "\n",
+      "The mean difference is statistically significant for Group Asian-Pac-Islander and Group Black\n",
+      "p-value is 5.2608000932e-44\n",
+      "\n",
+      "The mean difference is statistically significant for Group Asian-Pac-Islander and Group Other\n",
+      "p-value is 3.88949414009e-21\n",
+      "\n",
+      "The mean difference is statistically significant for Group Asian-Pac-Islander and Group White\n",
+      "p-value is 2.62019447341e-18\n",
+      "\n",
+      "The mean difference is statistically significant for Group Black and Group Other\n",
+      "p-value is 0.000111081299559\n",
+      "\n",
+      "The mean difference is statistically significant for Group Black and Group White\n",
+      "p-value is 3.96999641859e-44\n",
+      "\n",
+      "The mean difference is statistically significant for Group Other and Group White\n",
+      "p-value is 2.15918354415e-11\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "races = clean_adult.groupby(\"race\")\n",
+    "pairs = [\",\".join(map(str, comb)).split(\",\") for comb in combinations(races.groups.keys(), 2)]\n",
+    "for pair in pairs:\n",
+    "    race1_name = pair[0]\n",
+    "    race2_name = pair[1]\n",
+    "    race1 = races.get_group(pair[0])\n",
+    "    race2 = races.get_group(pair[1])\n",
+    "    two_sample_t_test(race1[\"education.num\"], race2[\"education.num\"], race1_name, race2_name)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The results match with looking at the box plots again: The only non-statistically significant difference is the Black group and the Native American/Eskimo group. \n",
+    "\n",
+    "Thus, we saw that there is a relationship between education and race, but not a relationship between education and sex."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Testing Section"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 106,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import unittest"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 133,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "class MyTests(unittest.TestCase):\n",
+    "    def test_same_population(self):\n",
+    "        group1 = [1, 2, 3]\n",
+    "        group2 = group1\n",
+    "        t, p, reject = two_sample_t_test(group1, group2, \"group1\", \"group2\")\n",
+    "        self.assertAlmostEqual(0, t)\n",
+    "        self.assertAlmostEqual(1, p)\n",
+    "        self.assertTrue(not reject)\n",
+    "    def test_obvious_difference(self):\n",
+    "        group1 = [1, 2, 3]\n",
+    "        group2 = [1000, 1001, 1001]\n",
+    "        t, p, reject = two_sample_t_test(group1, group2, \"group1\", \"group2\")\n",
+    "        self.assertAlmostEqual(0, p)\n",
+    "        self.assertTrue(reject)\n",
+    "    def test_significance_level(self):\n",
+    "        t, p, reject = two_sample_t_test([1, 2, 3], [4,9, 5], \"group1\", \"group2\", 0.1)\n",
+    "        self.assertAlmostEqual(0.1, p, places = 1)\n",
+    "        self.assertTrue(reject)\n",
+    "        t, p, reject = two_sample_t_test([1, 2, 3], [4,9, 5], \"group1\", \"group2\")\n",
+    "        self.assertAlmostEqual(0.1, p, places = 1)\n",
+    "        self.assertTrue(not reject)\n",
+    "    def test_same_population_different_order(self):\n",
+    "        group1 = [1, 2, 4]\n",
+    "        group2 = [2, 4, 1]\n",
+    "        t, p, reject = two_sample_t_test(group1, group2, \"group1\", \"group2\")\n",
+    "        self.assertAlmostEqual(0, t)\n",
+    "        self.assertAlmostEqual(1, p)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 134,
+   "metadata": {
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "test_obvious_difference (__main__.MyTests) ... ok\n",
+      "test_same_population (__main__.MyTests) ... ok\n",
+      "test_same_population_different_order (__main__.MyTests) ... ok\n",
+      "test_significance_level (__main__.MyTests) ... "
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "The mean difference is statistically significant for Group group1 and Group group2\n",
+      "p-value is 3.57106662485e-10\n",
+      "\n",
+      "There is no statistically significant difference between Group group1 and Group group2\n",
+      "There is no statistically significant difference between Group group1 and Group group2\n",
+      "The mean difference is statistically significant for Group group1 and Group group2\n",
+      "p-value is 0.0954659662667\n",
+      "\n",
+      "There is no statistically significant difference between Group group1 and Group group2\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "ok\n",
+      "\n",
+      "----------------------------------------------------------------------\n",
+      "Ran 4 tests in 0.014s\n",
+      "\n",
+      "OK\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "<unittest.main.TestProgram at 0x2575864b9b0>"
+      ]
+     },
+     "execution_count": 134,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "unittest.main(argv=[\"foo\"], exit = False, verbosity = 2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

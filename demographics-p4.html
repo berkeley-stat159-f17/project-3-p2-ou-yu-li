@@ -1,0 +1,1468 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Age, Hours Per Week, and Education &#8212; p3 1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+</style>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">shelve</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">combinations</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn-dark&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">clean_adult</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_hdf</span><span class="p">(</span><span class="s1">&#39;results/df1.h5&#39;</span><span class="p">,</span> <span class="s1">&#39;clean_adult/&#39;</span><span class="p">)</span>
+<span class="n">clean_adult</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[2]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>workclass</th>
+      <th>fnlwgt</th>
+      <th>education</th>
+      <th>education.num</th>
+      <th>marital.status</th>
+      <th>occupation</th>
+      <th>relationship</th>
+      <th>race</th>
+      <th>sex</th>
+      <th>capital.gain</th>
+      <th>capital.loss</th>
+      <th>hours.per.week</th>
+      <th>native.country</th>
+      <th>income</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>82</td>
+      <td>Private</td>
+      <td>132870</td>
+      <td>HS-grad</td>
+      <td>9</td>
+      <td>Widowed</td>
+      <td>Exec-managerial</td>
+      <td>Not-in-family</td>
+      <td>White</td>
+      <td>Female</td>
+      <td>0</td>
+      <td>4356</td>
+      <td>18</td>
+      <td>United-States</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>54</td>
+      <td>Private</td>
+      <td>140359</td>
+      <td>7th-8th</td>
+      <td>4</td>
+      <td>Divorced</td>
+      <td>Machine-op-inspct</td>
+      <td>Unmarried</td>
+      <td>White</td>
+      <td>Female</td>
+      <td>0</td>
+      <td>3900</td>
+      <td>40</td>
+      <td>United-States</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>41</td>
+      <td>Private</td>
+      <td>264663</td>
+      <td>Some-college</td>
+      <td>10</td>
+      <td>Separated</td>
+      <td>Prof-specialty</td>
+      <td>Own-child</td>
+      <td>White</td>
+      <td>Female</td>
+      <td>0</td>
+      <td>3900</td>
+      <td>40</td>
+      <td>United-States</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>34</td>
+      <td>Private</td>
+      <td>216864</td>
+      <td>HS-grad</td>
+      <td>9</td>
+      <td>Divorced</td>
+      <td>Other-service</td>
+      <td>Unmarried</td>
+      <td>White</td>
+      <td>Female</td>
+      <td>0</td>
+      <td>3770</td>
+      <td>45</td>
+      <td>United-States</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>38</td>
+      <td>Private</td>
+      <td>150601</td>
+      <td>10th</td>
+      <td>6</td>
+      <td>Separated</td>
+      <td>Adm-clerical</td>
+      <td>Unmarried</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>0</td>
+      <td>3770</td>
+      <td>40</td>
+      <td>United-States</td>
+      <td>&lt;=50K</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [37]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="c1"># %load two_sample_t_test.py</span>
+<span class="k">def</span> <span class="nf">two_sample_t_test</span><span class="p">(</span><span class="n">group1</span><span class="p">,</span> <span class="n">group2</span><span class="p">,</span> <span class="n">group1_name</span><span class="p">,</span> <span class="n">group2_name</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Performs a two-sided two sample t-test to see if there is a difference in mean between</span>
+<span class="sd">    the value of two groups.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    group1: Data for the first group. Can be list or array</span>
+<span class="sd">    group2: Data for the second group. Can be list or array</span>
+<span class="sd">    group1_name: Name of first group</span>
+<span class="sd">    group2_name: Name of second group</span>
+<span class="sd">    alpha: Significance level, default of 0.05 (Although this is very arbitrary as we saw in this class)</span>
+
+
+<span class="sd">    Return</span>
+<span class="sd">    ------</span>
+<span class="sd">    (t, p, reject)</span>
+<span class="sd">    t: the t-statistic</span>
+<span class="sd">    p: the p-value</span>
+<span class="sd">    reject: whether we reject the null hypothesis</span>
+
+<span class="sd">    Example</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    &gt;&gt;&gt; group1 = [1, 2, 3]</span>
+<span class="sd">    ... group2 = [1, 2, 3]</span>
+<span class="sd">    ... two_sample_t_test(group1, group2, &quot;group1&quot;, &quot;group2&quot;)</span>
+<span class="sd">    There is no statistically significant difference between Group group1 and Group group2</span>
+<span class="sd">    (0.0, 1.0)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">n1</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">group1</span><span class="p">)</span>
+    <span class="n">n2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">group2</span><span class="p">)</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">n1</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">n2</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">s12</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">group1</span><span class="p">)</span>
+    <span class="n">s22</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">group2</span><span class="p">)</span>
+    <span class="n">m1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">group1</span><span class="p">)</span>
+    <span class="n">m2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">group2</span><span class="p">)</span>
+    <span class="n">se</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">s12</span><span class="o">/</span><span class="n">n1</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">s22</span><span class="o">/</span><span class="n">n2</span><span class="p">))</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">s12</span><span class="o">/</span><span class="n">n1</span> <span class="o">+</span> <span class="n">s22</span><span class="o">/</span><span class="n">n2</span><span class="p">)</span> <span class="o">/</span> <span class="p">((</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">s12</span> <span class="o">/</span> <span class="n">n1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">s22</span> <span class="o">/</span> <span class="n">n2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="p">((</span><span class="n">m1</span> <span class="o">-</span> <span class="n">m2</span><span class="p">))</span> <span class="o">/</span> <span class="n">se</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">df</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">p</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The mean difference is statistically significant for Group &quot;</span>  <span class="o">+</span> <span class="n">group1_name</span> <span class="o">+</span><span class="s2">&quot; and Group &quot;</span> <span class="o">+</span> <span class="n">group2_name</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;p-value is &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There is no statistically significant difference between Group &quot;</span> <span class="o">+</span> <span class="n">group1_name</span> <span class="o">+</span><span class="s2">&quot; and Group &quot;</span> <span class="o">+</span> <span class="n">group2_name</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Age,-Hours-Per-Week,-and-Education">
+<h1>Age, Hours Per Week, and Education<a class="headerlink" href="#Age,-Hours-Per-Week,-and-Education" title="Permalink to this headline">¶</a></h1>
+<p>Let us first see if there is a relationship between years of education
+and age. Intuitively, we would think that there should be no
+correlation, as most individuals would have completed their education in
+their early 20s.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;education.num&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">clean_adult</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Years of Education since 4th Grade vs Age&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;fig/education_age.png&quot;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/demographics-p4_5_0.png" src="_images/demographics-p4_5_0.png" />
+</div>
+</div>
+<p>This is what we expected. There is basically no trend.</p>
+<p>What about the relationship between hours worked per week and age? We
+think there might be a negative relationship, as younger people tend to
+have the capacity and motivation to work longer hours. There might also
+be a downward quadratic relationship, in which people in their middle
+ages work the hardest. In either case, we definitely do not think that
+the elderly work the most.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;hours.per.week&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">clean_adult</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Hours worked per week vs Age&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;fig/hours_age.png&quot;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/demographics-p4_7_0.png" src="_images/demographics-p4_7_0.png" />
+</div>
+</div>
+<p>This result is rather surprising. There seems to be no, or even a
+somewhat positive trend, between the number of hours worked and age.
+This is very counterintuitive. It is possible that the occupation itself
+determines the number of hours worked. We do see that the higher the
+age, the fewer data points above 60.</p>
+<p>This brings up a question. How are so many individuals working 60 hours
+or above? There are even many individuals working around 100 hours! That
+is absurd. Let’s look more deeply into this.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">clean_adult</span><span class="p">[</span><span class="s2">&quot;hours.per.week&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[15]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>40.931237981566213
+</pre></div>
+</div>
+</div>
+<p>The average hours worked is 40 hours, which is perfectly normal.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">overworked</span> <span class="o">=</span> <span class="n">clean_adult</span><span class="p">[</span><span class="n">clean_adult</span><span class="p">[</span><span class="s2">&quot;hours.per.week&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">60</span><span class="p">]</span>
+<span class="n">overworked</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[17]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>workclass</th>
+      <th>fnlwgt</th>
+      <th>education</th>
+      <th>education.num</th>
+      <th>marital.status</th>
+      <th>occupation</th>
+      <th>relationship</th>
+      <th>race</th>
+      <th>sex</th>
+      <th>capital.gain</th>
+      <th>capital.loss</th>
+      <th>hours.per.week</th>
+      <th>native.country</th>
+      <th>income</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>12</th>
+      <td>45</td>
+      <td>Private</td>
+      <td>172822</td>
+      <td>11th</td>
+      <td>7</td>
+      <td>Divorced</td>
+      <td>Transport-moving</td>
+      <td>Not-in-family</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>0</td>
+      <td>2824</td>
+      <td>76</td>
+      <td>United-States</td>
+      <td>&gt;50K</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>38</td>
+      <td>Private</td>
+      <td>175360</td>
+      <td>10th</td>
+      <td>6</td>
+      <td>Never-married</td>
+      <td>Prof-specialty</td>
+      <td>Not-in-family</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>0</td>
+      <td>2559</td>
+      <td>90</td>
+      <td>United-States</td>
+      <td>&gt;50K</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>48</td>
+      <td>Private</td>
+      <td>121253</td>
+      <td>Bachelors</td>
+      <td>13</td>
+      <td>Married-spouse-absent</td>
+      <td>Sales</td>
+      <td>Unmarried</td>
+      <td>White</td>
+      <td>Female</td>
+      <td>0</td>
+      <td>2472</td>
+      <td>70</td>
+      <td>United-States</td>
+      <td>&gt;50K</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>50</td>
+      <td>Private</td>
+      <td>237729</td>
+      <td>HS-grad</td>
+      <td>9</td>
+      <td>Widowed</td>
+      <td>Sales</td>
+      <td>Not-in-family</td>
+      <td>White</td>
+      <td>Female</td>
+      <td>0</td>
+      <td>2444</td>
+      <td>72</td>
+      <td>United-States</td>
+      <td>&gt;50K</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>43</td>
+      <td>Private</td>
+      <td>155106</td>
+      <td>Assoc-acdm</td>
+      <td>12</td>
+      <td>Divorced</td>
+      <td>Craft-repair</td>
+      <td>Not-in-family</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>0</td>
+      <td>2444</td>
+      <td>70</td>
+      <td>United-States</td>
+      <td>&gt;50K</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>The first rows all have the individual’s marital status as not being in
+a family or unmarried. Let’s look at the relationship between number of
+hours worked and marital status for both the overall dataset and the
+overworked individuals.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [55]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;marital.status&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;hours.per.week&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">clean_adult</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;muted&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Hours per week worked vs Marital status (Overall)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span> <span class="o">=</span> <span class="mi">90</span><span class="p">)</span>
+
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;marital.status&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;hours.per.week&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">overworked</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;muted&quot;</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Hours per week worked vs Marital status (Overworked)&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span> <span class="o">=</span> <span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;fig/marital_hours&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/demographics-p4_13_0.png" src="_images/demographics-p4_13_0.png" />
+</div>
+</div>
+<p>There is a clear difference between hours worked and marital status for
+the overall dataset. Widowed individuals seem to work the fewest number
+of hours. This is understandable. We thought that married individuals
+would work fewer hours than non-married individuals since these married
+individuals would have family commitments, but the reverse is true.
+Maybe married individuals work more to get more pay to support their
+family?</p>
+<p>For the overworked individuals, in the most cases, there does not seem
+to be a relationship between hours worked and marital status. For
+overworked individuals, those in the army had the highest average number
+of hours worked. It is not surprising that those who are working in the
+army work the longest. Serving our country is a hard job.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [62]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Overall&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="n">marital</span> <span class="o">=</span> <span class="n">clean_adult</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;marital.status&quot;</span><span class="p">)</span>
+<span class="n">pairs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">comb</span><span class="p">))</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">comb</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="n">marital</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="mi">2</span><span class="p">)]</span>
+<span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">:</span>
+    <span class="n">marital1_name</span> <span class="o">=</span> <span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">marital2_name</span> <span class="o">=</span> <span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">marital1</span> <span class="o">=</span> <span class="n">marital</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">marital2</span> <span class="o">=</span> <span class="n">marital</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">two_sample_t_test</span><span class="p">(</span><span class="n">marital1</span><span class="p">[</span><span class="s2">&quot;education.num&quot;</span><span class="p">],</span> <span class="n">marital2</span><span class="p">[</span><span class="s2">&quot;education.num&quot;</span><span class="p">],</span> <span class="n">marital1_name</span><span class="p">,</span> <span class="n">marital2_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Overall
+
+There is no statistically significant difference between Group Divorced and Group Married-AF-spouse
+
+The mean difference is statistically significant for Group Divorced and Group Married-civ-spouse
+p-value is 9.92127443037e-11
+
+The mean difference is statistically significant for Group Divorced and Group Married-spouse-absent
+p-value is 4.28762923945e-07
+
+There is no statistically significant difference between Group Divorced and Group Never-married
+
+The mean difference is statistically significant for Group Divorced and Group Separated
+p-value is 2.89413509879e-15
+
+The mean difference is statistically significant for Group Divorced and Group Widowed
+p-value is 1.45705330574e-18
+
+There is no statistically significant difference between Group Married-AF-spouse and Group Married-civ-spouse
+
+The mean difference is statistically significant for Group Married-AF-spouse and Group Married-spouse-absent
+p-value is 0.0191329987561
+
+There is no statistically significant difference between Group Married-AF-spouse and Group Never-married
+
+The mean difference is statistically significant for Group Married-AF-spouse and Group Separated
+p-value is 0.0435932006355
+
+The mean difference is statistically significant for Group Married-AF-spouse and Group Widowed
+p-value is 0.0129487232777
+
+The mean difference is statistically significant for Group Married-civ-spouse and Group Married-spouse-absent
+p-value is 4.60286670507e-11
+
+The mean difference is statistically significant for Group Married-civ-spouse and Group Never-married
+p-value is 1.93803981351e-23
+
+The mean difference is statistically significant for Group Married-civ-spouse and Group Separated
+p-value is 1.32705369235e-29
+
+The mean difference is statistically significant for Group Married-civ-spouse and Group Widowed
+p-value is 3.47431851762e-31
+
+The mean difference is statistically significant for Group Married-spouse-absent and Group Never-married
+p-value is 2.10601399326e-06
+
+There is no statistically significant difference between Group Married-spouse-absent and Group Separated
+
+There is no statistically significant difference between Group Married-spouse-absent and Group Widowed
+
+The mean difference is statistically significant for Group Never-married and Group Separated
+p-value is 8.34096432666e-14
+
+The mean difference is statistically significant for Group Never-married and Group Widowed
+p-value is 3.92203931086e-17
+
+There is no statistically significant difference between Group Separated and Group Widowed
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [63]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Overworked&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="n">marital</span> <span class="o">=</span> <span class="n">overworked</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;marital.status&quot;</span><span class="p">)</span>
+<span class="n">pairs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">comb</span><span class="p">))</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">comb</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="n">marital</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="mi">2</span><span class="p">)]</span>
+<span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">:</span>
+    <span class="n">marital1_name</span> <span class="o">=</span> <span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">marital2_name</span> <span class="o">=</span> <span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">marital1</span> <span class="o">=</span> <span class="n">marital</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">marital2</span> <span class="o">=</span> <span class="n">marital</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">two_sample_t_test</span><span class="p">(</span><span class="n">marital1</span><span class="p">[</span><span class="s2">&quot;education.num&quot;</span><span class="p">],</span> <span class="n">marital2</span><span class="p">[</span><span class="s2">&quot;education.num&quot;</span><span class="p">],</span> <span class="n">marital1_name</span><span class="p">,</span> <span class="n">marital2_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Overworked
+
+The mean difference is statistically significant for Group Divorced and Group Married-AF-spouse
+p-value is 1.05427666912e-06
+
+There is no statistically significant difference between Group Divorced and Group Married-civ-spouse
+
+There is no statistically significant difference between Group Divorced and Group Married-spouse-absent
+
+There is no statistically significant difference between Group Divorced and Group Never-married
+
+There is no statistically significant difference between Group Divorced and Group Separated
+
+There is no statistically significant difference between Group Divorced and Group Widowed
+
+The mean difference is statistically significant for Group Married-AF-spouse and Group Married-civ-spouse
+p-value is 4.02476628356e-43
+
+There is no statistically significant difference between Group Married-AF-spouse and Group Married-spouse-absent
+
+The mean difference is statistically significant for Group Married-AF-spouse and Group Never-married
+p-value is 7.23243749318e-16
+
+The mean difference is statistically significant for Group Married-AF-spouse and Group Separated
+p-value is 0.0294695329812
+
+There is no statistically significant difference between Group Married-AF-spouse and Group Widowed
+
+There is no statistically significant difference between Group Married-civ-spouse and Group Married-spouse-absent
+
+There is no statistically significant difference between Group Married-civ-spouse and Group Never-married
+
+There is no statistically significant difference between Group Married-civ-spouse and Group Separated
+
+The mean difference is statistically significant for Group Married-civ-spouse and Group Widowed
+p-value is 0.0429358873792
+
+There is no statistically significant difference between Group Married-spouse-absent and Group Never-married
+
+There is no statistically significant difference between Group Married-spouse-absent and Group Separated
+
+There is no statistically significant difference between Group Married-spouse-absent and Group Widowed
+
+There is no statistically significant difference between Group Never-married and Group Separated
+
+The mean difference is statistically significant for Group Never-married and Group Widowed
+p-value is 0.0375984142405
+
+There is no statistically significant difference between Group Separated and Group Widowed
+
+</pre></div></div>
+</div>
+<p>Does occupation play a role in working so many hours?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [61]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;occupation&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;hours.per.week&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">clean_adult</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;muted&quot;</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Hours of work per week vs Occupation (Overall)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span> <span class="o">=</span> <span class="mi">90</span><span class="p">)</span>
+
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;occupation&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;hours.per.week&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">overworked</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;muted&quot;</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Hours of work per week vs Occupation (Overworked)&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span> <span class="o">=</span> <span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;fig/hours_occupation.png&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/demographics-p4_18_0.png" src="_images/demographics-p4_18_0.png" />
+</div>
+</div>
+<p>Overall, it seems like farmers and fishers work the most. These are not
+that surprising: Farming and fishing are very hard and take a long time.
+We need to be more appreciative of these occupations for their hardwork.
+On the other hand, other services and private house services occupations
+work the least.</p>
+<p>For overworked individuals, farmers/fishers and armed forces worked the
+most, which is what we saw before. Transportation/moving, sales, and
+tech-support also work quite a lot.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [67]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Overall&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="n">occupations</span> <span class="o">=</span> <span class="n">clean_adult</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;occupation&quot;</span><span class="p">)</span>
+<span class="n">pairs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">comb</span><span class="p">))</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">comb</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="n">occupations</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="mi">2</span><span class="p">)]</span>
+<span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">:</span>
+    <span class="n">occ1_name</span> <span class="o">=</span> <span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">occ2_name</span> <span class="o">=</span> <span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">occ1</span> <span class="o">=</span> <span class="n">occupations</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">occ2</span> <span class="o">=</span> <span class="n">occupations</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">two_sample_t_test</span><span class="p">(</span><span class="n">occ1</span><span class="p">[</span><span class="s2">&quot;education.num&quot;</span><span class="p">],</span> <span class="n">occ2</span><span class="p">[</span><span class="s2">&quot;education.num&quot;</span><span class="p">],</span> <span class="n">occ1_name</span><span class="p">,</span> <span class="n">occ2_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Overall
+
+There is no statistically significant difference between Group Adm-clerical and Group Armed-Forces
+
+The mean difference is statistically significant for Group Adm-clerical and Group Craft-repair
+p-value is 5.16843274152e-117
+
+The mean difference is statistically significant for Group Adm-clerical and Group Exec-managerial
+p-value is 6.34839466192e-192
+
+The mean difference is statistically significant for Group Adm-clerical and Group Farming-fishing
+p-value is 9.76369370706e-54
+
+The mean difference is statistically significant for Group Adm-clerical and Group Handlers-cleaners
+p-value is 3.00471839723e-115
+
+The mean difference is statistically significant for Group Adm-clerical and Group Machine-op-inspct
+p-value is 3.1919131942e-156
+
+The mean difference is statistically significant for Group Adm-clerical and Group Other-service
+p-value is 5.10573246515e-154
+
+The mean difference is statistically significant for Group Adm-clerical and Group Priv-house-serv
+p-value is 2.19576752055e-21
+
+The mean difference is statistically significant for Group Adm-clerical and Group Prof-specialty
+p-value is 0.0
+
+There is no statistically significant difference between Group Adm-clerical and Group Protective-serv
+
+The mean difference is statistically significant for Group Adm-clerical and Group Sales
+p-value is 3.13833661187e-05
+
+The mean difference is statistically significant for Group Adm-clerical and Group Tech-support
+p-value is 3.17909715695e-37
+
+The mean difference is statistically significant for Group Adm-clerical and Group Transport-moving
+p-value is 4.42918334079e-110
+
+There is no statistically significant difference between Group Armed-Forces and Group Craft-repair
+
+There is no statistically significant difference between Group Armed-Forces and Group Exec-managerial
+
+The mean difference is statistically significant for Group Armed-Forces and Group Farming-fishing
+p-value is 0.0484346381496
+
+The mean difference is statistically significant for Group Armed-Forces and Group Handlers-cleaners
+p-value is 0.0355731581362
+
+The mean difference is statistically significant for Group Armed-Forces and Group Machine-op-inspct
+p-value is 0.0337211842604
+
+There is no statistically significant difference between Group Armed-Forces and Group Other-service
+
+The mean difference is statistically significant for Group Armed-Forces and Group Priv-house-serv
+p-value is 0.00181461857029
+
+The mean difference is statistically significant for Group Armed-Forces and Group Prof-specialty
+p-value is 0.00242164464539
+
+There is no statistically significant difference between Group Armed-Forces and Group Protective-serv
+
+There is no statistically significant difference between Group Armed-Forces and Group Sales
+
+There is no statistically significant difference between Group Armed-Forces and Group Tech-support
+
+There is no statistically significant difference between Group Armed-Forces and Group Transport-moving
+
+The mean difference is statistically significant for Group Craft-repair and Group Exec-managerial
+p-value is 0.0
+
+The mean difference is statistically significant for Group Craft-repair and Group Farming-fishing
+p-value is 8.24271579019e-08
+
+The mean difference is statistically significant for Group Craft-repair and Group Handlers-cleaners
+p-value is 1.06126575845e-19
+
+The mean difference is statistically significant for Group Craft-repair and Group Machine-op-inspct
+p-value is 2.40316052094e-26
+
+The mean difference is statistically significant for Group Craft-repair and Group Other-service
+p-value is 3.93029053663e-11
+
+The mean difference is statistically significant for Group Craft-repair and Group Priv-house-serv
+p-value is 1.33477719092e-11
+
+The mean difference is statistically significant for Group Craft-repair and Group Prof-specialty
+p-value is 0.0
+
+The mean difference is statistically significant for Group Craft-repair and Group Protective-serv
+p-value is 3.87654213649e-37
+
+The mean difference is statistically significant for Group Craft-repair and Group Sales
+p-value is 5.92276822651e-127
+
+The mean difference is statistically significant for Group Craft-repair and Group Tech-support
+p-value is 3.99268186075e-135
+
+The mean difference is statistically significant for Group Craft-repair and Group Transport-moving
+p-value is 1.19866134701e-09
+
+The mean difference is statistically significant for Group Exec-managerial and Group Farming-fishing
+p-value is 4.15996047306e-151
+
+The mean difference is statistically significant for Group Exec-managerial and Group Handlers-cleaners
+p-value is 5.71917133325e-294
+
+The mean difference is statistically significant for Group Exec-managerial and Group Machine-op-inspct
+p-value is 0.0
+
+The mean difference is statistically significant for Group Exec-managerial and Group Other-service
+p-value is 0.0
+
+The mean difference is statistically significant for Group Exec-managerial and Group Priv-house-serv
+p-value is 9.26706326727e-35
+
+The mean difference is statistically significant for Group Exec-managerial and Group Prof-specialty
+p-value is 5.78726399314e-203
+
+The mean difference is statistically significant for Group Exec-managerial and Group Protective-serv
+p-value is 7.38942610599e-48
+
+The mean difference is statistically significant for Group Exec-managerial and Group Sales
+p-value is 2.0942429892e-113
+
+The mean difference is statistically significant for Group Exec-managerial and Group Tech-support
+p-value is 6.2429328768e-12
+
+The mean difference is statistically significant for Group Exec-managerial and Group Transport-moving
+p-value is 0.0
+
+There is no statistically significant difference between Group Farming-fishing and Group Handlers-cleaners
+
+There is no statistically significant difference between Group Farming-fishing and Group Machine-op-inspct
+
+There is no statistically significant difference between Group Farming-fishing and Group Other-service
+
+The mean difference is statistically significant for Group Farming-fishing and Group Priv-house-serv
+p-value is 7.16066950433e-07
+
+The mean difference is statistically significant for Group Farming-fishing and Group Prof-specialty
+p-value is 6.72584068692e-271
+
+The mean difference is statistically significant for Group Farming-fishing and Group Protective-serv
+p-value is 9.31996766873e-41
+
+The mean difference is statistically significant for Group Farming-fishing and Group Sales
+p-value is 1.72239236343e-63
+
+The mean difference is statistically significant for Group Farming-fishing and Group Tech-support
+p-value is 1.68447509809e-96
+
+There is no statistically significant difference between Group Farming-fishing and Group Transport-moving
+
+There is no statistically significant difference between Group Handlers-cleaners and Group Machine-op-inspct
+
+The mean difference is statistically significant for Group Handlers-cleaners and Group Other-service
+p-value is 8.79628357448e-05
+
+The mean difference is statistically significant for Group Handlers-cleaners and Group Priv-house-serv
+p-value is 3.08658843146e-06
+
+The mean difference is statistically significant for Group Handlers-cleaners and Group Prof-specialty
+p-value is 0.0
+
+The mean difference is statistically significant for Group Handlers-cleaners and Group Protective-serv
+p-value is 1.68618272141e-64
+
+The mean difference is statistically significant for Group Handlers-cleaners and Group Sales
+p-value is 2.42574228105e-129
+
+The mean difference is statistically significant for Group Handlers-cleaners and Group Tech-support
+p-value is 4.66343673758e-160
+
+The mean difference is statistically significant for Group Handlers-cleaners and Group Transport-moving
+p-value is 0.00110920448951
+
+The mean difference is statistically significant for Group Machine-op-inspct and Group Other-service
+p-value is 2.92619908033e-06
+
+The mean difference is statistically significant for Group Machine-op-inspct and Group Priv-house-serv
+p-value is 3.76474630755e-06
+
+The mean difference is statistically significant for Group Machine-op-inspct and Group Prof-specialty
+p-value is 0.0
+
+The mean difference is statistically significant for Group Machine-op-inspct and Group Protective-serv
+p-value is 4.14049872848e-72
+
+The mean difference is statistically significant for Group Machine-op-inspct and Group Sales
+p-value is 7.20735881554e-170
+
+The mean difference is statistically significant for Group Machine-op-inspct and Group Tech-support
+p-value is 2.3054793768e-184
+
+The mean difference is statistically significant for Group Machine-op-inspct and Group Transport-moving
+p-value is 0.00012191280283
+
+The mean difference is statistically significant for Group Other-service and Group Priv-house-serv
+p-value is 1.4115978792e-08
+
+The mean difference is statistically significant for Group Other-service and Group Prof-specialty
+p-value is 0.0
+
+The mean difference is statistically significant for Group Other-service and Group Protective-serv
+p-value is 2.38204849091e-56
+
+The mean difference is statistically significant for Group Other-service and Group Sales
+p-value is 2.10861557885e-164
+
+The mean difference is statistically significant for Group Other-service and Group Tech-support
+p-value is 1.12985567285e-166
+
+There is no statistically significant difference between Group Other-service and Group Transport-moving
+
+The mean difference is statistically significant for Group Priv-house-serv and Group Prof-specialty
+p-value is 3.69160107061e-48
+
+The mean difference is statistically significant for Group Priv-house-serv and Group Protective-serv
+p-value is 7.22762255926e-22
+
+The mean difference is statistically significant for Group Priv-house-serv and Group Sales
+p-value is 2.76911678313e-23
+
+The mean difference is statistically significant for Group Priv-house-serv and Group Tech-support
+p-value is 4.148332062e-30
+
+The mean difference is statistically significant for Group Priv-house-serv and Group Transport-moving
+p-value is 2.77236812991e-08
+
+The mean difference is statistically significant for Group Prof-specialty and Group Protective-serv
+p-value is 3.60296222599e-161
+
+The mean difference is statistically significant for Group Prof-specialty and Group Sales
+p-value is 0.0
+
+The mean difference is statistically significant for Group Prof-specialty and Group Tech-support
+p-value is 4.27619340372e-144
+
+The mean difference is statistically significant for Group Prof-specialty and Group Transport-moving
+p-value is 0.0
+
+There is no statistically significant difference between Group Protective-serv and Group Sales
+
+The mean difference is statistically significant for Group Protective-serv and Group Tech-support
+p-value is 4.55698133214e-16
+
+The mean difference is statistically significant for Group Protective-serv and Group Transport-moving
+p-value is 5.88081588472e-53
+
+The mean difference is statistically significant for Group Sales and Group Tech-support
+p-value is 1.88956955433e-21
+
+The mean difference is statistically significant for Group Sales and Group Transport-moving
+p-value is 3.09745029387e-124
+
+The mean difference is statistically significant for Group Tech-support and Group Transport-moving
+p-value is 1.84430418815e-150
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [68]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Overworked&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="n">occupations</span> <span class="o">=</span> <span class="n">overworked</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;occupation&quot;</span><span class="p">)</span>
+<span class="n">pairs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">comb</span><span class="p">))</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">comb</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="n">occupations</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="mi">2</span><span class="p">)]</span>
+<span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">:</span>
+    <span class="n">occ1_name</span> <span class="o">=</span> <span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">occ2_name</span> <span class="o">=</span> <span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">occ1</span> <span class="o">=</span> <span class="n">occupations</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">occ2</span> <span class="o">=</span> <span class="n">occupations</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">two_sample_t_test</span><span class="p">(</span><span class="n">occ1</span><span class="p">[</span><span class="s2">&quot;education.num&quot;</span><span class="p">],</span> <span class="n">occ2</span><span class="p">[</span><span class="s2">&quot;education.num&quot;</span><span class="p">],</span> <span class="n">occ1_name</span><span class="p">,</span> <span class="n">occ2_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Overworked
+
+There is no statistically significant difference between Group Adm-clerical and Group Craft-repair
+
+The mean difference is statistically significant for Group Adm-clerical and Group Exec-managerial
+p-value is 0.0112680181374
+
+There is no statistically significant difference between Group Adm-clerical and Group Farming-fishing
+
+There is no statistically significant difference between Group Adm-clerical and Group Handlers-cleaners
+
+There is no statistically significant difference between Group Adm-clerical and Group Machine-op-inspct
+
+The mean difference is statistically significant for Group Adm-clerical and Group Other-service
+p-value is 0.0434003758251
+
+There is no statistically significant difference between Group Adm-clerical and Group Priv-house-serv
+
+The mean difference is statistically significant for Group Adm-clerical and Group Prof-specialty
+p-value is 1.48302767929e-10
+
+There is no statistically significant difference between Group Adm-clerical and Group Protective-serv
+
+There is no statistically significant difference between Group Adm-clerical and Group Sales
+
+There is no statistically significant difference between Group Adm-clerical and Group Tech-support
+
+The mean difference is statistically significant for Group Adm-clerical and Group Transport-moving
+p-value is 0.0115235233218
+
+The mean difference is statistically significant for Group Craft-repair and Group Exec-managerial
+p-value is 5.66267797995e-11
+
+There is no statistically significant difference between Group Craft-repair and Group Farming-fishing
+
+There is no statistically significant difference between Group Craft-repair and Group Handlers-cleaners
+
+There is no statistically significant difference between Group Craft-repair and Group Machine-op-inspct
+
+There is no statistically significant difference between Group Craft-repair and Group Other-service
+
+There is no statistically significant difference between Group Craft-repair and Group Priv-house-serv
+
+The mean difference is statistically significant for Group Craft-repair and Group Prof-specialty
+p-value is 1.94879363784e-50
+
+There is no statistically significant difference between Group Craft-repair and Group Protective-serv
+
+The mean difference is statistically significant for Group Craft-repair and Group Sales
+p-value is 1.09147519902e-05
+
+There is no statistically significant difference between Group Craft-repair and Group Tech-support
+
+The mean difference is statistically significant for Group Craft-repair and Group Transport-moving
+p-value is 0.00258105732036
+
+The mean difference is statistically significant for Group Exec-managerial and Group Farming-fishing
+p-value is 3.83804119101e-11
+
+The mean difference is statistically significant for Group Exec-managerial and Group Handlers-cleaners
+p-value is 0.000239579127771
+
+The mean difference is statistically significant for Group Exec-managerial and Group Machine-op-inspct
+p-value is 0.000295470675088
+
+The mean difference is statistically significant for Group Exec-managerial and Group Other-service
+p-value is 3.13402830577e-09
+
+The mean difference is statistically significant for Group Exec-managerial and Group Priv-house-serv
+p-value is 0.0272249668396
+
+The mean difference is statistically significant for Group Exec-managerial and Group Prof-specialty
+p-value is 9.61778604141e-28
+
+The mean difference is statistically significant for Group Exec-managerial and Group Protective-serv
+p-value is 0.00190709109516
+
+The mean difference is statistically significant for Group Exec-managerial and Group Sales
+p-value is 0.0282350394212
+
+The mean difference is statistically significant for Group Exec-managerial and Group Tech-support
+p-value is 0.0100250236124
+
+The mean difference is statistically significant for Group Exec-managerial and Group Transport-moving
+p-value is 2.56096704469e-21
+
+There is no statistically significant difference between Group Farming-fishing and Group Handlers-cleaners
+
+There is no statistically significant difference between Group Farming-fishing and Group Machine-op-inspct
+
+There is no statistically significant difference between Group Farming-fishing and Group Other-service
+
+There is no statistically significant difference between Group Farming-fishing and Group Priv-house-serv
+
+The mean difference is statistically significant for Group Farming-fishing and Group Prof-specialty
+p-value is 2.59598918577e-50
+
+The mean difference is statistically significant for Group Farming-fishing and Group Protective-serv
+p-value is 0.0467388814669
+
+The mean difference is statistically significant for Group Farming-fishing and Group Sales
+p-value is 4.03303280577e-06
+
+There is no statistically significant difference between Group Farming-fishing and Group Tech-support
+
+The mean difference is statistically significant for Group Farming-fishing and Group Transport-moving
+p-value is 0.0326675405471
+
+There is no statistically significant difference between Group Handlers-cleaners and Group Machine-op-inspct
+
+There is no statistically significant difference between Group Handlers-cleaners and Group Other-service
+
+There is no statistically significant difference between Group Handlers-cleaners and Group Priv-house-serv
+
+The mean difference is statistically significant for Group Handlers-cleaners and Group Prof-specialty
+p-value is 1.30619714438e-09
+
+There is no statistically significant difference between Group Handlers-cleaners and Group Protective-serv
+
+The mean difference is statistically significant for Group Handlers-cleaners and Group Sales
+p-value is 0.00467754625689
+
+There is no statistically significant difference between Group Handlers-cleaners and Group Tech-support
+
+There is no statistically significant difference between Group Handlers-cleaners and Group Transport-moving
+
+There is no statistically significant difference between Group Machine-op-inspct and Group Other-service
+
+There is no statistically significant difference between Group Machine-op-inspct and Group Priv-house-serv
+
+The mean difference is statistically significant for Group Machine-op-inspct and Group Prof-specialty
+p-value is 9.98841766103e-11
+
+There is no statistically significant difference between Group Machine-op-inspct and Group Protective-serv
+
+The mean difference is statistically significant for Group Machine-op-inspct and Group Sales
+p-value is 0.00613738027099
+
+There is no statistically significant difference between Group Machine-op-inspct and Group Tech-support
+
+There is no statistically significant difference between Group Machine-op-inspct and Group Transport-moving
+
+There is no statistically significant difference between Group Other-service and Group Priv-house-serv
+
+The mean difference is statistically significant for Group Other-service and Group Prof-specialty
+p-value is 2.8186319818e-26
+
+The mean difference is statistically significant for Group Other-service and Group Protective-serv
+p-value is 0.00807052386637
+
+The mean difference is statistically significant for Group Other-service and Group Sales
+p-value is 4.84416147933e-06
+
+The mean difference is statistically significant for Group Other-service and Group Tech-support
+p-value is 0.038788488566
+
+There is no statistically significant difference between Group Other-service and Group Transport-moving
+
+The mean difference is statistically significant for Group Priv-house-serv and Group Prof-specialty
+p-value is 0.00390971895888
+
+There is no statistically significant difference between Group Priv-house-serv and Group Protective-serv
+
+The mean difference is statistically significant for Group Priv-house-serv and Group Sales
+p-value is 0.0441184526694
+
+There is no statistically significant difference between Group Priv-house-serv and Group Tech-support
+
+There is no statistically significant difference between Group Priv-house-serv and Group Transport-moving
+
+The mean difference is statistically significant for Group Prof-specialty and Group Protective-serv
+p-value is 1.54775909943e-15
+
+The mean difference is statistically significant for Group Prof-specialty and Group Sales
+p-value is 3.39921962848e-34
+
+The mean difference is statistically significant for Group Prof-specialty and Group Tech-support
+p-value is 4.52886186995e-09
+
+The mean difference is statistically significant for Group Prof-specialty and Group Transport-moving
+p-value is 1.00446696301e-71
+
+There is no statistically significant difference between Group Protective-serv and Group Sales
+
+There is no statistically significant difference between Group Protective-serv and Group Tech-support
+
+The mean difference is statistically significant for Group Protective-serv and Group Transport-moving
+p-value is 0.000371389399072
+
+There is no statistically significant difference between Group Sales and Group Tech-support
+
+The mean difference is statistically significant for Group Sales and Group Transport-moving
+p-value is 3.34434121599e-13
+
+The mean difference is statistically significant for Group Tech-support and Group Transport-moving
+p-value is 0.0104266157641
+
+</pre></div></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">p3</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Aaron Ou.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/demographics-p4.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,17 @@
+Project 3 - Stat 159
+==============================
+Team: project-3-p2-ou-yu-li
+
+Members: Aaron Ou, Julien Yu, Brian Lin
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Analysis:
+
+- main.ipynb
+- by topic:
+  1. demographics-p1.ipynb
+  2. demographics-p2.ipynb
+  3. demographics-p3.ipynb
+  4. demographics-p4.ipynb   
+- proposal.md

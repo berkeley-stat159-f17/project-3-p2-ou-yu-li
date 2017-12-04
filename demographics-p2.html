@@ -1,0 +1,2616 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sex, Race, and Occupation &#8212; p3 1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+</style>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [265]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.cm</span> <span class="k">as</span> <span class="nn">cm</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">shelve</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">combinations</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn-dark&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">clean_adult</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_hdf</span><span class="p">(</span><span class="s1">&#39;results/df1.h5&#39;</span><span class="p">,</span> <span class="s1">&#39;clean_adult/&#39;</span><span class="p">)</span>
+<span class="n">clean_adult</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[2]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>workclass</th>
+      <th>fnlwgt</th>
+      <th>education</th>
+      <th>education.num</th>
+      <th>marital.status</th>
+      <th>occupation</th>
+      <th>relationship</th>
+      <th>race</th>
+      <th>sex</th>
+      <th>capital.gain</th>
+      <th>capital.loss</th>
+      <th>hours.per.week</th>
+      <th>native.country</th>
+      <th>income</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>82</td>
+      <td>Private</td>
+      <td>132870</td>
+      <td>HS-grad</td>
+      <td>9</td>
+      <td>Widowed</td>
+      <td>Exec-managerial</td>
+      <td>Not-in-family</td>
+      <td>White</td>
+      <td>Female</td>
+      <td>0</td>
+      <td>4356</td>
+      <td>18</td>
+      <td>United-States</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>54</td>
+      <td>Private</td>
+      <td>140359</td>
+      <td>7th-8th</td>
+      <td>4</td>
+      <td>Divorced</td>
+      <td>Machine-op-inspct</td>
+      <td>Unmarried</td>
+      <td>White</td>
+      <td>Female</td>
+      <td>0</td>
+      <td>3900</td>
+      <td>40</td>
+      <td>United-States</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>41</td>
+      <td>Private</td>
+      <td>264663</td>
+      <td>Some-college</td>
+      <td>10</td>
+      <td>Separated</td>
+      <td>Prof-specialty</td>
+      <td>Own-child</td>
+      <td>White</td>
+      <td>Female</td>
+      <td>0</td>
+      <td>3900</td>
+      <td>40</td>
+      <td>United-States</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>34</td>
+      <td>Private</td>
+      <td>216864</td>
+      <td>HS-grad</td>
+      <td>9</td>
+      <td>Divorced</td>
+      <td>Other-service</td>
+      <td>Unmarried</td>
+      <td>White</td>
+      <td>Female</td>
+      <td>0</td>
+      <td>3770</td>
+      <td>45</td>
+      <td>United-States</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>38</td>
+      <td>Private</td>
+      <td>150601</td>
+      <td>10th</td>
+      <td>6</td>
+      <td>Separated</td>
+      <td>Adm-clerical</td>
+      <td>Unmarried</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>0</td>
+      <td>3770</td>
+      <td>40</td>
+      <td>United-States</td>
+      <td>&lt;=50K</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="section" id="Sex,-Race,-and-Occupation">
+<h1>Sex, Race, and Occupation<a class="headerlink" href="#Sex,-Race,-and-Occupation" title="Permalink to this headline">¶</a></h1>
+<p>We are interested in whether or not different sexes and/or races choose
+different occupations. We will first look at sex.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [175]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">female</span> <span class="o">=</span> <span class="n">clean_adult</span><span class="p">[</span><span class="n">clean_adult</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Female&quot;</span><span class="p">]</span>
+<span class="n">male</span> <span class="o">=</span> <span class="n">clean_adult</span><span class="p">[</span><span class="n">clean_adult</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Male&quot;</span><span class="p">]</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [211]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">male</span><span class="p">[</span><span class="s2">&quot;occupation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[211]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>Adm-clerical         1209
+Armed-Forces            9
+Craft-repair         3814
+Exec-managerial      2849
+Farming-fishing       924
+Handlers-cleaners    1186
+Machine-op-inspct    1423
+Other-service        1454
+Priv-house-serv         8
+Prof-specialty       2547
+Protective-serv       568
+Sales                2336
+Tech-support          571
+Transport-moving     1482
+Name: occupation, dtype: int64
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [233]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">bar_width</span> <span class="o">=</span> <span class="mf">0.35</span>
+
+<span class="n">counts</span> <span class="o">=</span> <span class="n">male</span><span class="p">[</span><span class="s2">&quot;occupation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="c1">#Drop Armed Forces and append to end so that occupations match</span>
+<span class="n">armed_forces</span> <span class="o">=</span> <span class="n">counts</span><span class="p">[</span><span class="s2">&quot;Armed-Forces&quot;</span><span class="p">]</span>
+<span class="n">male_counts</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;Armed-Forces&quot;</span><span class="p">)</span>
+<span class="n">male_counts</span><span class="p">[</span><span class="s2">&quot;Armed-Forces&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">armed_forces</span>
+<span class="n">male_percents</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">male_counts</span><span class="o">.</span><span class="n">values</span><span class="o">/</span><span class="n">male_counts</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">male_percents</span><span class="p">))</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ind</span><span class="p">,</span> <span class="n">male_percents</span><span class="p">,</span> <span class="n">bar_width</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+
+<span class="n">female_counts</span> <span class="o">=</span> <span class="n">female</span><span class="p">[</span><span class="s2">&quot;occupation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="n">female_counts</span><span class="p">[</span><span class="s2">&quot;Armed-Forces&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">female_percents</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">female_counts</span><span class="o">.</span><span class="n">values</span><span class="o">/</span><span class="n">female_counts</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">female_percents</span><span class="p">))</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ind</span> <span class="o">+</span> <span class="n">bar_width</span><span class="p">,</span> <span class="n">female_percents</span><span class="p">,</span> <span class="n">bar_width</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Occupation by Sex&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Percentage of Group in Occupation&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Occupation&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ind</span> <span class="o">+</span> <span class="n">bar_width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">female_counts</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">((</span><span class="n">p1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p2</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="p">(</span><span class="s1">&#39;Male&#39;</span><span class="p">,</span> <span class="s1">&#39;Female&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;fig/Occupation_by_Sex.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/demographics-p2_5_0.png" src="_images/demographics-p2_5_0.png" />
+</div>
+</div>
+<p>It seems like females are more likely to be in Administrative clerical
+roles and other services not explictly stated, while males are more
+likely to be in craft repair, handling/cleaning, farming/fishing, and
+transport. There does seem to be a difference in executive managerial
+roles, but it does not seem like the difference is huge.</p>
+<p>What about for race? (Unfortunately it is very hard to make one bar
+chart to show all the races, so we decided to instead to just make one
+bar chart for each race. We must be cautious to not compare the
+different plots because the y-scale is different.)</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [274]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">race_groups</span> <span class="o">=</span> <span class="n">clean_adult</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;race&quot;</span><span class="p">)</span>
+<span class="n">nrows</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">race_groups</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.0001</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">row</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">column</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">bar_width</span> <span class="o">=</span> <span class="mf">0.35</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">race_groups</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">nrows</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">column</span><span class="p">]</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="s2">&quot;occupation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+    <span class="n">percents</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">counts</span><span class="o">.</span><span class="n">values</span><span class="o">/</span><span class="n">counts</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">percents</span><span class="p">))</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">ind</span><span class="p">,</span> <span class="n">percents</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">cmap</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Occupation by Sex&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Percentage of Group in Occupation&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Occupation&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">counts</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="n">rotation</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; Race Occupation&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">0.95</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+    <span class="c1">#if column = 0, then it is next 1. If column = 1, then it is next 0</span>
+    <span class="n">column</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">column</span>
+    <span class="c1">#move on to next row</span>
+    <span class="k">if</span> <span class="n">column</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">row</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mf">0.2</span>
+<span class="c1">#if odd number of plots, hide last axis</span>
+<span class="k">if</span> <span class="n">column</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">axes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;Occupation_by_Race&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/demographics-p2_7_0.png" src="_images/demographics-p2_7_0.png" />
+</div>
+</div>
+<p>There seems to be a difference in each race’s distribution of
+occupations. Some observations are: * Around 15% of the individuals
+identified as White and Asian/Pacific Islander have executive/managerial
+roles, while the other groups have lower. This is probably reflective of
+the fact that these groups have more opportunities than the other
+groups, or it could reflect an inherent bias of society. A more detailed
+study needs to be done to make an judgement about this observation. *
+The most common occupation for the Asian/Pacific Islander group is
+Prof-specialty. This can be reflective of the fact that immigrants from
+this group tend to already have obtained a higher education when
+immigrating and that the culture values education. * The armed forced
+occupation has a very small sample. This is most likely because it does
+not really count as an occupation and there are a few exceptions.</p>
+<p>Small side note: While doing this project, we found an interesting
+property regarding the <code class="docutils literal"><span class="pre">round()</span></code> function, in which by default this
+function actually rounds half numbers to the nearest even number. This
+is called bankers rounding:
+<a class="reference external" href="https://stackoverflow.com/questions/33019698/how-to-properly-round-up-half-float-numbers-in-python">https://stackoverflow.com/questions/33019698/how-to-properly-round-up-half-float-numbers-in-python</a>.
+We found this out when we were not getting the correct number of rows
+for our subplots.</p>
+<p>Now that we saw all the “pretty” graphs, let’s do some hypothesis
+testing. We are interested in using the Chi-Square Test of Independence,
+which is used to determine whether there is an association between two
+categorical variables. The test procedure is appropriate when the
+following conditions are met: * The sampling method is simple random
+sampling. * The variables under study are each categorical. * If
+sample data are displayed in a contingency table, the expected frequency
+count for each cell of the table is at least 5.</p>
+<p>The last condition poses a problem, as there are some occupations in
+which there is a group that has no members in the occupation. Thus, we
+will have to proceed with caution. However, we also believe at the same
+time that if the expected frequency count for a cell is less than 5,
+then there is an obvious relationship between the categorical variables.
+We are interested in the pairwise group relationships (i.e.&nbsp;white/black,
+white/asian. etc.), so we will run chi-square for each pair in a group.</p>
+<p>Of course, we cannot say that there is any causal relationship between
+groups and occupations, as there are many other confounding variables
+such as education.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [272]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="c1"># %load find_indices_with_value.py</span>
+<span class="k">def</span> <span class="nf">find_indices_with_value</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return the row indices of a Pandas Dataframe where the row contains the given value.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+
+<span class="sd">    df: Pandas Dataframe</span>
+<span class="sd">    value: value we want to see if row contains</span>
+
+<span class="sd">    Return</span>
+<span class="sd">    ------</span>
+<span class="sd">    array</span>
+<span class="sd">        An integer array where each value is the row index of a row that contains the value</span>
+
+<span class="sd">    Example</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    &gt;&gt;&gt; row0 = [&quot;&gt;&quot;, &quot;?&quot;, &quot;!&quot;]</span>
+<span class="sd">    ... df = pd.DataFrame([row0])</span>
+<span class="sd">    ... find_indices_with_value(df, &quot;?&quot;)</span>
+<span class="sd">    array([0])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+
+    <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">row</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span>
+            <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [273]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">chi_square_test</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">,</span> <span class="n">pairwise</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Performs a chi-square test on two categorical variables, with one being group</span>
+<span class="sd">    If doing pairwise comparisions for groups, perform chi-square test on each pair.</span>
+<span class="sd">    Displays contigency tables (in percents) that are statistically significant.</span>
+<span class="sd">    If there are rows in the contigency with 0s, we delete these rows.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    data: Pandas Dataframe</span>
+<span class="sd">    var1: one categorical column of the data Dataframe</span>
+<span class="sd">    var2: one categorical column of the data Dataframe. In our case this will be the group column.</span>
+<span class="sd">    pairwise: if true, do pairwise comparisions.</span>
+<span class="sd">    alpha: significance level</span>
+
+<span class="sd">    Return</span>
+<span class="sd">    ------</span>
+<span class="sd">    if pairwise:</span>
+<span class="sd">        None</span>
+<span class="sd">    else:</span>
+<span class="sd">        rtn</span>
+<span class="sd">           A tuple where</span>
+<span class="sd">           the first value is the chi-square value</span>
+<span class="sd">           the second value is the p-value</span>
+<span class="sd">           the third value is the degrees of freedom</span>
+<span class="sd">           the fourth value is the expected counts</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cont_table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">var1</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">var2</span><span class="p">])</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">pairwise</span><span class="p">:</span>
+        <span class="n">missing_indices</span> <span class="o">=</span> <span class="n">find_indices_with_value</span><span class="p">(</span><span class="n">cont_table</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">cont_table</span> <span class="o">=</span> <span class="n">cont_table</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">missing_indices</span><span class="p">)</span>
+        <span class="n">chi2</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">exp</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">chi2_contingency</span><span class="p">(</span><span class="n">cont_table</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">p</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;statistically significant: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">([</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">]),</span> <span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;p-value is &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+            <span class="n">display</span><span class="p">(</span><span class="n">cont_table</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">r</span><span class="o">/</span><span class="n">r</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">chi2</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">exp</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">pairs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">comb</span><span class="p">))</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">comb</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="n">cont_table</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span>
+        <span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">:</span>
+            <span class="n">cont_table2</span> <span class="o">=</span> <span class="n">cont_table</span><span class="p">[</span><span class="n">pair</span><span class="p">]</span>
+            <span class="n">missing_indices</span> <span class="o">=</span> <span class="n">find_indices_with_value</span><span class="p">(</span><span class="n">cont_table2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">cont_table2</span> <span class="o">=</span> <span class="n">cont_table2</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">missing_indices</span><span class="p">)</span>
+
+            <span class="n">chi2</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">exp</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">chi2_contingency</span><span class="p">(</span><span class="n">cont_table2</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">p</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;statistically significant: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">pair</span><span class="p">),</span> <span class="p">))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;p-value is &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+                <span class="n">display</span><span class="p">(</span><span class="n">cont_table2</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">r</span><span class="o">/</span><span class="n">r</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<p>Let’s first look at the relationship between occupation and sex. Note
+that we cannot make any huge conclusions from this since 85% of the
+individuals in the dataset are White, so sample size for other races are
+small (but still greater than 30).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [169]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">chi_square_test</span><span class="p">(</span><span class="n">clean_adult</span><span class="p">,</span> <span class="s2">&quot;occupation&quot;</span><span class="p">,</span> <span class="s2">&quot;sex&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+statistically significant: (&#39;occupation&#39;, &#39;sex&#39;)
+p-value is 0.0
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sex</th>
+      <th>Female</th>
+      <th>Male</th>
+    </tr>
+    <tr>
+      <th>occupation</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Adm-clerical</th>
+      <td>25.679820</td>
+      <td>5.934907</td>
+    </tr>
+    <tr>
+      <th>Craft-repair</th>
+      <td>2.208137</td>
+      <td>18.722694</td>
+    </tr>
+    <tr>
+      <th>Exec-managerial</th>
+      <td>11.684727</td>
+      <td>13.985568</td>
+    </tr>
+    <tr>
+      <th>Farming-fishing</th>
+      <td>0.664486</td>
+      <td>4.535860</td>
+    </tr>
+    <tr>
+      <th>Handlers-cleaners</th>
+      <td>1.676549</td>
+      <td>5.822002</td>
+    </tr>
+    <tr>
+      <th>Machine-op-inspct</th>
+      <td>5.551012</td>
+      <td>6.985420</td>
+    </tr>
+    <tr>
+      <th>Other-service</th>
+      <td>17.971785</td>
+      <td>7.137598</td>
+    </tr>
+    <tr>
+      <th>Priv-house-serv</th>
+      <td>1.380086</td>
+      <td>0.039272</td>
+    </tr>
+    <tr>
+      <th>Prof-specialty</th>
+      <td>15.242282</td>
+      <td>12.503068</td>
+    </tr>
+    <tr>
+      <th>Protective-serv</th>
+      <td>0.776937</td>
+      <td>2.788277</td>
+    </tr>
+    <tr>
+      <th>Sales</th>
+      <td>12.758127</td>
+      <td>11.467282</td>
+    </tr>
+    <tr>
+      <th>Tech-support</th>
+      <td>3.485995</td>
+      <td>2.803004</td>
+    </tr>
+    <tr>
+      <th>Transport-moving</th>
+      <td>0.920057</td>
+      <td>7.275048</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>There is a clear association between sex and occupation. As mentioned
+before, it seems like females are more likely to be in Administrative
+clerical and other services not explictly stated, while males are more
+likely to be in craft repair, handling/cleaning, farming/fishing, and
+transport. There does seem to be a difference in executive managerial
+roles, but it does not seem like the difference is huge.</p>
+<p>What about for race?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [170]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">chi_square_test</span><span class="p">(</span><span class="n">clean_adult</span><span class="p">,</span> <span class="s2">&quot;occupation&quot;</span><span class="p">,</span> <span class="s2">&quot;race&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+statistically significant: (&#39;Amer-Indian-Eskimo&#39;, &#39;Asian-Pac-Islander&#39;)
+p-value is 5.39804424413e-11
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>race</th>
+      <th>Amer-Indian-Eskimo</th>
+      <th>Asian-Pac-Islander</th>
+    </tr>
+    <tr>
+      <th>occupation</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Adm-clerical</th>
+      <td>10.877193</td>
+      <td>15.039282</td>
+    </tr>
+    <tr>
+      <th>Craft-repair</th>
+      <td>15.438596</td>
+      <td>9.315376</td>
+    </tr>
+    <tr>
+      <th>Exec-managerial</th>
+      <td>10.526316</td>
+      <td>13.580247</td>
+    </tr>
+    <tr>
+      <th>Farming-fishing</th>
+      <td>3.508772</td>
+      <td>1.795735</td>
+    </tr>
+    <tr>
+      <th>Handlers-cleaners</th>
+      <td>7.719298</td>
+      <td>2.469136</td>
+    </tr>
+    <tr>
+      <th>Machine-op-inspct</th>
+      <td>6.666667</td>
+      <td>5.611672</td>
+    </tr>
+    <tr>
+      <th>Other-service</th>
+      <td>11.578947</td>
+      <td>13.131313</td>
+    </tr>
+    <tr>
+      <th>Prof-specialty</th>
+      <td>11.578947</td>
+      <td>19.753086</td>
+    </tr>
+    <tr>
+      <th>Protective-serv</th>
+      <td>2.807018</td>
+      <td>1.571268</td>
+    </tr>
+    <tr>
+      <th>Sales</th>
+      <td>9.122807</td>
+      <td>10.774411</td>
+    </tr>
+    <tr>
+      <th>Tech-support</th>
+      <td>1.403509</td>
+      <td>4.713805</td>
+    </tr>
+    <tr>
+      <th>Transport-moving</th>
+      <td>8.771930</td>
+      <td>2.244669</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+statistically significant: (&#39;Amer-Indian-Eskimo&#39;, &#39;Black&#39;)
+p-value is 4.29464358621e-07
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>race</th>
+      <th>Amer-Indian-Eskimo</th>
+      <th>Black</th>
+    </tr>
+    <tr>
+      <th>occupation</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Adm-clerical</th>
+      <td>10.839161</td>
+      <td>17.204301</td>
+    </tr>
+    <tr>
+      <th>Armed-Forces</th>
+      <td>0.349650</td>
+      <td>0.035842</td>
+    </tr>
+    <tr>
+      <th>Craft-repair</th>
+      <td>15.384615</td>
+      <td>8.387097</td>
+    </tr>
+    <tr>
+      <th>Exec-managerial</th>
+      <td>10.489510</td>
+      <td>8.422939</td>
+    </tr>
+    <tr>
+      <th>Farming-fishing</th>
+      <td>3.496503</td>
+      <td>1.505376</td>
+    </tr>
+    <tr>
+      <th>Handlers-cleaners</th>
+      <td>7.692308</td>
+      <td>6.093190</td>
+    </tr>
+    <tr>
+      <th>Machine-op-inspct</th>
+      <td>6.643357</td>
+      <td>9.641577</td>
+    </tr>
+    <tr>
+      <th>Other-service</th>
+      <td>11.538462</td>
+      <td>19.820789</td>
+    </tr>
+    <tr>
+      <th>Prof-specialty</th>
+      <td>11.538462</td>
+      <td>8.100358</td>
+    </tr>
+    <tr>
+      <th>Protective-serv</th>
+      <td>2.797203</td>
+      <td>3.512545</td>
+    </tr>
+    <tr>
+      <th>Sales</th>
+      <td>9.090909</td>
+      <td>8.888889</td>
+    </tr>
+    <tr>
+      <th>Tech-support</th>
+      <td>1.398601</td>
+      <td>2.401434</td>
+    </tr>
+    <tr>
+      <th>Transport-moving</th>
+      <td>8.741259</td>
+      <td>5.985663</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+statistically significant: (&#39;Amer-Indian-Eskimo&#39;, &#39;Other&#39;)
+p-value is 0.00793749750909
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>race</th>
+      <th>Amer-Indian-Eskimo</th>
+      <th>Other</th>
+    </tr>
+    <tr>
+      <th>occupation</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Adm-clerical</th>
+      <td>10.877193</td>
+      <td>10.087719</td>
+    </tr>
+    <tr>
+      <th>Craft-repair</th>
+      <td>15.438596</td>
+      <td>10.964912</td>
+    </tr>
+    <tr>
+      <th>Exec-managerial</th>
+      <td>10.526316</td>
+      <td>4.824561</td>
+    </tr>
+    <tr>
+      <th>Farming-fishing</th>
+      <td>3.508772</td>
+      <td>4.824561</td>
+    </tr>
+    <tr>
+      <th>Handlers-cleaners</th>
+      <td>7.719298</td>
+      <td>4.824561</td>
+    </tr>
+    <tr>
+      <th>Machine-op-inspct</th>
+      <td>6.666667</td>
+      <td>17.105263</td>
+    </tr>
+    <tr>
+      <th>Other-service</th>
+      <td>11.578947</td>
+      <td>16.228070</td>
+    </tr>
+    <tr>
+      <th>Prof-specialty</th>
+      <td>11.578947</td>
+      <td>12.280702</td>
+    </tr>
+    <tr>
+      <th>Protective-serv</th>
+      <td>2.807018</td>
+      <td>2.192982</td>
+    </tr>
+    <tr>
+      <th>Sales</th>
+      <td>9.122807</td>
+      <td>9.649123</td>
+    </tr>
+    <tr>
+      <th>Tech-support</th>
+      <td>1.403509</td>
+      <td>1.315789</td>
+    </tr>
+    <tr>
+      <th>Transport-moving</th>
+      <td>8.771930</td>
+      <td>5.701754</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+statistically significant: (&#39;Amer-Indian-Eskimo&#39;, &#39;White&#39;)
+p-value is 0.000523857680953
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>race</th>
+      <th>Amer-Indian-Eskimo</th>
+      <th>White</th>
+    </tr>
+    <tr>
+      <th>occupation</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Adm-clerical</th>
+      <td>10.839161</td>
+      <td>11.822336</td>
+    </tr>
+    <tr>
+      <th>Armed-Forces</th>
+      <td>0.349650</td>
+      <td>0.027107</td>
+    </tr>
+    <tr>
+      <th>Craft-repair</th>
+      <td>15.384615</td>
+      <td>14.110905</td>
+    </tr>
+    <tr>
+      <th>Exec-managerial</th>
+      <td>10.489510</td>
+      <td>13.921159</td>
+    </tr>
+    <tr>
+      <th>Farming-fishing</th>
+      <td>3.496503</td>
+      <td>3.523854</td>
+    </tr>
+    <tr>
+      <th>Handlers-cleaners</th>
+      <td>7.692308</td>
+      <td>4.356413</td>
+    </tr>
+    <tr>
+      <th>Machine-op-inspct</th>
+      <td>6.643357</td>
+      <td>6.153191</td>
+    </tr>
+    <tr>
+      <th>Other-service</th>
+      <td>11.538462</td>
+      <td>9.572491</td>
+    </tr>
+    <tr>
+      <th>Prof-specialty</th>
+      <td>11.538462</td>
+      <td>13.843711</td>
+    </tr>
+    <tr>
+      <th>Protective-serv</th>
+      <td>2.797203</td>
+      <td>2.009758</td>
+    </tr>
+    <tr>
+      <th>Sales</th>
+      <td>9.090909</td>
+      <td>12.360595</td>
+    </tr>
+    <tr>
+      <th>Tech-support</th>
+      <td>1.398601</td>
+      <td>3.082404</td>
+    </tr>
+    <tr>
+      <th>Transport-moving</th>
+      <td>8.741259</td>
+      <td>5.216078</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+statistically significant: (&#39;Asian-Pac-Islander&#39;, &#39;Black&#39;)
+p-value is 2.08005869185e-35
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>race</th>
+      <th>Asian-Pac-Islander</th>
+      <th>Black</th>
+    </tr>
+    <tr>
+      <th>occupation</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Adm-clerical</th>
+      <td>14.972067</td>
+      <td>17.045455</td>
+    </tr>
+    <tr>
+      <th>Craft-repair</th>
+      <td>9.273743</td>
+      <td>8.309659</td>
+    </tr>
+    <tr>
+      <th>Exec-managerial</th>
+      <td>13.519553</td>
+      <td>8.345170</td>
+    </tr>
+    <tr>
+      <th>Farming-fishing</th>
+      <td>1.787709</td>
+      <td>1.491477</td>
+    </tr>
+    <tr>
+      <th>Handlers-cleaners</th>
+      <td>2.458101</td>
+      <td>6.036932</td>
+    </tr>
+    <tr>
+      <th>Machine-op-inspct</th>
+      <td>5.586592</td>
+      <td>9.552557</td>
+    </tr>
+    <tr>
+      <th>Other-service</th>
+      <td>13.072626</td>
+      <td>19.637784</td>
+    </tr>
+    <tr>
+      <th>Priv-house-serv</th>
+      <td>0.446927</td>
+      <td>0.958807</td>
+    </tr>
+    <tr>
+      <th>Prof-specialty</th>
+      <td>19.664804</td>
+      <td>8.025568</td>
+    </tr>
+    <tr>
+      <th>Protective-serv</th>
+      <td>1.564246</td>
+      <td>3.480114</td>
+    </tr>
+    <tr>
+      <th>Sales</th>
+      <td>10.726257</td>
+      <td>8.806818</td>
+    </tr>
+    <tr>
+      <th>Tech-support</th>
+      <td>4.692737</td>
+      <td>2.379261</td>
+    </tr>
+    <tr>
+      <th>Transport-moving</th>
+      <td>2.234637</td>
+      <td>5.930398</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+statistically significant: (&#39;Asian-Pac-Islander&#39;, &#39;Other&#39;)
+p-value is 1.10595148479e-11
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>race</th>
+      <th>Asian-Pac-Islander</th>
+      <th>Other</th>
+    </tr>
+    <tr>
+      <th>occupation</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Adm-clerical</th>
+      <td>14.972067</td>
+      <td>9.956710</td>
+    </tr>
+    <tr>
+      <th>Craft-repair</th>
+      <td>9.273743</td>
+      <td>10.822511</td>
+    </tr>
+    <tr>
+      <th>Exec-managerial</th>
+      <td>13.519553</td>
+      <td>4.761905</td>
+    </tr>
+    <tr>
+      <th>Farming-fishing</th>
+      <td>1.787709</td>
+      <td>4.761905</td>
+    </tr>
+    <tr>
+      <th>Handlers-cleaners</th>
+      <td>2.458101</td>
+      <td>4.761905</td>
+    </tr>
+    <tr>
+      <th>Machine-op-inspct</th>
+      <td>5.586592</td>
+      <td>16.883117</td>
+    </tr>
+    <tr>
+      <th>Other-service</th>
+      <td>13.072626</td>
+      <td>16.017316</td>
+    </tr>
+    <tr>
+      <th>Priv-house-serv</th>
+      <td>0.446927</td>
+      <td>1.298701</td>
+    </tr>
+    <tr>
+      <th>Prof-specialty</th>
+      <td>19.664804</td>
+      <td>12.121212</td>
+    </tr>
+    <tr>
+      <th>Protective-serv</th>
+      <td>1.564246</td>
+      <td>2.164502</td>
+    </tr>
+    <tr>
+      <th>Sales</th>
+      <td>10.726257</td>
+      <td>9.523810</td>
+    </tr>
+    <tr>
+      <th>Tech-support</th>
+      <td>4.692737</td>
+      <td>1.298701</td>
+    </tr>
+    <tr>
+      <th>Transport-moving</th>
+      <td>2.234637</td>
+      <td>5.627706</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+statistically significant: (&#39;Asian-Pac-Islander&#39;, &#39;White&#39;)
+p-value is 7.82321814761e-15
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>race</th>
+      <th>Asian-Pac-Islander</th>
+      <th>White</th>
+    </tr>
+    <tr>
+      <th>occupation</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Adm-clerical</th>
+      <td>14.972067</td>
+      <td>11.775823</td>
+    </tr>
+    <tr>
+      <th>Craft-repair</th>
+      <td>9.273743</td>
+      <td>14.055388</td>
+    </tr>
+    <tr>
+      <th>Exec-managerial</th>
+      <td>13.519553</td>
+      <td>13.866389</td>
+    </tr>
+    <tr>
+      <th>Farming-fishing</th>
+      <td>1.787709</td>
+      <td>3.509990</td>
+    </tr>
+    <tr>
+      <th>Handlers-cleaners</th>
+      <td>2.458101</td>
+      <td>4.339273</td>
+    </tr>
+    <tr>
+      <th>Machine-op-inspct</th>
+      <td>5.586592</td>
+      <td>6.128982</td>
+    </tr>
+    <tr>
+      <th>Other-service</th>
+      <td>13.072626</td>
+      <td>9.534830</td>
+    </tr>
+    <tr>
+      <th>Priv-house-serv</th>
+      <td>0.446927</td>
+      <td>0.420427</td>
+    </tr>
+    <tr>
+      <th>Prof-specialty</th>
+      <td>19.664804</td>
+      <td>13.789246</td>
+    </tr>
+    <tr>
+      <th>Protective-serv</th>
+      <td>1.564246</td>
+      <td>2.001851</td>
+    </tr>
+    <tr>
+      <th>Sales</th>
+      <td>10.726257</td>
+      <td>12.311965</td>
+    </tr>
+    <tr>
+      <th>Tech-support</th>
+      <td>4.692737</td>
+      <td>3.070277</td>
+    </tr>
+    <tr>
+      <th>Transport-moving</th>
+      <td>2.234637</td>
+      <td>5.195557</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+statistically significant: (&#39;Black&#39;, &#39;Other&#39;)
+p-value is 1.08587334985e-05
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>race</th>
+      <th>Black</th>
+      <th>Other</th>
+    </tr>
+    <tr>
+      <th>occupation</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Adm-clerical</th>
+      <td>17.045455</td>
+      <td>9.956710</td>
+    </tr>
+    <tr>
+      <th>Craft-repair</th>
+      <td>8.309659</td>
+      <td>10.822511</td>
+    </tr>
+    <tr>
+      <th>Exec-managerial</th>
+      <td>8.345170</td>
+      <td>4.761905</td>
+    </tr>
+    <tr>
+      <th>Farming-fishing</th>
+      <td>1.491477</td>
+      <td>4.761905</td>
+    </tr>
+    <tr>
+      <th>Handlers-cleaners</th>
+      <td>6.036932</td>
+      <td>4.761905</td>
+    </tr>
+    <tr>
+      <th>Machine-op-inspct</th>
+      <td>9.552557</td>
+      <td>16.883117</td>
+    </tr>
+    <tr>
+      <th>Other-service</th>
+      <td>19.637784</td>
+      <td>16.017316</td>
+    </tr>
+    <tr>
+      <th>Priv-house-serv</th>
+      <td>0.958807</td>
+      <td>1.298701</td>
+    </tr>
+    <tr>
+      <th>Prof-specialty</th>
+      <td>8.025568</td>
+      <td>12.121212</td>
+    </tr>
+    <tr>
+      <th>Protective-serv</th>
+      <td>3.480114</td>
+      <td>2.164502</td>
+    </tr>
+    <tr>
+      <th>Sales</th>
+      <td>8.806818</td>
+      <td>9.523810</td>
+    </tr>
+    <tr>
+      <th>Tech-support</th>
+      <td>2.379261</td>
+      <td>1.298701</td>
+    </tr>
+    <tr>
+      <th>Transport-moving</th>
+      <td>5.930398</td>
+      <td>5.627706</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+statistically significant: (&#39;Black&#39;, &#39;White&#39;)
+p-value is 1.10592086605e-131
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>race</th>
+      <th>Black</th>
+      <th>White</th>
+    </tr>
+    <tr>
+      <th>occupation</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Adm-clerical</th>
+      <td>17.039404</td>
+      <td>11.772645</td>
+    </tr>
+    <tr>
+      <th>Armed-Forces</th>
+      <td>0.035499</td>
+      <td>0.026993</td>
+    </tr>
+    <tr>
+      <th>Craft-repair</th>
+      <td>8.306709</td>
+      <td>14.051594</td>
+    </tr>
+    <tr>
+      <th>Exec-managerial</th>
+      <td>8.342208</td>
+      <td>13.862646</td>
+    </tr>
+    <tr>
+      <th>Farming-fishing</th>
+      <td>1.490948</td>
+      <td>3.509043</td>
+    </tr>
+    <tr>
+      <th>Handlers-cleaners</th>
+      <td>6.034789</td>
+      <td>4.338102</td>
+    </tr>
+    <tr>
+      <th>Machine-op-inspct</th>
+      <td>9.549166</td>
+      <td>6.127328</td>
+    </tr>
+    <tr>
+      <th>Other-service</th>
+      <td>19.630813</td>
+      <td>9.532256</td>
+    </tr>
+    <tr>
+      <th>Priv-house-serv</th>
+      <td>0.958466</td>
+      <td>0.420314</td>
+    </tr>
+    <tr>
+      <th>Prof-specialty</th>
+      <td>8.022719</td>
+      <td>13.785524</td>
+    </tr>
+    <tr>
+      <th>Protective-serv</th>
+      <td>3.478878</td>
+      <td>2.001311</td>
+    </tr>
+    <tr>
+      <th>Sales</th>
+      <td>8.803692</td>
+      <td>12.308641</td>
+    </tr>
+    <tr>
+      <th>Tech-support</th>
+      <td>2.378417</td>
+      <td>3.069448</td>
+    </tr>
+    <tr>
+      <th>Transport-moving</th>
+      <td>5.928293</td>
+      <td>5.194154</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+statistically significant: (&#39;Other&#39;, &#39;White&#39;)
+p-value is 8.67474040807e-12
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>race</th>
+      <th>Other</th>
+      <th>White</th>
+    </tr>
+    <tr>
+      <th>occupation</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Adm-clerical</th>
+      <td>9.956710</td>
+      <td>11.775823</td>
+    </tr>
+    <tr>
+      <th>Craft-repair</th>
+      <td>10.822511</td>
+      <td>14.055388</td>
+    </tr>
+    <tr>
+      <th>Exec-managerial</th>
+      <td>4.761905</td>
+      <td>13.866389</td>
+    </tr>
+    <tr>
+      <th>Farming-fishing</th>
+      <td>4.761905</td>
+      <td>3.509990</td>
+    </tr>
+    <tr>
+      <th>Handlers-cleaners</th>
+      <td>4.761905</td>
+      <td>4.339273</td>
+    </tr>
+    <tr>
+      <th>Machine-op-inspct</th>
+      <td>16.883117</td>
+      <td>6.128982</td>
+    </tr>
+    <tr>
+      <th>Other-service</th>
+      <td>16.017316</td>
+      <td>9.534830</td>
+    </tr>
+    <tr>
+      <th>Priv-house-serv</th>
+      <td>1.298701</td>
+      <td>0.420427</td>
+    </tr>
+    <tr>
+      <th>Prof-specialty</th>
+      <td>12.121212</td>
+      <td>13.789246</td>
+    </tr>
+    <tr>
+      <th>Protective-serv</th>
+      <td>2.164502</td>
+      <td>2.001851</td>
+    </tr>
+    <tr>
+      <th>Sales</th>
+      <td>9.523810</td>
+      <td>12.311965</td>
+    </tr>
+    <tr>
+      <th>Tech-support</th>
+      <td>1.298701</td>
+      <td>3.070277</td>
+    </tr>
+    <tr>
+      <th>Transport-moving</th>
+      <td>5.627706</td>
+      <td>5.195557</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>Wow! All races are statistically different from each other in
+occupation.</p>
+<p>Let’s also look at the relationship between sex and race. Since our
+dataset is composed of people in the labor force, this will answer
+whether different races have different proportions of sexes
+participating in the labor force.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [171]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">chi_square_test</span><span class="p">(</span><span class="n">clean_adult</span><span class="p">,</span> <span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="s2">&quot;race&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+statistically significant: (&#39;Amer-Indian-Eskimo&#39;, &#39;Black&#39;)
+p-value is 0.000101308693717
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>race</th>
+      <th>Amer-Indian-Eskimo</th>
+      <th>Black</th>
+    </tr>
+    <tr>
+      <th>sex</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Female</th>
+      <td>37.412587</td>
+      <td>49.662762</td>
+    </tr>
+    <tr>
+      <th>Male</th>
+      <td>62.587413</td>
+      <td>50.337238</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+statistically significant: (&#39;Amer-Indian-Eskimo&#39;, &#39;White&#39;)
+p-value is 0.0131118233873
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>race</th>
+      <th>Amer-Indian-Eskimo</th>
+      <th>White</th>
+    </tr>
+    <tr>
+      <th>sex</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Female</th>
+      <td>37.412587</td>
+      <td>30.443836</td>
+    </tr>
+    <tr>
+      <th>Male</th>
+      <td>62.587413</td>
+      <td>69.556164</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+statistically significant: (&#39;Asian-Pac-Islander&#39;, &#39;Black&#39;)
+p-value is 1.96539129404e-18
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>race</th>
+      <th>Asian-Pac-Islander</th>
+      <th>Black</th>
+    </tr>
+    <tr>
+      <th>sex</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Female</th>
+      <td>32.849162</td>
+      <td>49.662762</td>
+    </tr>
+    <tr>
+      <th>Male</th>
+      <td>67.150838</td>
+      <td>50.337238</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+statistically significant: (&#39;Black&#39;, &#39;Other&#39;)
+p-value is 0.000582810354601
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>race</th>
+      <th>Black</th>
+      <th>Other</th>
+    </tr>
+    <tr>
+      <th>sex</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Female</th>
+      <td>49.662762</td>
+      <td>37.662338</td>
+    </tr>
+    <tr>
+      <th>Male</th>
+      <td>50.337238</td>
+      <td>62.337662</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+statistically significant: (&#39;Black&#39;, &#39;White&#39;)
+p-value is 4.11990122916e-95
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>race</th>
+      <th>Black</th>
+      <th>White</th>
+    </tr>
+    <tr>
+      <th>sex</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Female</th>
+      <td>49.662762</td>
+      <td>30.443836</td>
+    </tr>
+    <tr>
+      <th>Male</th>
+      <td>50.337238</td>
+      <td>69.556164</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+statistically significant: (&#39;Other&#39;, &#39;White&#39;)
+p-value is 0.0214225449555
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>race</th>
+      <th>Other</th>
+      <th>White</th>
+    </tr>
+    <tr>
+      <th>sex</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Female</th>
+      <td>37.662338</td>
+      <td>30.443836</td>
+    </tr>
+    <tr>
+      <th>Male</th>
+      <td>62.337662</td>
+      <td>69.556164</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>The Black population seems to differ significantly from the other race
+populations, which is not surprising, since they have a 50/50 male to
+female labor participation, while other races seem to be around 60/40 or
+70/30.</p>
+<p>Finally, since we mentioned before that education might be a confounding
+variable, let’s see if there is a relationship between occupation and
+education.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [172]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">chi_square_test</span><span class="p">(</span><span class="n">clean_adult</span><span class="p">,</span><span class="s2">&quot;occupation&quot;</span><span class="p">,</span> <span class="s2">&quot;education&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+statistically significant: (&#39;occupation&#39;, &#39;education&#39;)
+p-value is 0.0
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>education</th>
+      <th>10th</th>
+      <th>11th</th>
+      <th>12th</th>
+      <th>1st-4th</th>
+      <th>5th-6th</th>
+      <th>7th-8th</th>
+      <th>9th</th>
+      <th>Assoc-acdm</th>
+      <th>Assoc-voc</th>
+      <th>Bachelors</th>
+      <th>Doctorate</th>
+      <th>HS-grad</th>
+      <th>Masters</th>
+      <th>Preschool</th>
+      <th>Prof-school</th>
+      <th>Some-college</th>
+    </tr>
+    <tr>
+      <th>occupation</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Craft-repair</th>
+      <td>75.813953</td>
+      <td>75.217391</td>
+      <td>68.75</td>
+      <td>51.111111</td>
+      <td>52.564103</td>
+      <td>59.042553</td>
+      <td>75.000000</td>
+      <td>43.181818</td>
+      <td>52.765957</td>
+      <td>12.514221</td>
+      <td>0.655738</td>
+      <td>75.128306</td>
+      <td>2.470588</td>
+      <td>28.571429</td>
+      <td>1.541850</td>
+      <td>58.799172</td>
+    </tr>
+    <tr>
+      <th>Farming-fishing</th>
+      <td>20.000000</td>
+      <td>16.086957</td>
+      <td>20.00</td>
+      <td>40.000000</td>
+      <td>46.153846</td>
+      <td>36.702128</td>
+      <td>22.580645</td>
+      <td>5.303030</td>
+      <td>11.063830</td>
+      <td>4.379977</td>
+      <td>0.327869</td>
+      <td>15.831030</td>
+      <td>1.176471</td>
+      <td>64.285714</td>
+      <td>0.881057</td>
+      <td>12.008282</td>
+    </tr>
+    <tr>
+      <th>Prof-specialty</th>
+      <td>4.186047</td>
+      <td>8.695652</td>
+      <td>11.25</td>
+      <td>8.888889</td>
+      <td>1.282051</td>
+      <td>4.255319</td>
+      <td>2.419355</td>
+      <td>51.515152</td>
+      <td>36.170213</td>
+      <td>83.105802</td>
+      <td>99.016393</td>
+      <td>9.040663</td>
+      <td>96.352941</td>
+      <td>7.142857</td>
+      <td>97.577093</td>
+      <td>29.192547</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>Just as expected!</p>
+<p>Thus, we saw that there is a statistically significant relationship
+between sex and occupation and also between race and occupation, but we
+cannot any causal relationship since education is a confounding
+variable.</p>
+</div>
+<div class="section" id="Obsolete-Pie-Charts">
+<h1>Obsolete Pie Charts<a class="headerlink" href="#Obsolete-Pie-Charts" title="Permalink to this headline">¶</a></h1>
+<p>In the beginning, we decided to visualize using pie charts. However, we
+have been told to never use pie charts, as they are pretty misleading:
+While they are aesthetically pleasing (debatable), it is hard to make
+comparisons because of the proportions and angles. Here is an article
+detailing why pie charts are bad:
+<a class="reference external" href="http://www.businessinsider.com/pie-charts-are-the-worst-2013-6">http://www.businessinsider.com/pie-charts-are-the-worst-2013-6</a></p>
+<p>However, we did not just want to delete all this code and pretend we
+never attempted to make pie charts, so here is all the code that is no
+longer part of our analysis. This also serves as a sanity check for our
+bar charts.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [221]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="n">female</span><span class="p">[</span><span class="s2">&quot;occupation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="n">percents</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">counts</span><span class="o">.</span><span class="n">values</span><span class="o">/</span><span class="n">counts</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">patches</span><span class="p">,</span> <span class="n">texts</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">percents</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">startangle</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;</span><span class="si">{0}</span><span class="s1"> - </span><span class="si">{1:1.2f}</span><span class="s1"> %&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">counts</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">percents</span><span class="p">)]</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">patches</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.24</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
+           <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Female Occupation&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">0.95</span><span class="p">)</span>
+
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="n">male</span><span class="p">[</span><span class="s2">&quot;occupation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="c1">#Drop Armed Forces and append to end so that occupations match</span>
+<span class="n">armed_forces</span> <span class="o">=</span> <span class="n">counts</span><span class="p">[</span><span class="s2">&quot;Armed-Forces&quot;</span><span class="p">]</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;Armed-Forces&quot;</span><span class="p">)</span>
+<span class="n">counts</span><span class="p">[</span><span class="s2">&quot;Armed-Forces&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">armed_forces</span>
+<span class="n">percents</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">counts</span><span class="o">.</span><span class="n">values</span><span class="o">/</span><span class="n">counts</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">patches</span><span class="p">,</span> <span class="n">texts</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">percents</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">startangle</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;</span><span class="si">{0}</span><span class="s1"> - </span><span class="si">{1:1.2f}</span><span class="s1"> %&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">counts</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">percents</span><span class="p">)]</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">patches</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
+           <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Male Occupation&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">0.95</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/demographics-p2_24_0.png" src="_images/demographics-p2_24_0.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [223]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">plot_pie</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">groupby_columns</span><span class="p">,</span> <span class="n">plot_column</span><span class="p">):</span>
+    <span class="n">groups</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">groupby_columns</span><span class="p">)</span>
+    <span class="n">nrows</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">groups</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.0001</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">column</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">unique_values</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">plot_column</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+    <span class="c1">#Get all values which not all groups contain</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">unique_values</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">group</span><span class="p">[</span><span class="n">plot_column</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span>
+                <span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">nrows</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">column</span><span class="p">]</span>
+        <span class="n">counts</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="n">plot_column</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+        <span class="c1">#Drop values which not all groups contain and append to end so that occupations match</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">counts</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+                <span class="n">dropped_value</span> <span class="o">=</span> <span class="n">counts</span><span class="p">[</span><span class="n">value</span><span class="p">]</span>
+                <span class="n">counts</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                <span class="n">counts</span><span class="p">[</span><span class="n">value</span><span class="p">]</span> <span class="o">=</span> <span class="n">dropped_value</span>
+        <span class="n">percents</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">counts</span><span class="o">.</span><span class="n">values</span><span class="o">/</span><span class="n">counts</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">patches</span><span class="p">,</span> <span class="n">texts</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">percents</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">startangle</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;</span><span class="si">{0}</span><span class="s1"> - </span><span class="si">{1:1.2f}</span><span class="s1"> %&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">counts</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">percents</span><span class="p">)]</span>
+        <span class="k">if</span> <span class="n">column</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">patches</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">ncol</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+                       <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">patches</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">ncol</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+                       <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">plot_column</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">0.95</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+
+        <span class="c1">#if column = 0, then it is next 1. If column = 1, then it is next 0</span>
+        <span class="n">column</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">column</span>
+        <span class="c1">#move on to next row</span>
+        <span class="k">if</span> <span class="n">column</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">row</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="c1">#if odd number of plots, hide last axis</span>
+    <span class="k">if</span> <span class="n">column</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">axes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="c1">#     fig.savefig(&quot;fig/&quot; + plot_column + &quot;_by_&quot; + &quot;&quot;.join(groupby_columns) + &quot;.png&quot;, bbox_inches=&#39;tight&#39;)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [224]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">plot_pie</span><span class="p">(</span><span class="n">clean_adult</span><span class="p">,</span> <span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="s2">&quot;occupation&quot;</span><span class="p">)</span> <span class="c1">#Same as above</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/demographics-p2_26_0.png" src="_images/demographics-p2_26_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [225]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">plot_pie</span><span class="p">(</span><span class="n">clean_adult</span><span class="p">,</span> <span class="s2">&quot;race&quot;</span><span class="p">,</span> <span class="s2">&quot;occupation&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/demographics-p2_27_0.png" src="_images/demographics-p2_27_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [226]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">plot_pie</span><span class="p">(</span><span class="n">clean_adult</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;race&quot;</span><span class="p">,</span> <span class="s2">&quot;sex&quot;</span><span class="p">],</span> <span class="s2">&quot;occupation&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/demographics-p2_28_0.png" src="_images/demographics-p2_28_0.png" />
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">p3</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Aaron Ou.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/demographics-p2.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

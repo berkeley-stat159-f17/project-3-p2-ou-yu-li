@@ -1,0 +1,739 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sex, Race, and Education &#8212; p3 1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+</style>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [75]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">shelve</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">combinations</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn-dark&#39;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [76]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">clean_adult</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_hdf</span><span class="p">(</span><span class="s1">&#39;results/df1.h5&#39;</span><span class="p">,</span> <span class="s1">&#39;clean_adult/&#39;</span><span class="p">)</span>
+<span class="n">clean_adult</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[76]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>workclass</th>
+      <th>fnlwgt</th>
+      <th>education</th>
+      <th>education.num</th>
+      <th>marital.status</th>
+      <th>occupation</th>
+      <th>relationship</th>
+      <th>race</th>
+      <th>sex</th>
+      <th>capital.gain</th>
+      <th>capital.loss</th>
+      <th>hours.per.week</th>
+      <th>native.country</th>
+      <th>income</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>82</td>
+      <td>Private</td>
+      <td>132870</td>
+      <td>HS-grad</td>
+      <td>9</td>
+      <td>Widowed</td>
+      <td>Exec-managerial</td>
+      <td>Not-in-family</td>
+      <td>White</td>
+      <td>Female</td>
+      <td>0</td>
+      <td>4356</td>
+      <td>18</td>
+      <td>United-States</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>54</td>
+      <td>Private</td>
+      <td>140359</td>
+      <td>7th-8th</td>
+      <td>4</td>
+      <td>Divorced</td>
+      <td>Machine-op-inspct</td>
+      <td>Unmarried</td>
+      <td>White</td>
+      <td>Female</td>
+      <td>0</td>
+      <td>3900</td>
+      <td>40</td>
+      <td>United-States</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>41</td>
+      <td>Private</td>
+      <td>264663</td>
+      <td>Some-college</td>
+      <td>10</td>
+      <td>Separated</td>
+      <td>Prof-specialty</td>
+      <td>Own-child</td>
+      <td>White</td>
+      <td>Female</td>
+      <td>0</td>
+      <td>3900</td>
+      <td>40</td>
+      <td>United-States</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>34</td>
+      <td>Private</td>
+      <td>216864</td>
+      <td>HS-grad</td>
+      <td>9</td>
+      <td>Divorced</td>
+      <td>Other-service</td>
+      <td>Unmarried</td>
+      <td>White</td>
+      <td>Female</td>
+      <td>0</td>
+      <td>3770</td>
+      <td>45</td>
+      <td>United-States</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>38</td>
+      <td>Private</td>
+      <td>150601</td>
+      <td>10th</td>
+      <td>6</td>
+      <td>Separated</td>
+      <td>Adm-clerical</td>
+      <td>Unmarried</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>0</td>
+      <td>3770</td>
+      <td>40</td>
+      <td>United-States</td>
+      <td>&lt;=50K</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="section" id="Sex,-Race,-and-Education">
+<h1>Sex, Race, and Education<a class="headerlink" href="#Sex,-Race,-and-Education" title="Permalink to this headline">¶</a></h1>
+<p>Is there a relationship between sex/race and education? Let’s take a
+closer look.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [135]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;education.num&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">clean_adult</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;muted&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Years of Education since 4th Grade vs. Sex&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;fig/education_sex.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/demographics-p3_3_0.png" src="_images/demographics-p3_3_0.png" />
+</div>
+</div>
+<p>Wow! They look quite similar, with the same mean of education.num = 10
+years, although it seems that males finish college more often
+(education.num = 13 years).</p>
+<p>What about race?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [136]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;race&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;education.num&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">clean_adult</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;muted&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Years of Education since 4th Grade vs Race&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;fig/education_race.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/demographics-p3_5_0.png" src="_images/demographics-p3_5_0.png" />
+</div>
+</div>
+<p>Some observations are: * Black, Native American/Eskimo, and Other
+groups have a high variance and low mean compared to the White and
+Asian/Pacific Islander groups. This is not surprising. Unfortunately not
+much has changed since 1994. * The Asian/Pacific Islander group has the
+highest mean education. This reflects both the fact that immigrants in
+this group tend to have a high education and also the culture valuing
+education by this group.</p>
+<p>Now it’s time to some hypothesis testing. We want to see if there is a
+difference in education between groups. For this case we will use the
+two sample t-test. The conditions for the test are: * The sampling
+method for each sample is simple random sampling. * The samples are
+independent. * Each population is at least 20 times larger than its
+respective sample. * The sampling distribution is approximately normal.</p>
+<p>We have no reason to believe that these assumptions are not met.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [124]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">two_sample_t_test</span><span class="p">(</span><span class="n">group1</span><span class="p">,</span> <span class="n">group2</span><span class="p">,</span> <span class="n">group1_name</span><span class="p">,</span> <span class="n">group2_name</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Performs a two-sided two sample t-test to see if there is a difference in mean between</span>
+<span class="sd">    the value of two groups.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    group1: Data for the first group. Can be list or array</span>
+<span class="sd">    group2: Data for the second group. Can be list or array</span>
+<span class="sd">    group1_name: Name of first group</span>
+<span class="sd">    group2_name: Name of second group</span>
+<span class="sd">    alpha: Significance level, default of 0.05 (Although this is very arbitrary as we saw in this class)</span>
+
+
+<span class="sd">    Return</span>
+<span class="sd">    ------</span>
+<span class="sd">    (t, p, reject)</span>
+<span class="sd">    t: the t-statistic</span>
+<span class="sd">    p: the p-value</span>
+<span class="sd">    reject: whether we reject the null hypothesis</span>
+
+<span class="sd">    Example</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    &gt;&gt;&gt; group1 = [1, 2, 3]</span>
+<span class="sd">    ... group2 = [1, 2, 3]</span>
+<span class="sd">    ... two_sample_t_test(group1, group2, &quot;group1&quot;, &quot;group2&quot;)</span>
+<span class="sd">    There is no statistically significant difference between Group group1 and Group group2</span>
+<span class="sd">    (0.0, 1.0)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">n1</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">group1</span><span class="p">)</span>
+    <span class="n">n2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">group2</span><span class="p">)</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">n1</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">n2</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">s12</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">group1</span><span class="p">)</span>
+    <span class="n">s22</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">group2</span><span class="p">)</span>
+    <span class="n">m1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">group1</span><span class="p">)</span>
+    <span class="n">m2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">group2</span><span class="p">)</span>
+    <span class="n">se</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">s12</span><span class="o">/</span><span class="n">n1</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">s22</span><span class="o">/</span><span class="n">n2</span><span class="p">))</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">s12</span><span class="o">/</span><span class="n">n1</span> <span class="o">+</span> <span class="n">s22</span><span class="o">/</span><span class="n">n2</span><span class="p">)</span> <span class="o">/</span> <span class="p">((</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">s12</span> <span class="o">/</span> <span class="n">n1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">s22</span> <span class="o">/</span> <span class="n">n2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="p">((</span><span class="n">m1</span> <span class="o">-</span> <span class="n">m2</span><span class="p">))</span> <span class="o">/</span> <span class="n">se</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">df</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">p</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The mean difference is statistically significant for Group &quot;</span>  <span class="o">+</span> <span class="n">group1_name</span> <span class="o">+</span><span class="s2">&quot; and Group &quot;</span> <span class="o">+</span> <span class="n">group2_name</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;p-value is &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There is no statistically significant difference between Group &quot;</span> <span class="o">+</span> <span class="n">group1_name</span> <span class="o">+</span><span class="s2">&quot; and Group &quot;</span> <span class="o">+</span> <span class="n">group2_name</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [125]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">male</span> <span class="o">=</span> <span class="n">clean_adult</span><span class="p">[</span><span class="n">clean_adult</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Male&quot;</span><span class="p">]</span>
+<span class="n">female</span> <span class="o">=</span> <span class="n">clean_adult</span><span class="p">[</span><span class="n">clean_adult</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Female&quot;</span><span class="p">]</span>
+<span class="n">t</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">reject</span> <span class="o">=</span> <span class="n">two_sample_t_test</span><span class="p">(</span><span class="n">male</span><span class="p">[</span><span class="s2">&quot;education.num&quot;</span><span class="p">],</span> <span class="n">female</span><span class="p">[</span><span class="s2">&quot;education.num&quot;</span><span class="p">],</span> <span class="s2">&quot;Male&quot;</span><span class="p">,</span> <span class="s2">&quot;Female&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+There is no statistically significant difference between Group Male and Group Female
+</pre></div></div>
+</div>
+<p>As expected from looking at the box plot, males and females do not have
+statistically different years of education.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [126]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">races</span> <span class="o">=</span> <span class="n">clean_adult</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;race&quot;</span><span class="p">)</span>
+<span class="n">pairs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">comb</span><span class="p">))</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">comb</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="n">races</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="mi">2</span><span class="p">)]</span>
+<span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">:</span>
+    <span class="n">race1_name</span> <span class="o">=</span> <span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">race2_name</span> <span class="o">=</span> <span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">race1</span> <span class="o">=</span> <span class="n">races</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">race2</span> <span class="o">=</span> <span class="n">races</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">two_sample_t_test</span><span class="p">(</span><span class="n">race1</span><span class="p">[</span><span class="s2">&quot;education.num&quot;</span><span class="p">],</span> <span class="n">race2</span><span class="p">[</span><span class="s2">&quot;education.num&quot;</span><span class="p">],</span> <span class="n">race1_name</span><span class="p">,</span> <span class="n">race2_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The mean difference is statistically significant for Group Amer-Indian-Eskimo and Group Asian-Pac-Islander
+p-value is 3.13492993644e-23
+
+There is no statistically significant difference between Group Amer-Indian-Eskimo and Group Black
+The mean difference is statistically significant for Group Amer-Indian-Eskimo and Group Other
+p-value is 0.00709780510747
+
+The mean difference is statistically significant for Group Amer-Indian-Eskimo and Group White
+p-value is 1.80818942375e-09
+
+The mean difference is statistically significant for Group Asian-Pac-Islander and Group Black
+p-value is 5.2608000932e-44
+
+The mean difference is statistically significant for Group Asian-Pac-Islander and Group Other
+p-value is 3.88949414009e-21
+
+The mean difference is statistically significant for Group Asian-Pac-Islander and Group White
+p-value is 2.62019447341e-18
+
+The mean difference is statistically significant for Group Black and Group Other
+p-value is 0.000111081299559
+
+The mean difference is statistically significant for Group Black and Group White
+p-value is 3.96999641859e-44
+
+The mean difference is statistically significant for Group Other and Group White
+p-value is 2.15918354415e-11
+
+</pre></div></div>
+</div>
+<p>The results match with looking at the box plots again: The only
+non-statistically significant difference is the Black group and the
+Native American/Eskimo group.</p>
+<p>Thus, we saw that there is a relationship between education and race,
+but not a relationship between education and sex.</p>
+</div>
+<div class="section" id="Testing-Section">
+<h1>Testing Section<a class="headerlink" href="#Testing-Section" title="Permalink to this headline">¶</a></h1>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [106]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">unittest</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [133]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="k">class</span> <span class="nc">MyTests</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_same_population</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">group1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+        <span class="n">group2</span> <span class="o">=</span> <span class="n">group1</span>
+        <span class="n">t</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">reject</span> <span class="o">=</span> <span class="n">two_sample_t_test</span><span class="p">(</span><span class="n">group1</span><span class="p">,</span> <span class="n">group2</span><span class="p">,</span> <span class="s2">&quot;group1&quot;</span><span class="p">,</span> <span class="s2">&quot;group2&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="ow">not</span> <span class="n">reject</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">test_obvious_difference</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">group1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+        <span class="n">group2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1001</span><span class="p">,</span> <span class="mi">1001</span><span class="p">]</span>
+        <span class="n">t</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">reject</span> <span class="o">=</span> <span class="n">two_sample_t_test</span><span class="p">(</span><span class="n">group1</span><span class="p">,</span> <span class="n">group2</span><span class="p">,</span> <span class="s2">&quot;group1&quot;</span><span class="p">,</span> <span class="s2">&quot;group2&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">reject</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">test_significance_level</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">t</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">reject</span> <span class="o">=</span> <span class="n">two_sample_t_test</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="s2">&quot;group1&quot;</span><span class="p">,</span> <span class="s2">&quot;group2&quot;</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">places</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">reject</span><span class="p">)</span>
+        <span class="n">t</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">reject</span> <span class="o">=</span> <span class="n">two_sample_t_test</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="s2">&quot;group1&quot;</span><span class="p">,</span> <span class="s2">&quot;group2&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">places</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="ow">not</span> <span class="n">reject</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">test_same_population_different_order</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">group1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+        <span class="n">group2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">t</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">reject</span> <span class="o">=</span> <span class="n">two_sample_t_test</span><span class="p">(</span><span class="n">group1</span><span class="p">,</span> <span class="n">group2</span><span class="p">,</span> <span class="s2">&quot;group1&quot;</span><span class="p">,</span> <span class="s2">&quot;group2&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [134]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">argv</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;foo&quot;</span><span class="p">],</span> <span class="n">exit</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">verbosity</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="stderr output_area docutils container">
+<div class="highlight"><pre>
+test_obvious_difference (__main__.MyTests) ... ok
+test_same_population (__main__.MyTests) ... ok
+test_same_population_different_order (__main__.MyTests) ... ok
+test_significance_level (__main__.MyTests) ...
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The mean difference is statistically significant for Group group1 and Group group2
+p-value is 3.57106662485e-10
+
+There is no statistically significant difference between Group group1 and Group group2
+There is no statistically significant difference between Group group1 and Group group2
+The mean difference is statistically significant for Group group1 and Group group2
+p-value is 0.0954659662667
+
+There is no statistically significant difference between Group group1 and Group group2
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="stderr output_area docutils container">
+<div class="highlight"><pre>
+ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.014s
+
+OK
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[134]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&lt;unittest.main.TestProgram at 0x2575864b9b0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">p3</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Aaron Ou.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/demographics-p3.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
