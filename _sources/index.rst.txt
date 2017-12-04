@@ -9,9 +9,8 @@ Members: Aaron Ou, Julien Yu, Brian Lin
    :caption: Analysis:
 
    main.ipynb
-   by topic:
-   1. demographics-p1.ipynb
-   2. demographics-p2.ipynb
-   3. demographics-p3.ipynb
-   4. demographics-p4.ipynb
+   demographics-p1.ipynb
+   demographics-p2.ipynb
+   demographics-p3.ipynb
+   demographics-p4.ipynb
    proposal.md
