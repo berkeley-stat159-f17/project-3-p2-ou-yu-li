@@ -2,6 +2,8 @@
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/berkeley-stat159-f17/project-3-p2-ou-yu-li/master?filepath=demographics-p1.ipynb)
 
+[![Build Status](https://travis-ci.org/berkeley-stat159-f17/project-3-p2-ou-yu-li.svg?branch=master)](https://travis-ci.org/berkeley-stat159-f17/project-3-p2-ou-yu-li)
+
 **Team**: project-3-p2-ou-yu-li
 
 **Members**: Aaron Ou, Julien Yu, Brian Lin
