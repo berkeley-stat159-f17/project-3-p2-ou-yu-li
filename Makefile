@@ -1,6 +1,8 @@
 # Minimal makefile for Sphinx documentation
 #
 
+IPYNB_FILES=$(wildcard demographics-p*.ipynb)
+
 # You can set these variables from the command line.
 SPHINXOPTS    =
 SPHINXBUILD   = python -msphinx
@@ -26,3 +28,17 @@ github: html
 	git push -u origin gh-pages
 	@echo
 	@echo "Published to Github"
+
+
+.PHONY : env
+env: environment.yml
+	conda env create -f environment.yml
+
+.PHONY: all
+all: $(IPYNB_FILES)
+	jupyter nbconvert --ExecutePreprocessor.timeout=-1 --inplace --execute demographics-p1.ipynb
+	jupyter nbconvert --ExecutePreprocessor.timeout=-1 --inplace --execute demographics-p2.ipynb
+	jupyter nbconvert --ExecutePreprocessor.timeout=-1 --inplace --execute demographics-p3.ipynb
+	jupyter nbconvert --ExecutePreprocessor.timeout=-1 --inplace --execute demographics-p4.ipynb
+	jupyter nbconvert --ExecutePreprocessor.timeout=-1 --inplace --execute demographics-p5.ipynb
+	jupyter nbconvert --ExecutePreprocessor.timeout=-1 --inplace --execute main.ipynb
