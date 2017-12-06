@@ -387,7 +387,6 @@ different occupations. We will first look at sex.</p>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">female</span> <span class="o">=</span> <span class="n">clean_adult</span><span class="p">[</span><span class="n">clean_adult</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Female&quot;</span><span class="p">]</span>
 <span class="n">male</span> <span class="o">=</span> <span class="n">clean_adult</span><span class="p">[</span><span class="n">clean_adult</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Male&quot;</span><span class="p">]</span>
-
 </pre></div>
 </div>
 </div>
@@ -457,7 +456,7 @@ Name: occupation, dtype: int64
 
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">((</span><span class="n">p1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p2</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="p">(</span><span class="s1">&#39;Male&#39;</span><span class="p">,</span> <span class="s1">&#39;Female&#39;</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;fig/Occupation_by_Sex.png&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;fig/occupation_by_sex.png&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -517,7 +516,7 @@ different plots because the y-scale is different.)</p>
 <span class="k">if</span> <span class="n">column</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
     <span class="n">axes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;Occupation_by_Race&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;fig/occupation_by_race&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -596,13 +595,11 @@ such as education.</p>
 <span class="sd">    array([0])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-
     <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
         <span class="k">if</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">row</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span>
             <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
-
 </pre></div>
 </div>
 </div>
@@ -791,7 +788,7 @@ p-value is 0.0
 </div>
 <p>There is a clear association between sex and occupation. As mentioned
 before, it seems like females are more likely to be in Administrative
-clerical and other services not explictly stated, while males are more
+clerical and other services not explicitly stated, while males are more
 likely to be in craft repair, handling/cleaning, farming/fishing, and
 transport. There does seem to be a difference in executive managerial
 roles, but it does not seem like the difference is huge.</p>
@@ -2575,13 +2572,14 @@ bar charts.</p>
 
 
 <h3>Navigation</h3>
-<p class="caption"><span class="caption-text">Analysis:</span></p>
+<p class="caption"><span class="caption-text">An analysis of demographics information, 1994:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="main.html">Main Notebook - Summary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demographics-p1.html">1. Cleaning the Data</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">2. Sex, Race, and Occupation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demographics-p3.html">3. Sex, Race, and Education</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demographics-p4.html">4. Age, Hours Per Week, and Education</a></li>
-<li class="toctree-l1"><a class="reference internal" href="proposal.html">Dataset and proposal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demographics-p5.html">5. Logistic regression analysis</a></li>
 </ul>
 
 <div class="relations">

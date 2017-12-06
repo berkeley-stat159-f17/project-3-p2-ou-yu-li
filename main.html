@@ -1,0 +1,1050 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Main Notebook - Summary &#8212; p3 1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. Cleaning the Data" href="demographics-p1.html" />
+    <link rel="prev" title="Stat 159 - Project 3" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+</style>
+<div class="section" id="Main-Notebook---Summary">
+<h1>Main Notebook - Summary<a class="headerlink" href="#Main-Notebook---Summary" title="Permalink to this headline">¶</a></h1>
+<p>An analysis of demographics information, 1994</p>
+<p><strong>Authors:</strong> Aaron Ou, Brian Lin, Julien Yu</p>
+<p><strong>0. Abstract</strong></p>
+<p>The dataset we work on is named <code class="docutils literal"><span class="pre">adult.csv</span></code> (1994, UC Irvine Machine
+Learning Repository), which consists of the demographic information
+(i.e.&nbsp;age, work class, education, race, sex, etc.) about adults with an
+occupation. We also aim to forecast whether or not an individual makes
+more than $50 thousand dollars per year from the rest of his or her
+demographic information.</p>
+<p>We chose this dataset because while many papers have cited this data
+set, they have mostly been done in a machine learning context of
+attempting to increase the classification accuracy of whether an
+individual makes more than $50 thousand dollars per year. There has been
+no study done to actually look into <strong>the relationship between different
+explanatory variables</strong>. For example, does one’s gender affect how many
+years of education they obtain? What about one’s race? These questions
+are essential, not only to understand the American society of 20 years
+ago, but also to understand that of today.</p>
+<p><strong>1. Data Cleaning and Overview of Dataset</strong></p>
+<p>The dataset comprises the demographic information about 32561
+individuals (rows), each of which is characterized by 15 different
+attributes (columns) including age, work class, education, race, sex,
+etc. Missing values in workclass, occupation, and native country exist
+in 2399 rows. After removing all rows with missing information, we
+derive and utilize a <strong>cleaned dataset</strong>, whose summary statistics
+changes little from the raw dataset.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">adult</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_hdf</span><span class="p">(</span><span class="s1">&#39;results/df1.h5&#39;</span><span class="p">,</span> <span class="s1">&#39;adult&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Raw Dataset&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">adult</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Cleaned Dataset&quot;</span><span class="p">)</span>
+<span class="n">clean_adult</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_hdf</span><span class="p">(</span><span class="s1">&#39;results/df1.h5&#39;</span><span class="p">,</span> <span class="s1">&#39;clean_adult&#39;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">clean_adult</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Raw Dataset
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>fnlwgt</th>
+      <th>education.num</th>
+      <th>capital.gain</th>
+      <th>capital.loss</th>
+      <th>hours.per.week</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>32561.000000</td>
+      <td>3.256100e+04</td>
+      <td>32561.000000</td>
+      <td>32561.000000</td>
+      <td>32561.000000</td>
+      <td>32561.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>38.581647</td>
+      <td>1.897784e+05</td>
+      <td>10.080679</td>
+      <td>1077.648844</td>
+      <td>87.303830</td>
+      <td>40.437456</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>13.640433</td>
+      <td>1.055500e+05</td>
+      <td>2.572720</td>
+      <td>7385.292085</td>
+      <td>402.960219</td>
+      <td>12.347429</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>17.000000</td>
+      <td>1.228500e+04</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>28.000000</td>
+      <td>1.178270e+05</td>
+      <td>9.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>40.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>37.000000</td>
+      <td>1.783560e+05</td>
+      <td>10.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>40.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>48.000000</td>
+      <td>2.370510e+05</td>
+      <td>12.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>45.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>90.000000</td>
+      <td>1.484705e+06</td>
+      <td>16.000000</td>
+      <td>99999.000000</td>
+      <td>4356.000000</td>
+      <td>99.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+Cleaned Dataset
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>fnlwgt</th>
+      <th>education.num</th>
+      <th>capital.gain</th>
+      <th>capital.loss</th>
+      <th>hours.per.week</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>30162.000000</td>
+      <td>3.016200e+04</td>
+      <td>30162.000000</td>
+      <td>30162.000000</td>
+      <td>30162.000000</td>
+      <td>30162.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>38.437902</td>
+      <td>1.897938e+05</td>
+      <td>10.121312</td>
+      <td>1092.007858</td>
+      <td>88.372489</td>
+      <td>40.931238</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>13.134665</td>
+      <td>1.056530e+05</td>
+      <td>2.549995</td>
+      <td>7406.346497</td>
+      <td>404.298370</td>
+      <td>11.979984</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>17.000000</td>
+      <td>1.376900e+04</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>28.000000</td>
+      <td>1.176272e+05</td>
+      <td>9.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>40.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>37.000000</td>
+      <td>1.784250e+05</td>
+      <td>10.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>40.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>47.000000</td>
+      <td>2.376285e+05</td>
+      <td>13.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>45.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>90.000000</td>
+      <td>1.484705e+06</td>
+      <td>16.000000</td>
+      <td>99999.000000</td>
+      <td>4356.000000</td>
+      <td>99.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>A couple of initial observations of the dataset are listed as follow: *
+The age distribution of the cleaned dataset is <strong>skewed to the right</strong>.
+Our explanation is that children do not have occupations and that people
+leave their occupations at a certain age (i.e.&nbsp;60-70 yrs old). * The
+“years of education (since 4th grade)” distribution has <strong>2 peaks</strong>,
+which denote that the individual finishes his or her high school and
+college education, respectively. Relatively few people in the cleaned
+dataset have an education level that is lower than high school or higher
+than college (i.e.&nbsp;Master, PhD). Back in 1994, graduate schools have not
+yet become prevalent, while most people have had the chance to graduate
+from high school. * About <strong>one half</strong> of individuals in the cleaned
+dataset were married, about one third had never been married. This would
+by no means embody that one third of the Americans never get married, in
+that most of the data were from people in their 20s and 30s. It is
+reasonable that they first had an occupation and then got married. *
+About 85% of individuals in the cleaned dataset self-identified as
+White. It is likely that the <strong>85%</strong> includes Hispanics too. This gives
+us a striking evidence that in 1994, there were far less immigrants than
+there are today in the United States. In a 2010 census (on Wikipedia),
+around 72.4% of the US population are white. * About <strong>two thirds</strong> of
+individuals in the cleaned dataset were male, while the other one third
+were female. Our explanation is that in 1994, female labor participation
+was still much lower than that of today. Now around 47 percent of labor
+force in the US is female. * Conclusion: the graphs below show us the
+univariate distributions of labor frequency with respect to age,
+education background, marital status, ethnicity and sex. The labor
+statistics of sex and ethnicity, in particular, are quite different from
+those of today given that the US is becoming more inclusive.</p>
+<div class="figure" id="id1">
+<img alt="title" src="_images/columns.png" />
+<p class="caption"><span class="caption-text">title</span></p>
+</div>
+<p><strong>2. Analysis of Sex/Race versus Occupation</strong></p>
+<p>The second notebook mainly explores the pairwise relationship between
+sex (or race) and occupation. Bar charts are used for this section of
+our analysis, in that sex, race and occupation are all qualitatively
+defined.</p>
+<p>The following graph shows the comparative distribution of occupations
+between males and females. A few gaps (when male/female scores a
+percentage that <strong>at least doubles</strong> that of the other sex) are recorded
+as follow: * Males are much more likely to engage in craft repair
+(i.e.&nbsp;auto mechanic), handling/cleaning (i.e.&nbsp;street cleaner),
+farming/fishing (i.e.&nbsp;farmer), protective services (i.e.&nbsp;guard),
+transport (i.e.&nbsp;bus driver), and armed force (i.e.&nbsp;soldier). From these
+results, males engage more in professions that require <strong>body strength
+and mechanical skills</strong>, which makes intuitive sense.</p>
+<ul class="simple">
+<li>Females are much more likely than males to engage in administrative
+clerical roles (i.e.&nbsp;secretary), private house services
+(i.e.&nbsp;housekeeper), and other services that are not explicitly stated
+(i.e.&nbsp;waitress). From these results, females engage more in
+professions that require <strong>care and attentiveness</strong>, which also makes
+intuitive sense.</li>
+<li>Other occupations, such as executive managerial roles (i.e.&nbsp;CEO),
+professions with specialty (i.e.&nbsp;hairdresser), technical supports
+(i.e.&nbsp;AT&amp;T worker) and sales (i.e.&nbsp;salesman), have close percentages
+of males and females.</li>
+</ul>
+<div class="figure" id="id2">
+<img alt="title" src="_images/occupation_by_sex.png" />
+<p class="caption"><span class="caption-text">title</span></p>
+</div>
+<p>We then compare the occupation distributions by race. Given that
+multiple ethnicities are recorded in the cleaned dataset, we show the
+different distribution patterns (of different ethnicities) in a graph of
+5 subplots. Some observations are as follow: * Around 15% of the
+individuals identified as White and Asian/Pacific Islander have
+<strong>executive/managerial roles</strong>, while this percentage of other ethnic
+groups is significantly lower. These two groups may possess better
+opportunities than other groups, or it may show an inherent <strong>bias of
+society</strong>. More detailed study needs to be conducted to vindicate or to
+refute this observation. * For the Black group, <strong>other services</strong> and
+<strong>administrative clerical roles</strong> are almost twice as frequent as other
+occupations, while for the White group, the occupation distribution
+spreads nicely across different categories. This, again, may show the
+inherent bias of society mentioned above. * The most common occupation
+for the Asian/Pacific Islander group is “<strong>professions with
+specialty</strong>”. This can be reflective of the fact that immigrants from
+this ethnic group often come to the US with a specialty, and that the
+Amercian society is more willing to accept Asian immigrants with a
+technical skill. * The most common occupation for the
+Amer/Indian/Eskimo group is <strong>craft repair</strong>. Individuals from this
+ethnic group are likely to be talented craft makers. * The
+<strong>armed-forces</strong> occupation has a very small sample. This is probably
+because it does not really count as an occupation and there are a few
+exceptions. In the cleaned dataset, no one from the Asian or the “Other
+race” ethnic group falls into the “armed-forces” category, in that they
+were likely to serve as new immigrants back in 1994.</p>
+<p>To determine whether there is an association between two categorical
+variables, we are applying the <strong>Chi-Square Test of Independence</strong>. The
+test procedure is considered appropriate only when the expected
+frequency count for each cell of the contingency table is at least 5,
+and there are some occupations (i.e.&nbsp;armed-forces) in which one or more
+sex/ethnic group has no member. Thus, we will have to proceed with
+caution.</p>
+<p>We thereby assert that if the expected frequency count for a cell is
+less than 5, then there is an obvious relationship between the
+categorical variables. We are interested in the pairwise group
+relationships (i.e.&nbsp;white/black, white/asian. etc.), so we run the
+chi-square test for each pair in a group. Still, we cannot say that
+there are causal relationships between sex/race groups and occupations.
+Correlation is not causation, in that there are many confounding
+variables in the dataset, such as education level.</p>
+<p>As supported by the Chi-Square Test below, there is a <strong>clear
+association</strong> between <strong>sex</strong> and <strong>occupation</strong>. For instance, females
+are more likely to be in administrative clerical and other services not
+explicitly stated, while males are more likely to be in craft repair,
+handling/cleaning, farming/fishing, and transport. There is only subtle
+difference in males’ and females’ engagement in executive managerial
+roles.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="o">%</span><span class="k">run</span> -i &#39;functions/find_indices_with_value.py&#39;
+<span class="o">%</span><span class="k">run</span> -i &#39;functions/chi_square_test.py&#39;
+<span class="n">chi_square_test</span><span class="p">(</span><span class="n">clean_adult</span><span class="p">,</span> <span class="s2">&quot;occupation&quot;</span><span class="p">,</span> <span class="s2">&quot;sex&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+statistically significant: (&#39;occupation&#39;, &#39;sex&#39;)
+p-value is 0.0
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sex</th>
+      <th>Female</th>
+      <th>Male</th>
+    </tr>
+    <tr>
+      <th>occupation</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Adm-clerical</th>
+      <td>25.679820</td>
+      <td>5.934907</td>
+    </tr>
+    <tr>
+      <th>Craft-repair</th>
+      <td>2.208137</td>
+      <td>18.722694</td>
+    </tr>
+    <tr>
+      <th>Exec-managerial</th>
+      <td>11.684727</td>
+      <td>13.985568</td>
+    </tr>
+    <tr>
+      <th>Farming-fishing</th>
+      <td>0.664486</td>
+      <td>4.535860</td>
+    </tr>
+    <tr>
+      <th>Handlers-cleaners</th>
+      <td>1.676549</td>
+      <td>5.822002</td>
+    </tr>
+    <tr>
+      <th>Machine-op-inspct</th>
+      <td>5.551012</td>
+      <td>6.985420</td>
+    </tr>
+    <tr>
+      <th>Other-service</th>
+      <td>17.971785</td>
+      <td>7.137598</td>
+    </tr>
+    <tr>
+      <th>Priv-house-serv</th>
+      <td>1.380086</td>
+      <td>0.039272</td>
+    </tr>
+    <tr>
+      <th>Prof-specialty</th>
+      <td>15.242282</td>
+      <td>12.503068</td>
+    </tr>
+    <tr>
+      <th>Protective-serv</th>
+      <td>0.776937</td>
+      <td>2.788277</td>
+    </tr>
+    <tr>
+      <th>Sales</th>
+      <td>12.758127</td>
+      <td>11.467282</td>
+    </tr>
+    <tr>
+      <th>Tech-support</th>
+      <td>3.485995</td>
+      <td>2.803004</td>
+    </tr>
+    <tr>
+      <th>Transport-moving</th>
+      <td>0.920057</td>
+      <td>7.275048</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[2]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>(5711.6103020023511, 0.0, 12, array([[ 1207.13766458,  2513.86233542],
+        [ 1307.38102345,  2722.61897655],
+        [ 1295.05336119,  2696.94663881],
+        [  320.84363082,   668.15636918],
+        [  437.95642225,   912.04357775],
+        [  637.79431566,  1328.20568434],
+        [ 1042.01187278,  2169.98812722],
+        [   46.39093954,    96.60906046],
+        [ 1309.97632076,  2728.02367924],
+        [  208.92143402,   435.07856598],
+        [ 1162.69319802,  2421.30680198],
+        [  295.86389414,   616.13610586],
+        [  509.97592279,  1062.02407721]]))
+</pre></div>
+</div>
+</div>
+<p>Now look into the pairwise occupation comparison of different ethnic
+groups. As supported by the Chi-Square Tests, <strong>all races are
+statistically different from each other</strong> in terms of occupation. * The
+greatest pairwise p-value is around <strong>8e-3 (“Amer-Indian-Eskimo”,
+“Other”)</strong> and the smallest is around <strong>1e-131 (“Black”, “White”)</strong>. *
+The Amer-Indian-Eskimo group and the “other” group have the most alike
+(though not categorically alike) occupations possibly because their
+blood ties are closer than those of any other pairs. * The “1e-131”
+p-value between the White group and the Black group is shocking but not
+surprising. The second smallest p-value, “2e-35”, is between the
+Asian-Pac-Islander group and the Black group. This result, again, may
+serve as another illustration of the inherent bias against Black people.</p>
+<p>With more Chi-Square Tests, we reach a few additional interesting
+results: * In the Chi-Square Test between race and sex, we use a chart
+to denote the male/female proportions of both ethnic groups. The Black
+population differs significantly from other races in that it has a
+<strong>50:50 male to female labor participation ratio</strong>, while for other
+races the ratio is around 60:40 or 70:30. * In the Chi-Square Test
+between occupation and education, the p-value is 0 and it is officially
+proved that education (level) is a confounding factor in our discussion
+of sex/race versus occupation. Hence, <strong>we cannot assert any causality
+between sex (or race) and occupation</strong> due to the existence of
+confounding factor.</p>
+<p><strong>3. Analysis of Sex/Race versus Education</strong></p>
+<p>The third notebook delves deeper into education level, the confounding
+factor in notebook two. We now want to explore the relationship between
+sex (or race) and education. Boxplots are used for this section of our
+analysis, in that education can be quantitatively evaluated with number
+of years.</p>
+<p>The following two graphs show the summary statistics of the education
+level (in number of years) by sex and race, respectively. Our
+observations are as follow:</p>
+<ul class="simple">
+<li>The summary statistics of males’ and females’ education level looks
+quite similar. The only noticeable difference is that males have an
+upper quantile that is one year larger than that of females.</li>
+<li>The summary statistics of different races has more remarkable
+features to be discussed. The White and Asian/Pacific Islander groups
+evidently have greater median and upper quantile than Black, Native
+American/Eskimo, and Other groups. The result is not surprising, and
+not much has changed since 1994 unfortunately.</li>
+<li>The Asian/Pacific Islander group has a high median education level,
+even when compared to the White group. This reflects the fact that
+Asian immigrants, whose culture values education a lot, tend to have
+higher education level than other ethnic groups.</li>
+</ul>
+<div class="figure" id="id3">
+<img alt="title" src="_images/education_sex.png" />
+<p class="caption"><span class="caption-text">title</span></p>
+</div>
+<div class="figure" id="id4">
+<img alt="title" src="_images/education_race.png" />
+<p class="caption"><span class="caption-text">title</span></p>
+</div>
+<p>The <strong>Two Sample t-test</strong> is used in this section to quantatively
+validify our conjectures drawn from the boxplots. Our conclusions are
+printed as the result of the following cell:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">run</span> -i &#39;functions/two_sample_t_test.py&#39;
+<span class="n">male</span> <span class="o">=</span> <span class="n">clean_adult</span><span class="p">[</span><span class="n">clean_adult</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Male&quot;</span><span class="p">]</span>
+<span class="n">female</span> <span class="o">=</span> <span class="n">clean_adult</span><span class="p">[</span><span class="n">clean_adult</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Female&quot;</span><span class="p">]</span>
+<span class="n">t</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">reject</span> <span class="o">=</span> <span class="n">two_sample_t_test</span><span class="p">(</span><span class="n">male</span><span class="p">[</span><span class="s2">&quot;education.num&quot;</span><span class="p">],</span> <span class="n">female</span><span class="p">[</span><span class="s2">&quot;education.num&quot;</span><span class="p">],</span> <span class="s2">&quot;Male&quot;</span><span class="p">,</span> <span class="s2">&quot;Female&quot;</span><span class="p">)</span>
+
+<span class="n">races</span> <span class="o">=</span> <span class="n">clean_adult</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;race&quot;</span><span class="p">)</span>
+<span class="n">pairs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">comb</span><span class="p">))</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">comb</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="n">races</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="mi">2</span><span class="p">)]</span>
+<span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">:</span>
+    <span class="n">race1_name</span> <span class="o">=</span> <span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">race2_name</span> <span class="o">=</span> <span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">race1</span> <span class="o">=</span> <span class="n">races</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">race2</span> <span class="o">=</span> <span class="n">races</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">two_sample_t_test</span><span class="p">(</span><span class="n">race1</span><span class="p">[</span><span class="s2">&quot;education.num&quot;</span><span class="p">],</span> <span class="n">race2</span><span class="p">[</span><span class="s2">&quot;education.num&quot;</span><span class="p">],</span> <span class="n">race1_name</span><span class="p">,</span> <span class="n">race2_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+There is no statistically significant difference between Group Male and Group Female
+
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">~/Documents/p3/functions/two_sample_t_test.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span> races <span class="ansi-blue-fg">=</span> clean_adult<span class="ansi-blue-fg">.</span>groupby<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;race&#34;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">----&gt; 7</span><span class="ansi-red-fg"> </span>pairs <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;,&#34;</span><span class="ansi-blue-fg">.</span>join<span class="ansi-blue-fg">(</span>map<span class="ansi-blue-fg">(</span>str<span class="ansi-blue-fg">,</span> comb<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>split<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;,&#34;</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">for</span> comb <span class="ansi-green-fg">in</span> combinations<span class="ansi-blue-fg">(</span>races<span class="ansi-blue-fg">.</span>groups<span class="ansi-blue-fg">.</span>keys<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">      8</span> <span class="ansi-green-fg">for</span> pair <span class="ansi-green-fg">in</span> pairs<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">      9</span>     race1_name <span class="ansi-blue-fg">=</span> pair<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;combinations&#39; is not defined
+</pre></div></div>
+</div>
+<div class="section" id="4.-Analysis-of-different-variables-and-their-relationships-with-Hours-Per-Week">
+<h2>4. Analysis of different variables and their relationships with Hours Per Week<a class="headerlink" href="#4.-Analysis-of-different-variables-and-their-relationships-with-Hours-Per-Week" title="Permalink to this headline">¶</a></h2>
+<p>The fourth notebook mainly talks about the pairwise relationships
+between a few different attributes (i.e.&nbsp;age, marital status, and
+education) and the number of working hours per week. Regression method
+is used in this section of our analysis, given that we can now display
+two different quantitative variables on a single scatterplot.</p>
+<p>The following scatterplot shows the relationship between age and number
+of working hours per week, which are highly uncorrelated. Intuitively,
+there should be a slightly negative correlation between these two
+variables, given that younger people have the capacity and motivation to
+work longer hours than old people. Moreover, linear regression might not
+be the best regression method in this case. It is probable that there is
+a <strong>downward quadratic relationship</strong>, in which people in their middle
+ages work the hardest. Although in the actual case, the linear
+regression method shows a slightly positive slope which is very
+counterintuitive, we definitely do not consider that the elderly work
+the most.</p>
+<div class="figure" id="id5">
+<img alt="title" src="_images/hours_age.png" />
+<p class="caption"><span class="caption-text">title</span></p>
+</div>
+<p>We also notice that though the average number of working hours in the
+entire cleaned dataset is reasonably 41, some people actually overwork
+(work more than 60 hours a week) a little bit. Hence, we extract the
+information about overworked individuals from the dataset and compare it
+with that of the overall population. Our conclusions are as follow: *
+For the overall dataset, there is a clear disparity in working hours
+among individuals of different marital status. Widowed individuals work
+the fewest number of hours. We thought that married individuals would
+work fewer hours than non-married individuals since these married
+individuals would have family commitments, but the reverse is true. One
+possible explanation is that married individuals should work more to
+support their family. * For the overworked individuals, there is not an
+evident relationship between hours worked and marital status. Those in
+the armed-forces have the highest average working hours, which is not
+surprising. Serving our country is a hard job. * The two sample t-test
+results of different marital are listed comprehensively in notebook 4.
+As can be imagined from the following boxplots, <strong>more</strong> pairwise
+relationships (between different marital status) have <strong>statistically
+significant difference</strong> in the <strong>overall</strong> group than in the
+<strong>overworked</strong> group.</p>
+<div class="figure" id="id6">
+<img alt="title" src="_images/marital_hours.png" />
+<p class="caption"><span class="caption-text">title</span></p>
+</div>
+<p>As supported by the two sample t-tests, average working hours depend a
+lot on <strong>occupations</strong>.</p>
+<p>Overall, it seems like farmers and fishers work the most. This is not
+that surprising: farming and fishing are very hard and take a long time.
+We need to be more appreciative of these occupations for their hardwork.
+On the other hand, other services and private house services work the
+least.</p>
+<p>For overworked individuals, farmers/fishers and armed forces still work
+the most, while transportation/moving, sales, and tech-support also work
+quite a lot.</p>
+<div class="figure" id="id7">
+<img alt="title" src="_images/hours_occupation.png" />
+<p class="caption"><span class="caption-text">title</span></p>
+</div>
+</div>
+<div class="section" id="5.-Forecasting-of-income">
+<h2>5. Forecasting of income<a class="headerlink" href="#5.-Forecasting-of-income" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="Appendix:-Author-Contribution-statement">
+<h2>Appendix: Author Contribution statement<a class="headerlink" href="#Appendix:-Author-Contribution-statement" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="45%" />
+<col width="19%" />
+<col width="19%" />
+<col width="17%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Work</th>
+<th class="head">Brian Lin</th>
+<th class="head">Julien Yu</th>
+<th class="head">Aaron Ou</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Conception of idea</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+<tr class="row-odd"><td>Data finding &amp; cleansing</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+<tr class="row-even"><td>Coding</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+<tr class="row-odd"><td>Analysis of data</td>
+<td>nb1-4</td>
+<td>5&amp;main</td>
+<td>NA</td>
+</tr>
+<tr class="row-even"><td>Summary</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+<tr class="row-odd"><td>Testing</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+</tr>
+<tr class="row-even"><td>Host via Sphinx</td>
+<td>NA</td>
+<td>NA</td>
+<td>Y</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Breakdown of Author Contributions</strong></p>
+<p><code class="docutils literal"><span class="pre">Conception</span> <span class="pre">of</span> <span class="pre">idea</span></code>: Got the idea of exploring the relationships
+between different explanatory variables, using scatterplot, boxplots,
+bar charts and regression methods for different circumstances, etc.</p>
+<p><code class="docutils literal"><span class="pre">Data</span> <span class="pre">finding</span> <span class="pre">&amp;</span> <span class="pre">cleansing</span></code>: Looked for datasets, reached the consensus
+on using the 1994 demographics dataset from UCI, made a cleaned version
+of the dataset.</p>
+<p><code class="docutils literal"><span class="pre">Coding</span></code>: Wrote and ran the codes, generated and saved the graphs.</p>
+<p><code class="docutils literal"><span class="pre">Analysis</span> <span class="pre">of</span> <span class="pre">data</span></code>: Analyzed the numerical and graphic results in
+different notebooks.</p>
+<p><code class="docutils literal"><span class="pre">Summary</span></code>: Contributed to the README file and the main notebook.</p>
+<p><code class="docutils literal"><span class="pre">Testing</span></code>: Wrote and ran the test, tested the validity of codes on
+different computers.</p>
+<p><code class="docutils literal"><span class="pre">Host</span> <span class="pre">via</span> <span class="pre">Sphinx</span></code>: Created and hosted the website.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">p3</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">An analysis of demographics information, 1994:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Main Notebook - Summary</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#4.-Analysis-of-different-variables-and-their-relationships-with-Hours-Per-Week">4. Analysis of different variables and their relationships with Hours Per Week</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#5.-Forecasting-of-income">5. Forecasting of income</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Appendix:-Author-Contribution-statement">Appendix: Author Contribution statement</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="demographics-p1.html">1. Cleaning the Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demographics-p2.html">2. Sex, Race, and Occupation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demographics-p3.html">3. Sex, Race, and Education</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demographics-p4.html">4. Age, Hours Per Week, and Education</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demographics-p5.html">5. Logistic regression analysis</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Stat 159 - Project 3</a></li>
+      <li>Next: <a href="demographics-p1.html" title="next chapter">1. Cleaning the Data</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Aaron Ou.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/main.ipynb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

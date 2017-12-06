@@ -25,7 +25,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="2. Sex, Race, and Occupation" href="demographics-p2.html" />
-    <link rel="prev" title="Stat 159 - Project 3" href="index.html" />
+    <link rel="prev" title="Main Notebook - Summary" href="main.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -750,13 +750,11 @@ information?</p>
 <span class="sd">    array([0])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-
     <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
         <span class="k">if</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">row</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span>
             <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
-
 </pre></div>
 </div>
 </div>
@@ -1194,7 +1192,6 @@ Clean Adult
 <span class="n">clean_white</span> <span class="o">=</span> <span class="p">(</span><span class="n">clean_adult</span><span class="p">[</span><span class="s2">&quot;race&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;White&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Adult White Percentage: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">white</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">white</span><span class="p">)))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Clean Adult White Percentage: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">clean_white</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">clean_white</span><span class="p">)))</span>
-
 </pre></div>
 </div>
 </div>
@@ -1286,7 +1283,6 @@ so.</p>
 
 <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;fig&quot;</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;fig/columns.png&quot;</span><span class="p">)</span>
-
 </pre></div>
 </div>
 </div>
@@ -1299,7 +1295,7 @@ so.</p>
 </div>
 <p>There are a couple of interesting observations: * The distribution of
 ages is skewed to the right, which should not surprise us since as
-indiviudals get older, they leave the labor force. * The years of
+individuals get older, they leave the labor force. * The years of
 educations since 4th grade seem to have 2 peaks, one at 9 and one at 13.
 9 years of education since 4th grade means the individual has graduated
 high school, while 13 years of education since 4th grade means the
@@ -1318,8 +1314,8 @@ of the labor force is female.</p>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;results&quot;</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#Make results directory if it does not exist yet</span>
+<span class="n">adult</span><span class="o">.</span><span class="n">to_hdf</span><span class="p">(</span><span class="s1">&#39;results/df1.h5&#39;</span><span class="p">,</span> <span class="s1">&#39;adult&#39;</span><span class="p">)</span>
 <span class="n">clean_adult</span><span class="o">.</span><span class="n">to_hdf</span><span class="p">(</span><span class="s1">&#39;results/df1.h5&#39;</span><span class="p">,</span> <span class="s1">&#39;clean_adult&#39;</span><span class="p">)</span>
-
 </pre></div>
 </div>
 </div>
@@ -1341,6 +1337,7 @@ of the labor force is female.</p>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
 <span></span><span class="k">class</span> <span class="nc">MyTests</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
     <span class="k">def</span> <span class="nf">test_multiple_missing_indices</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">row0</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;!&quot;</span><span class="p">]</span>
         <span class="n">row1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;3&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;?&quot;</span><span class="p">]</span>
@@ -1349,6 +1346,7 @@ of the labor force is female.</p>
         <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">row0</span><span class="p">,</span> <span class="n">row1</span><span class="p">,</span> <span class="n">row2</span><span class="p">,</span> <span class="n">row3</span><span class="p">])</span>
         <span class="n">missing</span> <span class="o">=</span> <span class="n">find_indices_with_value</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s2">&quot;?&quot;</span><span class="p">)</span>
         <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">missing</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span>
+
     <span class="k">def</span> <span class="nf">test_no_missing_indices</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">row0</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;!&quot;</span><span class="p">]</span>
         <span class="n">row1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;3&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;4&quot;</span><span class="p">]</span>
@@ -1385,14 +1383,11 @@ of the labor force is female.</p>
         <span class="n">missing</span> <span class="o">=</span> <span class="n">find_indices_with_value</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s2">&quot;?&quot;</span><span class="p">)</span>
         <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">missing</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
 
-
     <span class="k">def</span> <span class="nf">test_one_row_df</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">row0</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="s2">&quot;!&quot;</span><span class="p">]</span>
         <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">row0</span><span class="p">])</span>
         <span class="n">missing</span> <span class="o">=</span> <span class="n">find_indices_with_value</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s2">&quot;?&quot;</span><span class="p">)</span>
         <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">missing</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]))</span>
-
-
 </pre></div>
 </div>
 </div>
@@ -1419,7 +1414,7 @@ test_one_missing_index (__main__.MyTests) ... ok
 test_one_row_df (__main__.MyTests) ... ok
 
 ----------------------------------------------------------------------
-Ran 6 tests in 0.044s
+Ran 6 tests in 0.054s
 
 OK
 </pre></div></div>
@@ -1430,7 +1425,7 @@ OK
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>&lt;unittest.main.TestProgram at 0x7fe7ca295e80&gt;
+<span></span>&lt;unittest.main.TestProgram at 0x7f007d90ec50&gt;
 </pre></div>
 </div>
 </div>
@@ -1452,20 +1447,21 @@ OK
 
 
 <h3>Navigation</h3>
-<p class="caption"><span class="caption-text">Analysis:</span></p>
+<p class="caption"><span class="caption-text">An analysis of demographics information, 1994:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="main.html">Main Notebook - Summary</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1. Cleaning the Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demographics-p2.html">2. Sex, Race, and Occupation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demographics-p3.html">3. Sex, Race, and Education</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demographics-p4.html">4. Age, Hours Per Week, and Education</a></li>
-<li class="toctree-l1"><a class="reference internal" href="proposal.html">Dataset and proposal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demographics-p5.html">5. Logistic regression analysis</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="index.html" title="previous chapter">Stat 159 - Project 3</a></li>
+      <li>Previous: <a href="main.html" title="previous chapter">Main Notebook - Summary</a></li>
       <li>Next: <a href="demographics-p2.html" title="next chapter">2. Sex, Race, and Occupation</a></li>
   </ul></li>
 </ul>

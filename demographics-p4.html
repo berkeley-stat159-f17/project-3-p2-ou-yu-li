@@ -24,7 +24,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Proposal" href="proposal.html" />
+    <link rel="next" title="5. Logistic regression analysis" href="demographics-p5.html" />
     <link rel="prev" title="3. Sex, Race, and Education" href="demographics-p3.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -449,7 +449,6 @@ their early 20s.</p>
 <span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;education.num&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">clean_adult</span><span class="p">);</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Years of Education since 4th Grade vs Age&quot;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;fig/education_age.png&quot;</span><span class="p">)</span>
-
 </pre></div>
 </div>
 </div>
@@ -476,7 +475,6 @@ the elderly work the most.</p>
 <span></span><span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;hours.per.week&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">clean_adult</span><span class="p">);</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Hours worked per week vs Age&quot;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;fig/hours_age.png&quot;</span><span class="p">)</span>
-
 </pre></div>
 </div>
 </div>
@@ -684,7 +682,6 @@ overworked individuals.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;fig/marital_hours&quot;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-
 </pre></div>
 </div>
 </div>
@@ -1429,13 +1426,14 @@ p-value is 0.0104266157641
 
 
 <h3>Navigation</h3>
-<p class="caption"><span class="caption-text">Analysis:</span></p>
+<p class="caption"><span class="caption-text">An analysis of demographics information, 1994:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="main.html">Main Notebook - Summary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demographics-p1.html">1. Cleaning the Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demographics-p2.html">2. Sex, Race, and Occupation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demographics-p3.html">3. Sex, Race, and Education</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">4. Age, Hours Per Week, and Education</a></li>
-<li class="toctree-l1"><a class="reference internal" href="proposal.html">Proposal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demographics-p5.html">5. Logistic regression analysis</a></li>
 </ul>
 
 <div class="relations">
@@ -1443,7 +1441,7 @@ p-value is 0.0104266157641
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="demographics-p3.html" title="previous chapter">3. Sex, Race, and Education</a></li>
-      <li>Next: <a href="proposal.html" title="next chapter">Proposal</a></li>
+      <li>Next: <a href="demographics-p5.html" title="next chapter">5. Logistic regression analysis</a></li>
   </ul></li>
 </ul>
 </div>

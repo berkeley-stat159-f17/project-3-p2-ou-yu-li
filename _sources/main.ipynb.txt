@@ -1,0 +1,777 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Main Notebook - Summary"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "An analysis of demographics information, 1994\n",
+    "\n",
+    "**Authors:** Aaron Ou, Brian Lin, Julien Yu"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**0. Abstract**\n",
+    "\n",
+    "The dataset we work on is named `adult.csv` (1994, UC Irvine Machine Learning Repository), which consists of the demographic information (i.e. age, work class, education, race, sex, etc.) about adults with an occupation. We also aim to forecast whether or not an individual makes more than \\$50 thousand dollars per year from the rest of his or her demographic information. \n",
+    "\n",
+    "We chose this dataset because while many papers have cited this data set, they have mostly been done in a machine learning context of attempting to increase the classification accuracy of whether an individual makes more than $50 thousand dollars per year. There has been no study done to actually look into **the relationship between different explanatory variables**. For example, does one's gender affect how many years of education they obtain? What about one's race? These questions are essential, not only to understand the American society of 20 years ago, but also to understand that of today."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**1. Data Cleaning and Overview of Dataset**\n",
+    "\n",
+    "The dataset comprises the demographic information about 32561 individuals (rows), each of which is characterized by 15 different attributes (columns) including age, work class, education, race, sex, etc. Missing values in workclass, occupation, and native country exist in 2399 rows. After removing all rows with missing information, we derive and utilize a **cleaned dataset**, whose summary statistics changes little from the raw dataset. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Raw Dataset\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style>\n",
+       "    .dataframe thead tr:only-child th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: left;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>age</th>\n",
+       "      <th>fnlwgt</th>\n",
+       "      <th>education.num</th>\n",
+       "      <th>capital.gain</th>\n",
+       "      <th>capital.loss</th>\n",
+       "      <th>hours.per.week</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>count</th>\n",
+       "      <td>32561.000000</td>\n",
+       "      <td>3.256100e+04</td>\n",
+       "      <td>32561.000000</td>\n",
+       "      <td>32561.000000</td>\n",
+       "      <td>32561.000000</td>\n",
+       "      <td>32561.000000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>mean</th>\n",
+       "      <td>38.581647</td>\n",
+       "      <td>1.897784e+05</td>\n",
+       "      <td>10.080679</td>\n",
+       "      <td>1077.648844</td>\n",
+       "      <td>87.303830</td>\n",
+       "      <td>40.437456</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>std</th>\n",
+       "      <td>13.640433</td>\n",
+       "      <td>1.055500e+05</td>\n",
+       "      <td>2.572720</td>\n",
+       "      <td>7385.292085</td>\n",
+       "      <td>402.960219</td>\n",
+       "      <td>12.347429</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>min</th>\n",
+       "      <td>17.000000</td>\n",
+       "      <td>1.228500e+04</td>\n",
+       "      <td>1.000000</td>\n",
+       "      <td>0.000000</td>\n",
+       "      <td>0.000000</td>\n",
+       "      <td>1.000000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>25%</th>\n",
+       "      <td>28.000000</td>\n",
+       "      <td>1.178270e+05</td>\n",
+       "      <td>9.000000</td>\n",
+       "      <td>0.000000</td>\n",
+       "      <td>0.000000</td>\n",
+       "      <td>40.000000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>50%</th>\n",
+       "      <td>37.000000</td>\n",
+       "      <td>1.783560e+05</td>\n",
+       "      <td>10.000000</td>\n",
+       "      <td>0.000000</td>\n",
+       "      <td>0.000000</td>\n",
+       "      <td>40.000000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>75%</th>\n",
+       "      <td>48.000000</td>\n",
+       "      <td>2.370510e+05</td>\n",
+       "      <td>12.000000</td>\n",
+       "      <td>0.000000</td>\n",
+       "      <td>0.000000</td>\n",
+       "      <td>45.000000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>max</th>\n",
+       "      <td>90.000000</td>\n",
+       "      <td>1.484705e+06</td>\n",
+       "      <td>16.000000</td>\n",
+       "      <td>99999.000000</td>\n",
+       "      <td>4356.000000</td>\n",
+       "      <td>99.000000</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "                age        fnlwgt  education.num  capital.gain  capital.loss  \\\n",
+       "count  32561.000000  3.256100e+04   32561.000000  32561.000000  32561.000000   \n",
+       "mean      38.581647  1.897784e+05      10.080679   1077.648844     87.303830   \n",
+       "std       13.640433  1.055500e+05       2.572720   7385.292085    402.960219   \n",
+       "min       17.000000  1.228500e+04       1.000000      0.000000      0.000000   \n",
+       "25%       28.000000  1.178270e+05       9.000000      0.000000      0.000000   \n",
+       "50%       37.000000  1.783560e+05      10.000000      0.000000      0.000000   \n",
+       "75%       48.000000  2.370510e+05      12.000000      0.000000      0.000000   \n",
+       "max       90.000000  1.484705e+06      16.000000  99999.000000   4356.000000   \n",
+       "\n",
+       "       hours.per.week  \n",
+       "count    32561.000000  \n",
+       "mean        40.437456  \n",
+       "std         12.347429  \n",
+       "min          1.000000  \n",
+       "25%         40.000000  \n",
+       "50%         40.000000  \n",
+       "75%         45.000000  \n",
+       "max         99.000000  "
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Cleaned Dataset\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style>\n",
+       "    .dataframe thead tr:only-child th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: left;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>age</th>\n",
+       "      <th>fnlwgt</th>\n",
+       "      <th>education.num</th>\n",
+       "      <th>capital.gain</th>\n",
+       "      <th>capital.loss</th>\n",
+       "      <th>hours.per.week</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>count</th>\n",
+       "      <td>30162.000000</td>\n",
+       "      <td>3.016200e+04</td>\n",
+       "      <td>30162.000000</td>\n",
+       "      <td>30162.000000</td>\n",
+       "      <td>30162.000000</td>\n",
+       "      <td>30162.000000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>mean</th>\n",
+       "      <td>38.437902</td>\n",
+       "      <td>1.897938e+05</td>\n",
+       "      <td>10.121312</td>\n",
+       "      <td>1092.007858</td>\n",
+       "      <td>88.372489</td>\n",
+       "      <td>40.931238</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>std</th>\n",
+       "      <td>13.134665</td>\n",
+       "      <td>1.056530e+05</td>\n",
+       "      <td>2.549995</td>\n",
+       "      <td>7406.346497</td>\n",
+       "      <td>404.298370</td>\n",
+       "      <td>11.979984</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>min</th>\n",
+       "      <td>17.000000</td>\n",
+       "      <td>1.376900e+04</td>\n",
+       "      <td>1.000000</td>\n",
+       "      <td>0.000000</td>\n",
+       "      <td>0.000000</td>\n",
+       "      <td>1.000000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>25%</th>\n",
+       "      <td>28.000000</td>\n",
+       "      <td>1.176272e+05</td>\n",
+       "      <td>9.000000</td>\n",
+       "      <td>0.000000</td>\n",
+       "      <td>0.000000</td>\n",
+       "      <td>40.000000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>50%</th>\n",
+       "      <td>37.000000</td>\n",
+       "      <td>1.784250e+05</td>\n",
+       "      <td>10.000000</td>\n",
+       "      <td>0.000000</td>\n",
+       "      <td>0.000000</td>\n",
+       "      <td>40.000000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>75%</th>\n",
+       "      <td>47.000000</td>\n",
+       "      <td>2.376285e+05</td>\n",
+       "      <td>13.000000</td>\n",
+       "      <td>0.000000</td>\n",
+       "      <td>0.000000</td>\n",
+       "      <td>45.000000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>max</th>\n",
+       "      <td>90.000000</td>\n",
+       "      <td>1.484705e+06</td>\n",
+       "      <td>16.000000</td>\n",
+       "      <td>99999.000000</td>\n",
+       "      <td>4356.000000</td>\n",
+       "      <td>99.000000</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "                age        fnlwgt  education.num  capital.gain  capital.loss  \\\n",
+       "count  30162.000000  3.016200e+04   30162.000000  30162.000000  30162.000000   \n",
+       "mean      38.437902  1.897938e+05      10.121312   1092.007858     88.372489   \n",
+       "std       13.134665  1.056530e+05       2.549995   7406.346497    404.298370   \n",
+       "min       17.000000  1.376900e+04       1.000000      0.000000      0.000000   \n",
+       "25%       28.000000  1.176272e+05       9.000000      0.000000      0.000000   \n",
+       "50%       37.000000  1.784250e+05      10.000000      0.000000      0.000000   \n",
+       "75%       47.000000  2.376285e+05      13.000000      0.000000      0.000000   \n",
+       "max       90.000000  1.484705e+06      16.000000  99999.000000   4356.000000   \n",
+       "\n",
+       "       hours.per.week  \n",
+       "count    30162.000000  \n",
+       "mean        40.931238  \n",
+       "std         11.979984  \n",
+       "min          1.000000  \n",
+       "25%         40.000000  \n",
+       "50%         40.000000  \n",
+       "75%         45.000000  \n",
+       "max         99.000000  "
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "adult = pd.read_hdf('results/df1.h5', 'adult')\n",
+    "print(\"Raw Dataset\")\n",
+    "display(adult.describe())\n",
+    "print(\"\\nCleaned Dataset\")\n",
+    "clean_adult = pd.read_hdf('results/df1.h5', 'clean_adult')\n",
+    "display(clean_adult.describe())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "A couple of initial observations of the dataset are listed as follow: \n",
+    "* The age distribution of the cleaned dataset is **skewed to the right**. Our explanation is that children do not have occupations and that people leave their occupations at a certain age (i.e. 60-70 yrs old). \n",
+    "* The \"years of education (since 4th grade)\" distribution has **2 peaks**, which denote that the individual finishes his or her high school and college education, respectively. Relatively few people in the cleaned dataset have an education level that is lower than high school or higher than college (i.e. Master, PhD). Back in 1994, graduate schools have not yet become prevalent, while most people have had the chance to graduate from high school. \n",
+    "* About **one half** of individuals in the cleaned dataset were married, about one third had never been married. This would by no means embody that one third of the Americans never get married, in that most of the data were from people in their 20s and 30s. It is reasonable that they first had an occupation and then got married. \n",
+    "* About 85% of individuals in the cleaned dataset self-identified as White. It is likely that the **85%** includes Hispanics too. This gives us a striking evidence that in 1994, there were far less immigrants than there are today in the United States. In a 2010 census (on Wikipedia), around 72.4% of the US population are white.\n",
+    "* About **two thirds** of individuals in the cleaned dataset were male, while the other one third were female. Our explanation is that in 1994, female labor participation was still much lower than that of today. Now around 47 percent of labor force in the US is female.\n",
+    "* Conclusion: the graphs below show us the univariate distributions of labor frequency with respect to age, education background, marital status, ethnicity and sex. The labor statistics of sex and ethnicity, in particular, are quite different from those of today given that the US is becoming more inclusive."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![title](fig/columns.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**2. Analysis of Sex/Race versus Occupation**\n",
+    "\n",
+    "The second notebook mainly explores the pairwise relationship between sex (or race) and occupation. Bar charts are used for this section of our analysis, in that sex, race and occupation are all qualitatively defined.\n",
+    "\n",
+    "The following graph shows the comparative distribution of occupations between males and females. A few gaps (when male/female scores a percentage that **at least doubles** that of the other sex) are recorded as follow:\n",
+    "* Males are much more likely to engage in craft repair (i.e. auto mechanic), handling/cleaning (i.e. street cleaner), farming/fishing (i.e. farmer), protective services (i.e. guard), transport (i.e. bus driver), and armed force (i.e. soldier). From these results, males engage more in professions that require **body strength and mechanical skills**, which makes intuitive sense.\n",
+    "\n",
+    "* Females are much more likely than males to engage in administrative clerical roles (i.e. secretary), private house services (i.e. housekeeper), and other services that are not explicitly stated (i.e. waitress). From these results, females engage more in professions that require **care and attentiveness**, which also makes intuitive sense.\n",
+    "\n",
+    "* Other occupations, such as executive managerial roles (i.e. CEO), professions with specialty (i.e. hairdresser), technical supports (i.e. AT&T worker) and sales (i.e. salesman), have close percentages of males and females."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![title](fig/occupation_by_sex.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "We then compare the occupation distributions by race. Given that multiple ethnicities are recorded in the cleaned dataset, we show the different distribution patterns (of different ethnicities) in a graph of 5 subplots. Some observations are as follow:\n",
+    "* Around 15% of the individuals identified as White and Asian/Pacific Islander have **executive/managerial roles**, while this percentage of other ethnic groups is significantly lower. These two groups may possess better opportunities than other groups, or it may show an inherent **bias of society**. More detailed study needs to be conducted to vindicate or to refute this observation.\n",
+    "* For the Black group, **other services** and **administrative clerical roles** are almost twice as frequent as other occupations, while for the White group, the occupation distribution spreads nicely across different categories. This, again, may show the inherent bias of society mentioned above.\n",
+    "* The most common occupation for the Asian/Pacific Islander group is \"**professions with specialty**\". This can be reflective of the fact that immigrants from this ethnic group often come to the US with a specialty, and that the Amercian society is more willing to accept Asian immigrants with a technical skill.\n",
+    "* The most common occupation for the Amer/Indian/Eskimo group is **craft repair**. Individuals from this ethnic group are likely to be talented craft makers. \n",
+    "* The **armed-forces** occupation has a very small sample. This is probably because it does not really count as an occupation and there are a few exceptions. In the cleaned dataset, no one from the Asian or the \"Other race\" ethnic group falls into the \"armed-forces\" category, in that they were likely to serve as new immigrants back in 1994."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "To determine whether there is an association between two categorical variables, we are applying the **Chi-Square Test of Independence**. The test procedure is considered appropriate only when the expected frequency count for each cell of the contingency table is at least 5, and there are some occupations (i.e. armed-forces) in which one or more sex/ethnic group has no member. Thus, we will have to proceed with caution. \n",
+    "\n",
+    "We thereby assert that if the expected frequency count for a cell is less than 5, then there is an obvious relationship between the categorical variables. We are interested in the pairwise group relationships (i.e. white/black, white/asian. etc.), so we run the chi-square test for each pair in a group. Still, we cannot say that there are causal relationships between sex/race groups and occupations. Correlation is not causation, in that there are many confounding variables in the dataset, such as education level.\n",
+    "\n",
+    "As supported by the Chi-Square Test below, there is a **clear association** between **sex** and **occupation**. For instance, females are more likely to be in administrative clerical and other services not explicitly stated, while males are more likely to be in craft repair, handling/cleaning, farming/fishing, and transport. There is only subtle difference in males' and females' engagement in executive managerial roles."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "statistically significant: ('occupation', 'sex')\n",
+      "p-value is 0.0\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style>\n",
+       "    .dataframe thead tr:only-child th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: left;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th>sex</th>\n",
+       "      <th>Female</th>\n",
+       "      <th>Male</th>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>occupation</th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>Adm-clerical</th>\n",
+       "      <td>25.679820</td>\n",
+       "      <td>5.934907</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Craft-repair</th>\n",
+       "      <td>2.208137</td>\n",
+       "      <td>18.722694</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Exec-managerial</th>\n",
+       "      <td>11.684727</td>\n",
+       "      <td>13.985568</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Farming-fishing</th>\n",
+       "      <td>0.664486</td>\n",
+       "      <td>4.535860</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Handlers-cleaners</th>\n",
+       "      <td>1.676549</td>\n",
+       "      <td>5.822002</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Machine-op-inspct</th>\n",
+       "      <td>5.551012</td>\n",
+       "      <td>6.985420</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Other-service</th>\n",
+       "      <td>17.971785</td>\n",
+       "      <td>7.137598</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Priv-house-serv</th>\n",
+       "      <td>1.380086</td>\n",
+       "      <td>0.039272</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Prof-specialty</th>\n",
+       "      <td>15.242282</td>\n",
+       "      <td>12.503068</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Protective-serv</th>\n",
+       "      <td>0.776937</td>\n",
+       "      <td>2.788277</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Sales</th>\n",
+       "      <td>12.758127</td>\n",
+       "      <td>11.467282</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Tech-support</th>\n",
+       "      <td>3.485995</td>\n",
+       "      <td>2.803004</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>Transport-moving</th>\n",
+       "      <td>0.920057</td>\n",
+       "      <td>7.275048</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "sex                   Female       Male\n",
+       "occupation                             \n",
+       "Adm-clerical       25.679820   5.934907\n",
+       "Craft-repair        2.208137  18.722694\n",
+       "Exec-managerial    11.684727  13.985568\n",
+       "Farming-fishing     0.664486   4.535860\n",
+       "Handlers-cleaners   1.676549   5.822002\n",
+       "Machine-op-inspct   5.551012   6.985420\n",
+       "Other-service      17.971785   7.137598\n",
+       "Priv-house-serv     1.380086   0.039272\n",
+       "Prof-specialty     15.242282  12.503068\n",
+       "Protective-serv     0.776937   2.788277\n",
+       "Sales              12.758127  11.467282\n",
+       "Tech-support        3.485995   2.803004\n",
+       "Transport-moving    0.920057   7.275048"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/plain": [
+       "(5711.6103020023511, 0.0, 12, array([[ 1207.13766458,  2513.86233542],\n",
+       "        [ 1307.38102345,  2722.61897655],\n",
+       "        [ 1295.05336119,  2696.94663881],\n",
+       "        [  320.84363082,   668.15636918],\n",
+       "        [  437.95642225,   912.04357775],\n",
+       "        [  637.79431566,  1328.20568434],\n",
+       "        [ 1042.01187278,  2169.98812722],\n",
+       "        [   46.39093954,    96.60906046],\n",
+       "        [ 1309.97632076,  2728.02367924],\n",
+       "        [  208.92143402,   435.07856598],\n",
+       "        [ 1162.69319802,  2421.30680198],\n",
+       "        [  295.86389414,   616.13610586],\n",
+       "        [  509.97592279,  1062.02407721]]))"
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import scipy.stats as stats\n",
+    "%run -i 'functions/find_indices_with_value.py'\n",
+    "%run -i 'functions/chi_square_test.py'\n",
+    "chi_square_test(clean_adult, \"occupation\", \"sex\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Now look into the pairwise occupation comparison of different ethnic groups. As supported by the Chi-Square Tests, **all races are statistically different from each other** in terms of occupation. \n",
+    "* The greatest pairwise p-value is around **8e-3 (\"Amer-Indian-Eskimo\", \"Other\")** and the smallest is around **1e-131 (\"Black\", \"White\")**. \n",
+    "* The Amer-Indian-Eskimo group and the \"other\" group have the most alike (though not categorically alike) occupations possibly because their blood ties are closer than those of any other pairs. \n",
+    "* The \"1e-131\" p-value between the White group and the Black group is shocking but not surprising. The second smallest p-value, \"2e-35\", is between the Asian-Pac-Islander group and the Black group. This result, again, may serve as another illustration of the inherent bias against Black people."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "With more Chi-Square Tests, we reach a few additional interesting results:\n",
+    "* In the Chi-Square Test between race and sex, we use a chart to denote the male/female proportions of both ethnic groups. The Black population differs significantly from other races in that it has a **50:50 male to female labor participation ratio**, while for other races the ratio is around 60:40 or 70:30.\n",
+    "* In the Chi-Square Test between occupation and education, the p-value is 0 and it is officially proved that education (level) is a confounding factor in our discussion of sex/race versus occupation. Hence, **we cannot assert any causality between sex (or race) and occupation** due to the existence of confounding factor."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**3. Analysis of Sex/Race versus Education**\n",
+    "\n",
+    "The third notebook delves deeper into education level, the confounding factor in notebook two. We now want to explore the relationship between sex (or race) and education. Boxplots are used for this section of our analysis, in that education can be quantitatively evaluated with number of years.\n",
+    "\n",
+    "The following two graphs show the summary statistics of the education level (in number of years) by sex and race, respectively. Our observations are as follow:\n",
+    "\n",
+    "* The summary statistics of males' and females' education level looks quite similar. The only noticeable difference is that males have an upper quantile that is one year larger than that of females.\n",
+    "* The summary statistics of different races has more remarkable features to be discussed. The White and Asian/Pacific Islander groups evidently have greater median and upper quantile than Black, Native American/Eskimo, and Other groups. The result is not surprising, and not much has changed since 1994 unfortunately. \n",
+    "* The Asian/Pacific Islander group has a high median education level, even when compared to the White group. This reflects the fact that Asian immigrants, whose culture values education a lot, tend to have higher education level than other ethnic groups."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![title](fig/education_sex.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![title](fig/education_race.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The **Two Sample t-test** is used in this section to quantatively validify our conjectures drawn from the boxplots. Our conclusions are printed as the result of the following cell:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "There is no statistically significant difference between Group Male and Group Female\n",
+      "\n"
+     ]
+    },
+    {
+     "ename": "NameError",
+     "evalue": "name 'combinations' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[0;32m~/Documents/p3/functions/two_sample_t_test.py\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      5\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      6\u001b[0m \u001b[0mraces\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mclean_adult\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mgroupby\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"race\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 7\u001b[0;31m \u001b[0mpairs\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0;34m\",\"\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mjoin\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mmap\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mstr\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mcomb\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0msplit\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\",\"\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mcomb\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mcombinations\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mraces\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mgroups\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mkeys\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m2\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      8\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mpair\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mpairs\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      9\u001b[0m     \u001b[0mrace1_name\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mpair\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mNameError\u001b[0m: name 'combinations' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "%run -i 'functions/two_sample_t_test.py'\n",
+    "male = clean_adult[clean_adult[\"sex\"] == \"Male\"]\n",
+    "female = clean_adult[clean_adult[\"sex\"] == \"Female\"]\n",
+    "t, p, reject = two_sample_t_test(male[\"education.num\"], female[\"education.num\"], \"Male\", \"Female\")\n",
+    "\n",
+    "races = clean_adult.groupby(\"race\")\n",
+    "pairs = [\",\".join(map(str, comb)).split(\",\") for comb in combinations(races.groups.keys(), 2)]\n",
+    "for pair in pairs:\n",
+    "    race1_name = pair[0]\n",
+    "    race2_name = pair[1]\n",
+    "    race1 = races.get_group(pair[0])\n",
+    "    race2 = races.get_group(pair[1])\n",
+    "    two_sample_t_test(race1[\"education.num\"], race2[\"education.num\"], race1_name, race2_name)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 4. Analysis of different variables and their relationships with Hours Per Week\n",
+    "The fourth notebook mainly talks about the pairwise relationships between a few different attributes (i.e. age, marital status, and education) and the number of working hours per week. Regression method is used in this section of our analysis, given that we can now display two different quantitative variables on a single scatterplot.\n",
+    "\n",
+    "The following scatterplot shows the relationship between age and number of working hours per week, which are highly uncorrelated. Intuitively, there should be a slightly negative correlation between these two variables, given that younger people have the capacity and motivation to work longer hours than old people. Moreover, linear regression might not be the best regression method in this case. It is probable that there is a **downward quadratic relationship**, in which people in their middle ages work the hardest. Although in the actual case, the linear regression method shows a slightly positive slope which is very counterintuitive, we definitely do not consider that the elderly work the most. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![title](fig/hours_age.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "We also notice that though the average number of working hours in the entire cleaned dataset is reasonably 41, some people actually overwork (work more than 60 hours a week) a little bit. Hence, we extract the information about overworked individuals from the dataset and compare it with that of the overall population. Our conclusions are as follow:\n",
+    "* For the overall dataset, there is a clear disparity in working hours among individuals of different marital status. Widowed individuals work the fewest number of hours. We thought that married individuals would work fewer hours than non-married individuals since these married individuals would have family commitments, but the reverse is true. One possible explanation is that married individuals should work more to support their family.\n",
+    "* For the overworked individuals, there is not an evident relationship between hours worked and marital status. Those in the armed-forces have the highest average working hours, which is not surprising. Serving our country is a hard job. \n",
+    "* The two sample t-test results of different marital are listed comprehensively in notebook 4. As can be imagined from the following boxplots, **more** pairwise relationships (between different marital status) have **statistically significant difference** in the **overall** group than in the **overworked** group."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![title](fig/marital_hours.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "As supported by the two sample t-tests, average working hours depend a lot on **occupations**. \n",
+    "\n",
+    "Overall, it seems like farmers and fishers work the most. This is not that surprising: farming and fishing are very hard and take a long time. We need to be more appreciative of these occupations for their hardwork. On the other hand, other services and private house services work the least. \n",
+    "\n",
+    "For overworked individuals, farmers/fishers and armed forces still work the most, while transportation/moving, sales, and tech-support also work quite a lot. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![title](fig/hours_occupation.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 5. Forecasting of income"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Appendix: Author Contribution statement\n",
+    " \n",
+    " Work | Brian Lin | Julien Yu |  Aaron Ou\n",
+    " --- | --- | --- | ---\n",
+    " Conception of idea | Y | Y | Y\n",
+    " Data finding & cleansing | Y | Y | Y\n",
+    " Coding | Y | Y | Y\n",
+    " Analysis of data | nb1-4 | 5&main | NA\n",
+    " Summary | Y | Y | Y\n",
+    " Testing | Y | Y | Y\n",
+    " Host via Sphinx | NA | NA | Y"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Breakdown of Author Contributions**\n",
+    "\n",
+    "`Conception of idea`: Got the idea of exploring the relationships between different explanatory variables, using scatterplot, boxplots, bar charts and regression methods for different circumstances, etc.\n",
+    "\n",
+    "`Data finding & cleansing`: Looked for datasets, reached the consensus on using the 1994 demographics dataset from UCI, made a cleaned version of the dataset.\n",
+    "\n",
+    "`Coding`: Wrote and ran the codes, generated and saved the graphs.\n",
+    "\n",
+    "`Analysis of data`: Analyzed the numerical and graphic results in different notebooks. \n",
+    "\n",
+    "`Summary`: Contributed to the README file and the main notebook.\n",
+    "\n",
+    "`Testing`: Wrote and ran the test, tested the validity of codes on different computers.\n",
+    "\n",
+    "`Host via Sphinx`: Created and hosted the website. "
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
