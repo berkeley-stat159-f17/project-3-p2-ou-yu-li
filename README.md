@@ -1,8 +1,7 @@
-# Dataset and Proposal
+# Stat 159 - Project 3
+## An analysis of demographics information, 1994
 
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/berkeley-stat159-f17/project-3-p2-ou-yu-li/master?filepath=demographics-p1.ipynb)
-
-[![Build Status](https://travis-ci.org/berkeley-stat159-f17/project-3-p2-ou-yu-li.svg?branch=master)](https://travis-ci.org/berkeley-stat159-f17/project-3-p2-ou-yu-li)
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/berkeley-stat159-f17/project-3-p2-ou-yu-li/master?filepath=demographics-p1.ipynb) [![Build Status](https://travis-ci.org/berkeley-stat159-f17/project-3-p2-ou-yu-li.svg?branch=master)](https://travis-ci.org/berkeley-stat159-f17/project-3-p2-ou-yu-li)
 
 **Team**: project-3-p2-ou-yu-li
 
@@ -10,40 +9,60 @@
 
 **Articles on**: https://berkeley-stat159-f17.github.io/project-3-p2-ou-yu-li/
 
-**i) Why we choose the dataset**
+## Purpose of the repository
 
-The dataset we intend to work on is named `adult.csv`, which consists of demographic information about adults such as age, work class, education, race, sex, etc. and also whether or not the adult makes more than \$50 thousand dollars per year. 
+The dataset we work on is named adult.csv (1994, UC Irvine Machine Learning Repository), which consists of the demographic information (i.e. age, work class, education, race, sex, etc.) about adults with an occupation.
 
-We chose this dataset because while many papers have cited this data set, they have been mostly been done in a machine learning context of attempting to increase the classification accuracy of whether an individual makes more than $50 thousand dollars per year. There has been no study done to actually look into **the relationship between different explanatory variables**. For example, does one's gender affect how many years of education they obtain? What about one's race? These questions are essential to understanding society today.
+We would like to analyze the relationship between different explanatory variables. For example, does one’s gender affect how many years of education they obtain? What about one’s race? These questions are essential, not only to understand the American society of 20 years ago, but also to understand that of today.
 
-**ii) Validity that the dataset is openly and freely available for you to use**
+## Instructions for reproduction
 
-All data are from the UC Irvine Machine Learning Repository. 
-In the `About` page of the website, the website states with pride: 
+Clone the repo folder from github and rename it to p3:
 
->The UCI Machine Learning Repository is a collection of databases, domain theories, and data generators that are used by the machine learning community for the empirical analysis of machine learning algorithms. The archive was created as an ftp archive in 1987 by David Aha and fellow graduate students at UC Irvine. Since that time, it has been widely used by students, educators, and researchers all over the world as a primary source of machine learning data sets. As an indication of the impact of the archive, it has been cited over 1000 times, making it one of the top 100 most cited "papers" in all of computer science.
+`git clone https://github.com/berkeley-stat159-f17/project-3-p2-ou-yu-li.git p3`
 
-As such, the dataset is available for us to use, and the citation policy is in the following html file: http://archive.ics.uci.edu/ml/citation_policy.html
+Make sure you have **Anaconda** installed in your local machine.
+Ref: https://www.anaconda.com/download/#linux
 
-**iii) The url of where we download the dataset**
+To set up the proper environment with prerequisites (Python, a few python packages, Sphinx etc). Run the following: 
+```
+cd p3 # go to the p3 folder
+make env # create an environment named `demographics`
+source activate demographics # activate the environment named `demographics`
+make all # run all ipython notebooks
 
-The csv file can be downloaded from `http://archive.ics.uci.edu/ml/datasets/Adult`
+```
 
-**iv) The main properties of the dataset**
+Run unit tests: 
 
-File format: | csv
---- | ---
-Rough total size: | 32561 rows and 15 columns, 4009 KB
-Source of Origin: | 1994 Census database
-Scientific Area: | Social Science
-Donor: | Ronny Kohavi and Barry Becker, Silicon Graphics
-Intention: | To see if it is possible to achieve high classification accuracy of whether an individual makes more than $50 thosuand dollars per year through demographic information. 
-Attributes (15 in total): | `age`,`workclass`,`fnlwgt`,`education`,`education num`,`marital status`,`occupation`,`relationship`,`race`,`sex`,`capital gain`,`capital loss`,`hours per week`,`native country`,`income (>50k/year or <=50k/year)`
+`python folder/testing.py`
 
-**v) The questions we intend to answer**
+## Folder and files
 
-Our potential tasks involve but are not limited to: 
+- **data**: store the raw data csv file
+- **fig**: store the figures created from notebook
+- **functions**: store the python functions that will be reused across notebooks
+- **results** : store the cleaned data files created from notebook
 
-1. (main objective) Explore the pairwise relationships between different categorical variables such as sex, occupation and education level. Find causal relationships if there is any. Do different races and sexes pursuit a different level of education? Likewise, do different races and sexes pursuit different kinds of occupation? Do different races have a different distribution of martial status? The demographic questions we can explore are endless. 
-2. Perform possible regression analysis on quantitative variables such as working hours per week, capital loss, etc. Find the extent to which these variables affect the annual income number.
-3. Implement the analysis with different types of graphs including boxplots, violinplots, dotplots, etc. 
+## Licensing conditions
+MIT License
+
+Copyright (c) 2017 Reproducible and Collaborative Statistical Data Science
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

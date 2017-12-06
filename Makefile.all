@@ -1,0 +1,10 @@
+IPYNB_FILES=$(wildcard *.ipynb)
+
+.PHONY: all
+all: $(IPYNB_FILES)
+	jupyter nbconvert --ExecutePreprocessor.timeout=-1 --inplace --execute demographics-p1.ipynb
+	jupyter nbconvert --ExecutePreprocessor.timeout=-1 --inplace --execute demographics-p2.ipynb
+	jupyter nbconvert --ExecutePreprocessor.timeout=-1 --inplace --execute demographics-p3.ipynb
+	jupyter nbconvert --ExecutePreprocessor.timeout=-1 --inplace --execute demographics-p4.ipynb
+	jupyter nbconvert --ExecutePreprocessor.timeout=-1 --inplace --execute demographics-p5.ipynb
+	jupyter nbconvert --ExecutePreprocessor.timeout=-1 --inplace --execute main.ipynb
