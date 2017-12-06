@@ -10,7 +10,6 @@ Github repo: https://github.com/berkeley-stat159-f17/project-3-p2-ou-yu-li
    :maxdepth: 2
    :caption: An analysis of demographics information, 1994:
 
-   instructions.md
    main.ipynb
    demographics-p1.ipynb
    demographics-p2.ipynb
