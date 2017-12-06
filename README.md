@@ -35,7 +35,7 @@ make all # run all ipython notebooks
 
 Run unit tests: 
 
-`python folder/testing.py`
+`python functions/testing.py`
 
 ## Folder and files
 
