@@ -794,9 +794,19 @@ higher education level than other ethnic groups.</li>
 <p>The <strong>Two Sample t-test</strong> is used in this section to quantatively
 validify our conjectures drawn from the boxplots. Our conclusions are
 printed as the result of the following cell:</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">combinations</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
@@ -816,34 +826,46 @@ printed as the result of the following cell:</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
+<div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 There is no statistically significant difference between Group Male and Group Female
 
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">~/Documents/p3/functions/two_sample_t_test.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span>
-<span class="ansi-green-intense-fg ansi-bold">      6</span> races <span class="ansi-blue-fg">=</span> clean_adult<span class="ansi-blue-fg">.</span>groupby<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;race&#34;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">----&gt; 7</span><span class="ansi-red-fg"> </span>pairs <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;,&#34;</span><span class="ansi-blue-fg">.</span>join<span class="ansi-blue-fg">(</span>map<span class="ansi-blue-fg">(</span>str<span class="ansi-blue-fg">,</span> comb<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>split<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;,&#34;</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">for</span> comb <span class="ansi-green-fg">in</span> combinations<span class="ansi-blue-fg">(</span>races<span class="ansi-blue-fg">.</span>groups<span class="ansi-blue-fg">.</span>keys<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">]</span>
-<span class="ansi-green-intense-fg ansi-bold">      8</span> <span class="ansi-green-fg">for</span> pair <span class="ansi-green-fg">in</span> pairs<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">      9</span>     race1_name <span class="ansi-blue-fg">=</span> pair<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span>
+The mean difference is statistically significant for Group Amer-Indian-Eskimo and Group Asian-Pac-Islander
+p-value is 3.13492993644e-23
 
-<span class="ansi-red-fg">NameError</span>: name &#39;combinations&#39; is not defined
+There is no statistically significant difference between Group Amer-Indian-Eskimo and Group Black
+
+The mean difference is statistically significant for Group Amer-Indian-Eskimo and Group Other
+p-value is 0.00709780510747
+
+The mean difference is statistically significant for Group Amer-Indian-Eskimo and Group White
+p-value is 1.80818942375e-09
+
+The mean difference is statistically significant for Group Asian-Pac-Islander and Group Black
+p-value is 5.2608000932e-44
+
+The mean difference is statistically significant for Group Asian-Pac-Islander and Group Other
+p-value is 3.88949414009e-21
+
+The mean difference is statistically significant for Group Asian-Pac-Islander and Group White
+p-value is 2.62019447341e-18
+
+The mean difference is statistically significant for Group Black and Group Other
+p-value is 0.000111081299559
+
+The mean difference is statistically significant for Group Black and Group White
+p-value is 3.96999641859e-44
+
+The mean difference is statistically significant for Group Other and Group White
+p-value is 2.15918354415e-11
+
 </pre></div></div>
 </div>
-<div class="section" id="4.-Analysis-of-different-variables-and-their-relationships-with-Hours-Per-Week">
-<h2>4. Analysis of different variables and their relationships with Hours Per Week<a class="headerlink" href="#4.-Analysis-of-different-variables-and-their-relationships-with-Hours-Per-Week" title="Permalink to this headline">¶</a></h2>
+<p><strong>4. Analysis of different variables and their relationships with Hours
+Per Week</strong></p>
 <p>The fourth notebook mainly talks about the pairwise relationships
 between a few different attributes (i.e.&nbsp;age, marital status, and
 education) and the number of working hours per week. Regression method
@@ -902,12 +924,7 @@ quite a lot.</p>
 <img alt="title" src="_images/hours_occupation.png" />
 <p class="caption"><span class="caption-text">title</span></p>
 </div>
-</div>
-<div class="section" id="5.-Forecasting-of-income">
-<h2>5. Forecasting of income<a class="headerlink" href="#5.-Forecasting-of-income" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="Appendix:-Author-Contribution-statement">
-<h2>Appendix: Author Contribution statement<a class="headerlink" href="#Appendix:-Author-Contribution-statement" title="Permalink to this headline">¶</a></h2>
+<p><strong>Appendix: Author Contribution statement</strong></p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="45%" />
@@ -960,21 +977,19 @@ quite a lot.</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Breakdown of Author Contributions</strong></p>
-<p><code class="docutils literal"><span class="pre">Conception</span> <span class="pre">of</span> <span class="pre">idea</span></code>: Got the idea of exploring the relationships
+<p><strong>Conception of idea</strong>: Got the idea of exploring the relationships
 between different explanatory variables, using scatterplot, boxplots,
 bar charts and regression methods for different circumstances, etc.</p>
-<p><code class="docutils literal"><span class="pre">Data</span> <span class="pre">finding</span> <span class="pre">&amp;</span> <span class="pre">cleansing</span></code>: Looked for datasets, reached the consensus
+<p><strong>Data finding &amp; cleansing</strong>: Looked for datasets, reached the consensus
 on using the 1994 demographics dataset from UCI, made a cleaned version
 of the dataset.</p>
-<p><code class="docutils literal"><span class="pre">Coding</span></code>: Wrote and ran the codes, generated and saved the graphs.</p>
-<p><code class="docutils literal"><span class="pre">Analysis</span> <span class="pre">of</span> <span class="pre">data</span></code>: Analyzed the numerical and graphic results in
+<p><strong>Coding</strong>: Wrote and ran the codes, generated and saved the graphs.</p>
+<p><strong>Analysis of data</strong>: Analyzed the numerical and graphic results in
 different notebooks.</p>
-<p><code class="docutils literal"><span class="pre">Summary</span></code>: Contributed to the README file and the main notebook.</p>
-<p><code class="docutils literal"><span class="pre">Testing</span></code>: Wrote and ran the test, tested the validity of codes on
+<p><strong>Summary</strong>: Contributed to the README file and the main notebook.</p>
+<p><strong>Testing</strong>: Wrote and ran the test, tested the validity of codes on
 different computers.</p>
-<p><code class="docutils literal"><span class="pre">Host</span> <span class="pre">via</span> <span class="pre">Sphinx</span></code>: Created and hosted the website.</p>
-</div>
+<p><strong>Host via Sphinx</strong>: Created and hosted the website.</p>
 </div>
 
 
@@ -995,12 +1010,7 @@ different computers.</p>
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">An analysis of demographics information, 1994:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Main Notebook - Summary</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#4.-Analysis-of-different-variables-and-their-relationships-with-Hours-Per-Week">4. Analysis of different variables and their relationships with Hours Per Week</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#5.-Forecasting-of-income">5. Forecasting of income</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Appendix:-Author-Contribution-statement">Appendix: Author Contribution statement</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Main Notebook - Summary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demographics-p1.html">1. Cleaning the Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demographics-p2.html">2. Sex, Race, and Occupation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demographics-p3.html">3. Sex, Race, and Education</a></li>

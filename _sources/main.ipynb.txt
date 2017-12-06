@@ -618,24 +618,51 @@
    "cell_type": "code",
    "execution_count": 3,
    "metadata": {},
+   "outputs": [],
+   "source": [
+    "from itertools import combinations"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
       "There is no statistically significant difference between Group Male and Group Female\n",
+      "\n",
+      "The mean difference is statistically significant for Group Amer-Indian-Eskimo and Group Asian-Pac-Islander\n",
+      "p-value is 3.13492993644e-23\n",
+      "\n",
+      "There is no statistically significant difference between Group Amer-Indian-Eskimo and Group Black\n",
+      "\n",
+      "The mean difference is statistically significant for Group Amer-Indian-Eskimo and Group Other\n",
+      "p-value is 0.00709780510747\n",
+      "\n",
+      "The mean difference is statistically significant for Group Amer-Indian-Eskimo and Group White\n",
+      "p-value is 1.80818942375e-09\n",
+      "\n",
+      "The mean difference is statistically significant for Group Asian-Pac-Islander and Group Black\n",
+      "p-value is 5.2608000932e-44\n",
+      "\n",
+      "The mean difference is statistically significant for Group Asian-Pac-Islander and Group Other\n",
+      "p-value is 3.88949414009e-21\n",
+      "\n",
+      "The mean difference is statistically significant for Group Asian-Pac-Islander and Group White\n",
+      "p-value is 2.62019447341e-18\n",
+      "\n",
+      "The mean difference is statistically significant for Group Black and Group Other\n",
+      "p-value is 0.000111081299559\n",
+      "\n",
+      "The mean difference is statistically significant for Group Black and Group White\n",
+      "p-value is 3.96999641859e-44\n",
+      "\n",
+      "The mean difference is statistically significant for Group Other and Group White\n",
+      "p-value is 2.15918354415e-11\n",
       "\n"
-     ]
-    },
-    {
-     "ename": "NameError",
-     "evalue": "name 'combinations' is not defined",
-     "output_type": "error",
-     "traceback": [
-      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
-      "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
-      "\u001b[0;32m~/Documents/p3/functions/two_sample_t_test.py\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      5\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      6\u001b[0m \u001b[0mraces\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mclean_adult\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mgroupby\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"race\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 7\u001b[0;31m \u001b[0mpairs\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0;34m\",\"\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mjoin\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mmap\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mstr\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mcomb\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0msplit\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\",\"\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mcomb\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mcombinations\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mraces\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mgroups\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mkeys\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m2\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      8\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mpair\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mpairs\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      9\u001b[0m     \u001b[0mrace1_name\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mpair\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
-      "\u001b[0;31mNameError\u001b[0m: name 'combinations' is not defined"
      ]
     }
    ],
@@ -659,7 +686,8 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## 4. Analysis of different variables and their relationships with Hours Per Week\n",
+    "**4. Analysis of different variables and their relationships with Hours Per Week**\n",
+    "\n",
     "The fourth notebook mainly talks about the pairwise relationships between a few different attributes (i.e. age, marital status, and education) and the number of working hours per week. Regression method is used in this section of our analysis, given that we can now display two different quantitative variables on a single scatterplot.\n",
     "\n",
     "The following scatterplot shows the relationship between age and number of working hours per week, which are highly uncorrelated. Intuitively, there should be a slightly negative correlation between these two variables, given that younger people have the capacity and motivation to work longer hours than old people. Moreover, linear regression might not be the best regression method in this case. It is probable that there is a **downward quadratic relationship**, in which people in their middle ages work the hardest. Although in the actual case, the linear regression method shows a slightly positive slope which is very counterintuitive, we definitely do not consider that the elderly work the most. "
@@ -711,45 +739,41 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## 5. Forecasting of income"
+    "**Appendix: Author Contribution statement**"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Appendix: Author Contribution statement\n",
-    " \n",
-    " Work | Brian Lin | Julien Yu |  Aaron Ou\n",
-    " --- | --- | --- | ---\n",
-    " Conception of idea | Y | Y | Y\n",
-    " Data finding & cleansing | Y | Y | Y\n",
-    " Coding | Y | Y | Y\n",
-    " Analysis of data | nb1-4 | 5&main | NA\n",
-    " Summary | Y | Y | Y\n",
-    " Testing | Y | Y | Y\n",
-    " Host via Sphinx | NA | NA | Y"
+    "Work | Brian Lin | Julien Yu |  Aaron Ou\n",
+    "--- | --- | --- | ---\n",
+    "Conception of idea | Y | Y | Y\n",
+    "Data finding & cleansing | Y | Y | Y\n",
+    "Coding | Y | Y | Y\n",
+    "Analysis of data | nb1-4 | 5&main | NA\n",
+    "Summary | Y | Y | Y\n",
+    "Testing | Y | Y | Y\n",
+    "Host via Sphinx | NA | NA | Y"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "**Breakdown of Author Contributions**\n",
+    "**Conception of idea**: Got the idea of exploring the relationships between different explanatory variables, using scatterplot, boxplots, bar charts and regression methods for different circumstances, etc.\n",
     "\n",
-    "`Conception of idea`: Got the idea of exploring the relationships between different explanatory variables, using scatterplot, boxplots, bar charts and regression methods for different circumstances, etc.\n",
+    "**Data finding & cleansing**: Looked for datasets, reached the consensus on using the 1994 demographics dataset from UCI, made a cleaned version of the dataset.\n",
     "\n",
-    "`Data finding & cleansing`: Looked for datasets, reached the consensus on using the 1994 demographics dataset from UCI, made a cleaned version of the dataset.\n",
+    "**Coding**: Wrote and ran the codes, generated and saved the graphs.\n",
     "\n",
-    "`Coding`: Wrote and ran the codes, generated and saved the graphs.\n",
+    "**Analysis of data**: Analyzed the numerical and graphic results in different notebooks. \n",
     "\n",
-    "`Analysis of data`: Analyzed the numerical and graphic results in different notebooks. \n",
+    "**Summary**: Contributed to the README file and the main notebook.\n",
     "\n",
-    "`Summary`: Contributed to the README file and the main notebook.\n",
+    "**Testing**: Wrote and ran the test, tested the validity of codes on different computers.\n",
     "\n",
-    "`Testing`: Wrote and ran the test, tested the validity of codes on different computers.\n",
-    "\n",
-    "`Host via Sphinx`: Created and hosted the website. "
+    "**Host via Sphinx**: Created and hosted the website. "
    ]
   }
  ],
