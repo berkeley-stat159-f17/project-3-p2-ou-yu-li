@@ -19,4 +19,4 @@ install:
   - source activate demographics
   
 script:
-  - python testing.py
+  - python functions/testing.py
