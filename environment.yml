@@ -11,7 +11,7 @@ dependencies:
     - seaborn=0.8.0
     - PyTables=3.4.2
     - ghp-import=0.5.5  
-    - sphinx_rtd_theme    
+       
     - pip:
       - nbsphinx==0.2.17
       - recommonmark==0.4.0
