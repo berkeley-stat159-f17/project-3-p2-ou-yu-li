@@ -39,6 +39,8 @@ Run unit tests:
 
 ## Folder and files
 
+The notebooks used in our analysis, **demographics-p1** to **demographics-p5** and **main** can be found in the base directory. These are the directories:
+
 - **data**: store the raw data csv file
 - **fig**: store the figures created from notebook
 - **functions**: store the python functions that will be reused across notebooks
