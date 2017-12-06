@@ -16,4 +16,4 @@ Github repo: https://github.com/berkeley-stat159-f17/project-3-p2-ou-yu-li
    demographics-p3.ipynb
    demographics-p4.ipynb
    demographics-p5.ipynb
-   README.md
+   proposal.md

@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Dataset and Proposal &#8212; p3 1 documentation</title>
+    <title>Stat 159 - Project 3 &#8212; p3 1 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -24,7 +24,6 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="5. Logistic regression analysis" href="demographics-p5.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -40,46 +39,65 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="dataset-and-proposal">
-<span id="dataset-and-proposal"></span><h1>Dataset and Proposal<a class="headerlink" href="#dataset-and-proposal" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="https://mybinder.org/v2/gh/berkeley-stat159-f17/project-3-p2-ou-yu-li/master?filepath=demographics-p1.ipynb"><img alt="Binder" src="https://mybinder.org/badge.svg" /></a></p>
-<p><a class="reference external" href="https://travis-ci.org/berkeley-stat159-f17/project-3-p2-ou-yu-li"><img alt="Build Status" src="https://travis-ci.org/berkeley-stat159-f17/project-3-p2-ou-yu-li.svg?branch=master" /></a></p>
+  <div class="section" id="stat-159-project-3">
+<span id="stat-159-project-3"></span><h1>Stat 159 - Project 3<a class="headerlink" href="#stat-159-project-3" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="an-analysis-of-demographics-information-1994">
+<span id="an-analysis-of-demographics-information-1994"></span><h2>An analysis of demographics information, 1994<a class="headerlink" href="#an-analysis-of-demographics-information-1994" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://mybinder.org/v2/gh/berkeley-stat159-f17/project-3-p2-ou-yu-li/master?filepath=demographics-p1.ipynb"><img alt="Binder" src="https://mybinder.org/badge.svg" /></a> <a class="reference external" href="https://travis-ci.org/berkeley-stat159-f17/project-3-p2-ou-yu-li"><img alt="Build Status" src="https://travis-ci.org/berkeley-stat159-f17/project-3-p2-ou-yu-li.svg?branch=master" /></a></p>
 <p><strong>Team</strong>: project-3-p2-ou-yu-li</p>
 <p><strong>Members</strong>: Aaron Ou, Julien Yu, Brian Lin</p>
 <p><strong>Articles on</strong>: https://berkeley-stat159-f17.github.io/project-3-p2-ou-yu-li/</p>
-<p>To reproduce manually, run the following:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">env</span>
-<span class="n">source</span> <span class="n">activate</span> <span class="n">demographics</span>
-<span class="n">make</span> <span class="nb">all</span>
+</div>
+<div class="section" id="purpose-of-the-repository">
+<span id="purpose-of-the-repository"></span><h2>Purpose of the repository<a class="headerlink" href="#purpose-of-the-repository" title="Permalink to this headline">¶</a></h2>
+<p>The dataset we work on is named adult.csv (1994, UC Irvine Machine Learning Repository), which consists of the demographic information (i.e. age, work class, education, race, sex, etc.) about adults with an occupation.</p>
+<p>We would like to analyze the relationship between different explanatory variables. For example, does one’s gender affect how many years of education they obtain? What about one’s race? These questions are essential, not only to understand the American society of 20 years ago, but also to understand that of today.</p>
+</div>
+<div class="section" id="instructions-for-reproduction">
+<span id="instructions-for-reproduction"></span><h2>Instructions for reproduction<a class="headerlink" href="#instructions-for-reproduction" title="Permalink to this headline">¶</a></h2>
+<p>Clone the repo folder from github and rename it to p3:</p>
+<p><code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/berkeley-stat159-f17/project-3-p2-ou-yu-li.git</span> <span class="pre">p3</span></code></p>
+<p>Make sure you have <strong>Anaconda</strong> installed in your local machine.
+Ref: https://www.anaconda.com/download/#linux</p>
+<p>To set up the proper environment with prerequisites (Python, a few python packages, Sphinx etc). Run the following:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">p3</span> <span class="c1"># go to the p3 folder</span>
+<span class="n">make</span> <span class="n">env</span> <span class="c1"># create an environment named `demographics`</span>
+<span class="n">source</span> <span class="n">activate</span> <span class="n">demographics</span> <span class="c1"># activate the environment named `demographics`</span>
+<span class="n">make</span> <span class="nb">all</span> <span class="c1"># run all ipython notebooks</span>
 </pre></div>
 </div>
-<p><strong>i) Why we choose the dataset</strong></p>
-<p>The dataset we intend to work on is named <code class="docutils literal"><span class="pre">adult.csv</span></code>, which consists of demographic information about adults such as age, work class, education, race, sex, etc. and also whether or not the adult makes more than $50 thousand dollars per year.</p>
-<p>We chose this dataset because while many papers have cited this data set, they have been mostly been done in a machine learning context of attempting to increase the classification accuracy of whether an individual makes more than $50 thousand dollars per year. There has been no study done to actually look into <strong>the relationship between different explanatory variables</strong>. For example, does one's gender affect how many years of education they obtain? What about one's race? These questions are essential to understanding society today.</p>
-<p><strong>ii) Validity that the dataset is openly and freely available for you to use</strong></p>
-<p>All data are from the UC Irvine Machine Learning Repository.
-In the <code class="docutils literal"><span class="pre">About</span></code> page of the website, the website states with pride:</p>
-<blockquote>
-<div>The UCI Machine Learning Repository is a collection of databases, domain theories, and data generators that are used by the machine learning community for the empirical analysis of machine learning algorithms. The archive was created as an ftp archive in 1987 by David Aha and fellow graduate students at UC Irvine. Since that time, it has been widely used by students, educators, and researchers all over the world as a primary source of machine learning data sets. As an indication of the impact of the archive, it has been cited over 1000 times, making it one of the top 100 most cited &quot;papers&quot; in all of computer science.</div></blockquote>
-<p>As such, the dataset is available for us to use, and the citation policy is in the following html file: http://archive.ics.uci.edu/ml/citation_policy.html</p>
-<p><strong>iii) The url of where we download the dataset</strong></p>
-<p>The csv file can be downloaded from <code class="docutils literal"><span class="pre">http://archive.ics.uci.edu/ml/datasets/Adult</span></code></p>
-<p><strong>iv) The main properties of the dataset</strong></p>
-<p>File format: | csv
---- | ---
-Rough total size: | 32561 rows and 15 columns, 4009 KB
-Source of Origin: | 1994 Census database
-Scientific Area: | Social Science
-Donor: | Ronny Kohavi and Barry Becker, Silicon Graphics
-Intention: | To see if it is possible to achieve high classification accuracy of whether an individual makes more than $50 thosuand dollars per year through demographic information.
-Attributes (15 in total): | <code class="docutils literal"><span class="pre">age</span></code>,<code class="docutils literal"><span class="pre">workclass</span></code>,<code class="docutils literal"><span class="pre">fnlwgt</span></code>,<code class="docutils literal"><span class="pre">education</span></code>,<code class="docutils literal"><span class="pre">education</span> <span class="pre">num</span></code>,<code class="docutils literal"><span class="pre">marital</span> <span class="pre">status</span></code>,<code class="docutils literal"><span class="pre">occupation</span></code>,<code class="docutils literal"><span class="pre">relationship</span></code>,<code class="docutils literal"><span class="pre">race</span></code>,<code class="docutils literal"><span class="pre">sex</span></code>,<code class="docutils literal"><span class="pre">capital</span> <span class="pre">gain</span></code>,<code class="docutils literal"><span class="pre">capital</span> <span class="pre">loss</span></code>,<code class="docutils literal"><span class="pre">hours</span> <span class="pre">per</span> <span class="pre">week</span></code>,<code class="docutils literal"><span class="pre">native</span> <span class="pre">country</span></code>,<code class="docutils literal"><span class="pre">income</span> <span class="pre">(&gt;50k/year</span> <span class="pre">or</span> <span class="pre">&lt;=50k/year)</span></code></p>
-<p><strong>v) The questions we intend to answer</strong></p>
-<p>Our potential tasks involve but are not limited to:</p>
-<ol class="simple">
-<li>(main objective) Explore the pairwise relationships between different categorical variables such as sex, occupation and education level. Find causal relationships if there is any. Do different races and sexes pursuit a different level of education? Likewise, do different races and sexes pursuit different kinds of occupation? Do different races have a different distribution of martial status? The demographic questions we can explore are endless.</li>
-<li>Perform possible regression analysis on quantitative variables such as working hours per week, capital loss, etc. Find the extent to which these variables affect the annual income number.</li>
-<li>Implement the analysis with different types of graphs including boxplots, violinplots, dotplots, etc.</li>
-</ol>
+<p>Run unit tests:</p>
+<p><code class="docutils literal"><span class="pre">python</span> <span class="pre">folder/testing.py</span></code></p>
+</div>
+<div class="section" id="folder-and-files">
+<span id="folder-and-files"></span><h2>Folder and files<a class="headerlink" href="#folder-and-files" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>data</strong>: store the raw data csv file</li>
+<li><strong>fig</strong>: store the figures created from notebook</li>
+<li><strong>functions</strong>: store the python functions that will be reused across notebooks</li>
+<li><strong>results</strong> : store the cleaned data files created from notebook</li>
+</ul>
+</div>
+<div class="section" id="licensing-conditions">
+<span id="licensing-conditions"></span><h2>Licensing conditions<a class="headerlink" href="#licensing-conditions" title="Permalink to this headline">¶</a></h2>
+<p>MIT License</p>
+<p>Copyright (c) 2017 Reproducible and Collaborative Statistical Data Science</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
+</div>
 </div>
 
 
@@ -99,21 +117,20 @@ Attributes (15 in total): | <code class="docutils literal"><span class="pre">age
 
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">An analysis of demographics information, 1994:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="main.html">Main Notebook - Summary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demographics-p1.html">1. Cleaning the Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demographics-p2.html">2. Sex, Race, and Occupation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demographics-p3.html">3. Sex, Race, and Education</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demographics-p4.html">4. Age, Hours Per Week, and Education</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demographics-p5.html">5. Logistic regression analysis</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Dataset and Proposal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proposal.html">Dataset and Proposal</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="demographics-p5.html" title="previous chapter">5. Logistic regression analysis</a></li>
   </ul></li>
 </ul>
 </div>
