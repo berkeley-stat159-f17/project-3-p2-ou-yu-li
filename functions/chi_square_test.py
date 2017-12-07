@@ -1,3 +1,4 @@
+from IPython.display import display
 def chi_square_test(data, var1, var2, pairwise = False, alpha = 0.05):
     """Performs a chi-square test on two categorical variables, with one being group 
     If doing pairwise comparisions for groups, perform chi-square test on each pair. 
