@@ -1283,7 +1283,7 @@ so.</p>
 <span class="n">ax6</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;fig&quot;</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;fig/columns.png&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;fig/columns.png&quot;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1415,7 +1415,7 @@ test_one_missing_index (__main__.MyTests) ... ok
 test_one_row_df (__main__.MyTests) ... ok
 
 ----------------------------------------------------------------------
-Ran 6 tests in 0.022s
+Ran 6 tests in 0.021s
 
 OK
 </pre></div></div>
@@ -1426,7 +1426,7 @@ OK
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>&lt;unittest.main.TestProgram at 0x7f81114654a8&gt;
+<span></span>&lt;unittest.main.TestProgram at 0x7f88ece72ac8&gt;
 </pre></div>
 </div>
 </div>
