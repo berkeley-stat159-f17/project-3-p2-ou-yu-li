@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>5. Logistic regression analysis &#8212; p3 1 documentation</title>
+    <title>5. Income versus all explanatory variables &#8212; p3 1 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -25,7 +25,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Dataset and Proposal" href="proposal.html" />
-    <link rel="prev" title="4. Age, Hours Per Week, and Education" href="demographics-p4.html" />
+    <link rel="prev" title="4. Hours Per Week versus age, marital status and education" href="demographics-p4.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -207,8 +207,17 @@ div.nboutput div.output_area.stderr {
 .ansi-bold { font-weight: bold; }
 .ansi-underline { text-decoration: underline; }
 </style>
-<div class="section" id="5.-Logistic-regression-analysis">
-<h1>5. Logistic regression analysis<a class="headerlink" href="#5.-Logistic-regression-analysis" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="5.-Income-versus-all-explanatory-variables">
+<h1>5. Income versus all explanatory variables<a class="headerlink" href="#5.-Income-versus-all-explanatory-variables" title="Permalink to this headline">¶</a></h1>
+<p>In the previous notebook, we have conducted substantial analysis on the
+pairwise relationships among qualitative demographic variables
+(i.e.&nbsp;sex, race, occupation, marital status) and quantitative
+demographic variables (i.e.&nbsp;education, working hours per week). In this
+final notebook, we will discuss the extent to which all these
+qualitative and quantitative variables affect the annual income. The
+original dataset separated individuals’ annual income level into two
+categories: below 50k (negative outcome) and above 50k (positive
+outcome).</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [1]:
@@ -218,12 +227,15 @@ div.nboutput div.output_area.stderr {
 <span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.cm</span> <span class="k">as</span> <span class="nn">cm</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">shelve</span>
 <span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
 <span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
 <span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">combinations</span>
+<span class="c1"># from IPython.display import display</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn-dark&#39;</span><span class="p">)</span>
 </pre></div>
@@ -376,6 +388,565 @@ div.nboutput div.output_area.stderr {
 </table>
 </div></div>
 </div>
+<p>Let us first determine whether the income predicate (either &gt;50k or
+&lt;=50k) is related to sex and race, respectively.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">run</span> -i &#39;functions/find_indices_with_value.py&#39;
+<span class="o">%</span><span class="k">run</span> -i &#39;functions/chi_square_test.py&#39;
+<span class="n">chi_square_test</span><span class="p">(</span><span class="n">clean_adult</span><span class="p">,</span> <span class="s2">&quot;income&quot;</span><span class="p">,</span> <span class="s2">&quot;sex&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+statistically significant: (&#39;income&#39;, &#39;sex&#39;)
+p-value is 1.00155254125e-309
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>sex</th>
+      <th>Female</th>
+      <th>Male</th>
+    </tr>
+    <tr>
+      <th>income</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>&lt;=50K</th>
+      <td>88.632182</td>
+      <td>68.61629</td>
+    </tr>
+    <tr>
+      <th>&gt;50K</th>
+      <td>11.367818</td>
+      <td>31.38371</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[3]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>(1415.2864042410245,
+ 1.0015525412493421e-309,
+ 1,
+ array([[  7347.04024932,  15306.95975068],
+        [  2434.95975068,   5073.04024932]]))
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">bar_width</span> <span class="o">=</span> <span class="mf">0.35</span>
+
+<span class="n">female</span> <span class="o">=</span> <span class="n">clean_adult</span><span class="p">[</span><span class="n">clean_adult</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Female&quot;</span><span class="p">]</span>
+<span class="n">male</span> <span class="o">=</span> <span class="n">clean_adult</span><span class="p">[</span><span class="n">clean_adult</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Male&quot;</span><span class="p">]</span>
+
+<span class="n">male_counts</span> <span class="o">=</span> <span class="n">male</span><span class="p">[</span><span class="s2">&quot;income&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="n">male_percents</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">male_counts</span><span class="o">.</span><span class="n">values</span><span class="o">/</span><span class="n">male_counts</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">male_percents</span><span class="p">))</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ind</span><span class="p">,</span> <span class="n">male_percents</span><span class="p">,</span> <span class="n">bar_width</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+
+<span class="n">female_counts</span> <span class="o">=</span> <span class="n">female</span><span class="p">[</span><span class="s2">&quot;income&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="n">female_percents</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">female_counts</span><span class="o">.</span><span class="n">values</span><span class="o">/</span><span class="n">female_counts</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">female_percents</span><span class="p">))</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ind</span> <span class="o">+</span> <span class="n">bar_width</span><span class="p">,</span> <span class="n">female_percents</span><span class="p">,</span> <span class="n">bar_width</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Income by Sex&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Percentage of Group&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Sex&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ind</span> <span class="o">+</span> <span class="n">bar_width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">female_counts</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">((</span><span class="n">p1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p2</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="p">(</span><span class="s1">&#39;Male&#39;</span><span class="p">,</span> <span class="s1">&#39;Female&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;fig/income_by_sex.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/demographics-p5_6_0.png" src="_images/demographics-p5_6_0.png" />
+</div>
+</div>
+<p>Both the Chi-Square Test and the bar chart above show that in 1994,
+males were far (around 3 times) more likely to earn decent income
+(&gt;50k/year) than females. The p-value of 1e-309 is shocking but not
+surprising, and it clearly demonstrates the intrinstic bias against
+females in the US society of 20 years ago.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">run</span> -i &#39;functions/two_sample_t_test.py&#39;
+<span class="n">clean_adult</span><span class="p">[</span><span class="s1">&#39;income_p&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">clean_adult</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">clean_adult</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">14</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;&gt;50K&quot;</span><span class="p">:</span>
+        <span class="n">clean_adult</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">race</span> <span class="o">=</span> <span class="n">clean_adult</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;race&quot;</span><span class="p">)</span>
+<span class="n">pairs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">comb</span><span class="p">))</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">comb</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="n">race</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="mi">2</span><span class="p">)]</span>
+<span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">:</span>
+    <span class="n">race1_name</span> <span class="o">=</span> <span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">race2_name</span> <span class="o">=</span> <span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">race1</span> <span class="o">=</span> <span class="n">race</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">race2</span> <span class="o">=</span> <span class="n">race</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="n">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">two_sample_t_test</span><span class="p">(</span><span class="n">race1</span><span class="p">[</span><span class="s2">&quot;income_p&quot;</span><span class="p">],</span> <span class="n">race2</span><span class="p">[</span><span class="s2">&quot;income_p&quot;</span><span class="p">],</span> <span class="n">race1_name</span><span class="p">,</span> <span class="n">race2_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The mean difference is statistically significant for Group Amer-Indian-Eskimo and Group Asian-Pac-Islander
+p-value is 1.45747245226e-10
+
+There is no statistically significant difference between Group Amer-Indian-Eskimo and Group Black
+
+There is no statistically significant difference between Group Amer-Indian-Eskimo and Group Other
+
+The mean difference is statistically significant for Group Amer-Indian-Eskimo and Group White
+p-value is 7.88120825344e-13
+
+The mean difference is statistically significant for Group Asian-Pac-Islander and Group Black
+p-value is 5.05881494087e-19
+
+The mean difference is statistically significant for Group Asian-Pac-Islander and Group Other
+p-value is 5.4775915124e-14
+
+There is no statistically significant difference between Group Asian-Pac-Islander and Group White
+
+There is no statistically significant difference between Group Black and Group Other
+
+The mean difference is statistically significant for Group Black and Group White
+p-value is 4.53743917668e-80
+
+The mean difference is statistically significant for Group Other and Group White
+p-value is 5.4224294703e-17
+
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&lt;matplotlib.figure.Figure at 0x7f37d82f82b0&gt;
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">race_groups</span> <span class="o">=</span> <span class="n">clean_adult</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;race&quot;</span><span class="p">)</span>
+<span class="n">nrows</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">race_groups</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.0001</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">row</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">column</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">bar_width</span> <span class="o">=</span> <span class="mf">0.35</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">race_groups</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">nrows</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">column</span><span class="p">]</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="s2">&quot;income&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+    <span class="n">percents</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">counts</span><span class="o">.</span><span class="n">values</span><span class="o">/</span><span class="n">counts</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">percents</span><span class="p">))</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">ind</span><span class="p">,</span> <span class="n">percents</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">cmap</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Income by Race&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Percentage of Group&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Income&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">counts</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="n">rotation</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; Income Percentages&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">0.95</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+    <span class="n">column</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">column</span>
+    <span class="k">if</span> <span class="n">column</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">row</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mf">0.2</span>
+
+<span class="k">if</span> <span class="n">column</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">axes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;fig/income_by_race&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/demographics-p5_9_0.png" src="_images/demographics-p5_9_0.png" />
+</div>
+</div>
+<p>Both the t-Test and the bar charts above show that in 1994,
+Asian-Pac-Islanders and Whites were far (around 3 times) more likely to
+earn decent income (&gt;50k/year) than other ethnic groups. Moreover: *
+There is no statistically significant difference between
+Asian-Pac-Islanders and Whites, and there is no statistically
+significant difference among the other three ethnic groups (Black,
+Amer-Indian-Eskimo and Other). This pattern draws a boundary line
+between ethnicities with higher and lower income. The p-value for Group
+White and Group Black was, again, unsurprisingly the smallest. Hence in
+1994, <strong>racial bias</strong> was prevalent in income distribution. * The
+p-value for Group White and Group Black (i.e.&nbsp;4.5e-80) is still much
+larger than that for males and females (i.e.&nbsp;1e-309). Hence, it is
+likely that a Black male earns more than a White female if they have
+common occupation, education level, etc. The <strong>sexual bias</strong> in income
+distribution was more serious than the racial bias.</p>
+<p>After discussing sex and race, let us look at how occupation affects
+one’s level of income.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">chi_square_test</span><span class="p">(</span><span class="n">clean_adult</span><span class="p">,</span><span class="s2">&quot;occupation&quot;</span><span class="p">,</span> <span class="s2">&quot;income_p&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+statistically significant: (&#39;occupation&#39;, &#39;income_p&#39;)
+p-value is 0.0
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>income_p</th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+    <tr>
+      <th>occupation</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Adm-clerical</th>
+      <td>14.227068</td>
+      <td>6.632925</td>
+    </tr>
+    <tr>
+      <th>Armed-Forces</th>
+      <td>0.035314</td>
+      <td>0.013319</td>
+    </tr>
+    <tr>
+      <th>Craft-repair</th>
+      <td>13.781231</td>
+      <td>12.093767</td>
+    </tr>
+    <tr>
+      <th>Exec-managerial</th>
+      <td>9.071246</td>
+      <td>25.799148</td>
+    </tr>
+    <tr>
+      <th>Farming-fishing</th>
+      <td>3.858038</td>
+      <td>1.531700</td>
+    </tr>
+    <tr>
+      <th>Handlers-cleaners</th>
+      <td>5.592831</td>
+      <td>1.105487</td>
+    </tr>
+    <tr>
+      <th>Machine-op-inspct</th>
+      <td>7.596892</td>
+      <td>3.263186</td>
+    </tr>
+    <tr>
+      <th>Other-service</th>
+      <td>13.595833</td>
+      <td>1.758125</td>
+    </tr>
+    <tr>
+      <th>Priv-house-serv</th>
+      <td>0.626821</td>
+      <td>0.013319</td>
+    </tr>
+    <tr>
+      <th>Prof-specialty</th>
+      <td>9.830494</td>
+      <td>24.120938</td>
+    </tr>
+    <tr>
+      <th>Protective-serv</th>
+      <td>1.915776</td>
+      <td>2.797017</td>
+    </tr>
+    <tr>
+      <th>Sales</th>
+      <td>11.538801</td>
+      <td>12.919552</td>
+    </tr>
+    <tr>
+      <th>Tech-support</th>
+      <td>2.798623</td>
+      <td>3.702717</td>
+    </tr>
+    <tr>
+      <th>Transport-moving</th>
+      <td>5.531032</td>
+      <td>4.248801</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[7]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>(3687.6206511127989, 0.0, 13, array([[  2.79475943e+03,   9.26240568e+02],
+        [  6.75969763e+00,   2.24030237e+00],
+        [  3.02684238e+03,   1.00315762e+03],
+        [  2.99830144e+03,   9.93698561e+02],
+        [  7.42815662e+02,   2.46184338e+02],
+        [  1.01395464e+03,   3.36045355e+02],
+        [  1.47661839e+03,   4.89381606e+02],
+        [  2.41246098e+03,   7.99539023e+02],
+        [  1.07404085e+02,   3.55959154e+01],
+        [  3.03285100e+03,   1.00514900e+03],
+        [  4.83693920e+02,   1.60306080e+02],
+        [  2.69186181e+03,   8.92138187e+02],
+        [  6.84982693e+02,   2.27017307e+02],
+        [  1.18069385e+03,   3.91306147e+02]]))
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="n">below</span> <span class="o">=</span> <span class="n">clean_adult</span><span class="p">[</span><span class="n">clean_adult</span><span class="p">[</span><span class="s2">&quot;income_p&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">above</span> <span class="o">=</span> <span class="n">clean_adult</span><span class="p">[</span><span class="n">clean_adult</span><span class="p">[</span><span class="s2">&quot;income_p&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="n">above_counts</span> <span class="o">=</span> <span class="n">above</span><span class="p">[</span><span class="s2">&quot;occupation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="n">above_percents</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">above_counts</span><span class="o">.</span><span class="n">values</span><span class="o">/</span><span class="n">above_counts</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">above_percents</span><span class="p">))</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ind</span><span class="p">,</span> <span class="n">above_percents</span><span class="p">,</span> <span class="n">bar_width</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+
+<span class="n">below_counts</span> <span class="o">=</span> <span class="n">below</span><span class="p">[</span><span class="s2">&quot;occupation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="n">below_percents</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">below_counts</span><span class="o">.</span><span class="n">values</span><span class="o">/</span><span class="n">below_counts</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">below_percents</span><span class="p">))</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ind</span> <span class="o">+</span> <span class="n">bar_width</span><span class="p">,</span> <span class="n">below_percents</span><span class="p">,</span> <span class="n">bar_width</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Occupation by Income&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Percentage of Group in Occupation&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Occupation&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ind</span> <span class="o">+</span> <span class="n">bar_width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">below_counts</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">((</span><span class="n">p1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p2</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="p">(</span><span class="s1">&#39;&gt;50k&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;=50k&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;fig/occupation by income.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/demographics-p5_13_0.png" src="_images/demographics-p5_13_0.png" />
+</div>
+</div>
+<p>The Chi-Square Test and the graph above both denote the huge discrepancy
+of income level across different occupations. Some of our observations
+are as follow: * Occupations that have an obviously decent income
+include: executive managerial roles and prof-specialty jobs. *
+Occupations that have an obviously indecent income include: other
+services, handlers and cleaners, farming and fishing, and private house
+services. * The category “other services” shows the most extreme gap
+(around 8 times) and is closely associated with females and minor
+ethnicities as discussed from the previous notebooks. Also, every
+individual in the category “armed-forces” earned less than 50k. It is
+probable that the country pays the soldiers for protecting our homeland
+in other intangible methods.</p>
+<p>Last but not the least, let us look at the relationship between income
+and working hours per week.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;hours.per.week&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;income_p&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">clean_adult</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Working hours per week vs Income&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;fig/hours_income.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/demographics-p5_16_0.png" src="_images/demographics-p5_16_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span><span class="c1">#Print the summary of the linear regression method.</span>
+<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">clean_adult</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">15</span><span class="p">]</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">clean_adult</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">12</span><span class="p">]</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">result</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[10]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<table class="simpletable">
+<caption>OLS Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>        <td>income_p</td>     <th>  R-squared:         </th> <td>   0.286</td>
+</tr>
+<tr>
+  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared:    </th> <td>   0.286</td>
+</tr>
+<tr>
+  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>1.208e+04</td>
+</tr>
+<tr>
+  <th>Date:</th>             <td>Wed, 06 Dec 2017</td> <th>  Prob (F-statistic):</th>  <td>  0.00</td>
+</tr>
+<tr>
+  <th>Time:</th>                 <td>19:43:54</td>     <th>  Log-Likelihood:    </th> <td> -16748.</td>
+</tr>
+<tr>
+  <th>No. Observations:</th>      <td> 30162</td>      <th>  AIC:               </th> <td>3.350e+04</td>
+</tr>
+<tr>
+  <th>Df Residuals:</th>          <td> 30161</td>      <th>  BIC:               </th> <td>3.351e+04</td>
+</tr>
+<tr>
+  <th>Df Model:</th>              <td>     1</td>      <th>                     </th>     <td> </td>
+</tr>
+<tr>
+  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>     <td> </td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+         <td></td>           <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>
+</tr>
+<tr>
+  <th>hours.per.week</th> <td>    0.0063</td> <td> 5.69e-05</td> <td>  109.889</td> <td> 0.000</td> <td>    0.006</td> <td>    0.006</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Omnibus:</th>       <td>5244.723</td> <th>  Durbin-Watson:     </th> <td>   1.514</td>
+</tr>
+<tr>
+  <th>Prob(Omnibus):</th>  <td> 0.000</td>  <th>  Jarque-Bera (JB):  </th> <td>6579.542</td>
+</tr>
+<tr>
+  <th>Skew:</th>           <td> 1.100</td>  <th>  Prob(JB):          </th> <td>    0.00</td>
+</tr>
+<tr>
+  <th>Kurtosis:</th>       <td> 2.369</td>  <th>  Cond. No.          </th> <td>    1.00</td>
+</tr>
+</table></div>
+</div>
+<p>As demonstrated by the linear regression, income level tends to get
+higher if the individual works more. However, the linear method is
+probably not the best regression method. A <strong>logistic “S” curve</strong> can
+probably give a better estimation with lower information criteria. The
+reason is that there is a “threshold” number of working hours, where
+people who work more than this threshold become much more likely to earn
+a decent annual income (&gt;50k).</p>
 </div>
 
 
@@ -400,8 +971,8 @@ div.nboutput div.output_area.stderr {
 <li class="toctree-l1"><a class="reference internal" href="demographics-p1.html">1. Cleaning the Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demographics-p2.html">2. Sex, Race, and Occupation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demographics-p3.html">3. Sex, Race, and Education</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demographics-p4.html">4. Age, Hours Per Week, and Education</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Logistic regression analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demographics-p4.html">4. Hours Per Week versus age, marital status and education</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Income versus all explanatory variables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="proposal.html">Dataset and Proposal</a></li>
 </ul>
 
@@ -409,7 +980,7 @@ div.nboutput div.output_area.stderr {
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="demographics-p4.html" title="previous chapter">4. Age, Hours Per Week, and Education</a></li>
+      <li>Previous: <a href="demographics-p4.html" title="previous chapter">4. Hours Per Week versus age, marital status and education</a></li>
       <li>Next: <a href="proposal.html" title="next chapter">Dataset and Proposal</a></li>
   </ul></li>
 </ul>

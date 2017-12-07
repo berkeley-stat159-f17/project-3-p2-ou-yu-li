@@ -35,9 +35,11 @@ make all # run all ipython notebooks
 
 Run unit tests: 
 
-`python folder/testing.py`
+`python functions/testing.py`
 
 ## Folder and files
+
+The notebooks used in our analysis, **demographics-p1** to **demographics-p5** and **main** can be found in the base directory. These are the directories:
 
 - **data**: store the raw data csv file
 - **fig**: store the figures created from notebook
@@ -66,3 +68,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+## Citation
+
+Lichman, M. (2013). UCI Machine Learning Repository [http://archive.ics.uci.edu/ml]. Irvine, CA: University of California, School of Information and Computer Science.

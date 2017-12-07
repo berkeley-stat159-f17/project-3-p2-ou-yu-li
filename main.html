@@ -570,6 +570,10 @@ because it does not really count as an occupation and there are a few
 exceptions. In the cleaned dataset, no one from the Asian or the “Other
 race” ethnic group falls into the “armed-forces” category, in that they
 were likely to serve as new immigrants back in 1994.</p>
+<div class="figure" id="id3">
+<img alt="title" src="_images/occupation_by_race.png" />
+<p class="caption"><span class="caption-text">title</span></p>
+</div>
 <p>To determine whether there is an association between two categorical
 variables, we are applying the <strong>Chi-Square Test of Independence</strong>. The
 test procedure is considered appropriate only when the expected
@@ -783,11 +787,11 @@ even when compared to the White group. This reflects the fact that
 Asian immigrants, whose culture values education a lot, tend to have
 higher education level than other ethnic groups.</li>
 </ul>
-<div class="figure" id="id3">
+<div class="figure" id="id4">
 <img alt="title" src="_images/education_sex.png" />
 <p class="caption"><span class="caption-text">title</span></p>
 </div>
-<div class="figure" id="id4">
+<div class="figure" id="id5">
 <img alt="title" src="_images/education_race.png" />
 <p class="caption"><span class="caption-text">title</span></p>
 </div>
@@ -882,7 +886,7 @@ ages work the hardest. Although in the actual case, the linear
 regression method shows a slightly positive slope which is very
 counterintuitive, we definitely do not consider that the elderly work
 the most.</p>
-<div class="figure" id="id5">
+<div class="figure" id="id6">
 <img alt="title" src="_images/hours_age.png" />
 <p class="caption"><span class="caption-text">title</span></p>
 </div>
@@ -906,7 +910,7 @@ As can be imagined from the following boxplots, <strong>more</strong> pairwise
 relationships (between different marital status) have <strong>statistically
 significant difference</strong> in the <strong>overall</strong> group than in the
 <strong>overworked</strong> group.</p>
-<div class="figure" id="id6">
+<div class="figure" id="id7">
 <img alt="title" src="_images/marital_hours.png" />
 <p class="caption"><span class="caption-text">title</span></p>
 </div>
@@ -920,8 +924,69 @@ least.</p>
 <p>For overworked individuals, farmers/fishers and armed forces still work
 the most, while transportation/moving, sales, and tech-support also work
 quite a lot.</p>
-<div class="figure" id="id7">
+<div class="figure" id="id8">
 <img alt="title" src="_images/hours_occupation.png" />
+<p class="caption"><span class="caption-text">title</span></p>
+</div>
+<p><strong>5. Income versus all explanatory variables</strong></p>
+<p>In this final section, we will discuss how the qualitative and
+quantitative variables mentioned above affect the annual income. The
+original dataset separated individuals’ annual income level into two
+categories: below 50k (negative outcome) and above 50k (positive
+outcome). In the cleaned dataset, we keep this as the method to
+determine whether a person earns a decent annual income.</p>
+<p>We first compare income by sex and race, respectively. Supported by the
+Chi-Square Test (on sex) and the t-Test (on race), our conclusions are
+as follow: * Males were far (around 3 times) more likely to earn decent
+income (&gt;50k/year) than females. The p-value for males versus female
+(i.e.&nbsp;1e-309) is shocking but not surprising, and it clearly
+demonstrates the intrinstic bias against females in the US society of 20
+years ago. * There is no statistically significant difference between
+Asian-Pac-Islanders and Whites, and there is no statistically
+significant difference among the other three ethnic groups (Black,
+Amer-Indian-Eskimo and Other). This pattern draws a boundary line
+between ethnicities with higher and lower income. The p-value for Group
+White and Group Black was, again, unsurprisingly the smallest. Hence in
+1994, <strong>racial bias</strong> was prevalent in income distribution. * The
+p-value for Group White and Group Black (i.e.&nbsp;4.5e-80) is still much
+larger than that for males and females (i.e.&nbsp;1e-309). Hence, it is
+likely that a Black male earns more than a White female if they have
+common occupation, education level, etc. The <strong>sexual bias</strong> in income
+distribution was more serious than the racial bias.</p>
+<div class="figure" id="id9">
+<img alt="title" src="_images/income_by_sex.png" />
+<p class="caption"><span class="caption-text">title</span></p>
+</div>
+<div class="figure" id="id10">
+<img alt="title" src="_images/income_by_race.png" />
+<p class="caption"><span class="caption-text">title</span></p>
+</div>
+<p>Occupation also affects individuals’ level of income <strong>significantly</strong>.
+From the following graph, we may notice that: * Occupations that have
+an obviously decent income include: executive managerial roles and
+prof-specialty jobs. * Occupations that have an obviously indecent
+income include: other services, handlers and cleaners, farming and
+fishing, and private house services. * The category “other services”
+shows the most extreme gap (around 8 times) and is closely associated
+with females and minor ethnicities as discussed from the previous
+notebooks. Also, every individual in the category “armed-forces” earned
+less than 50k. It is probable that the country pays the soldiers for
+protecting our homeland in other intangible methods.</p>
+<div class="figure" id="id11">
+<img alt="title" src="fig/occupation%20by%20income.png" />
+<p class="caption"><span class="caption-text">title</span></p>
+</div>
+<p>Last but not the least, <strong>income is affected by the number of working
+hours per week</strong>.</p>
+<p>As demonstrated by the linear regression below, income level tends to
+get higher if the individual works more. However, the linear method is
+probably not the best regression method. A <strong>logistic “S” curve</strong> can
+probably give a better estimation with lower information criteria. The
+reason is that there is a <strong>“threshold”</strong> number of working hours, where
+people who work more than this threshold become much more likely to earn
+a decent annual income (&gt;50k).</p>
+<div class="figure" id="id12">
+<img alt="title" src="_images/hours_income.png" />
 <p class="caption"><span class="caption-text">title</span></p>
 </div>
 <p><strong>Appendix: Author Contribution statement</strong></p>
@@ -1014,8 +1079,8 @@ different computers.</p>
 <li class="toctree-l1"><a class="reference internal" href="demographics-p1.html">1. Cleaning the Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demographics-p2.html">2. Sex, Race, and Occupation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demographics-p3.html">3. Sex, Race, and Education</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demographics-p4.html">4. Age, Hours Per Week, and Education</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demographics-p5.html">5. Logistic regression analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demographics-p4.html">4. Hours Per Week versus age, marital status and education</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demographics-p5.html">5. Income versus all explanatory variables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="proposal.html">Dataset and Proposal</a></li>
 </ul>
 
