@@ -29,7 +29,12 @@
 needs_sphinx = '1.5'
 
 # Specify a theme. Ref: http://www.sphinx-doc.org/en/stable/theming.html
-# html_theme = "scrolls"
+html_theme = "basic"
+html_theme_options = {
+     "nosidebar": "true"  
+     # "sidebarwidth": 100
+}
+
 # Add any paths that contain templates here, relative to this directory.
 # templates_path = ['_templates']
 
@@ -90,7 +95,7 @@ language = None
 # This patterns also effect to html_static_path and html_extra_path
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 
                     '**.ipynb_checkpoints',
-                    'Untitled*.ipynb', 'misc']
+                    'Untitled*.ipynb', 'misc/*']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
